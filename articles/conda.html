@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>My Public Notes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+							<!-- Logo -->
+								<a href="../index.html" class="logo">
+									<span class="symbol"><img src="../images/science.svg" alt="" /></span><span class="title">Cristobal's Blog</span>
+								</a>
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="generic.html">About me</a></li>
+							<li><a href="generic.html">Contact</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Instalacion Miniconda + VirtualEnv</h1>
+							<center>
+								<span class="image main"><img src="../images/Conda/env.png" alt="" /></span>
+							</center>
+
+							En este tutorial explicare como instalar Anaconda (o su version liviana miniconda)
+							en <u>Linux</u> y <u>Windows</u>. Ademas configuraremos un <b>ambiente virtual</b>
+							para trabajar de manera aislada, lo cual nos permitira:
+							<br><br>
+							<ul>
+								<li><b>Evitar romper el kernel</b> de nuestro computador (o sistema operativo)
+									 al instalar una libreria</li>
+								 <li>Configurar <b>multiples espacios de trabajo</b> para nuestros proyectos. De esta forma, podemos tener
+								 ambientes con distintas versiones y dependencias dependiendo de los requerimientos del proyecto.</li>
+								 <li> <b>Exportar</b> nuestro ambiente virtual e instalarlo en otra maquina que tenga anaconda</li>
+							</ul>
+							<br>
+							<h2> Instalacion </h2>
+							En esta seccion explicare como instalar Miniconda en <u>Windows</u> y <u>Linux</u>. Asi que puedes
+							saltarte la seccion que no coincida con tu sistema operativo.
+							<br>
+							Por cierto, <b>debes asegurarte de no tener instalado anaconda</b> en tu computador. Para saber
+							si ya tienes anaconda instalado abre una terminal y coloca <code>conda --version</code>.
+							En windows puedes ver si tienes instalado <u>Anaconda Prompt</u>
+							<br><br>
+							<h3> Windows </h3>
+							Lo primero que debes hacer es descargar el instalador
+							<a href="https://repo.anaconda.com/archive/Anaconda3-2020.07-Windows-x86_64.exe">desde este link</a>.
+							Una vez descargado ejecuta el <code>.exe</code>
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/0.PNG" style="width:350px; height:300px;" /></span>
+							</center>
+							<br><br>
+							En la siguiente ventana dejaremos la opcion <code>Just me</code> puesto que solo queremos que anaconda funcione en nuestra sesion.
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/1.PNG" style="width:450px; height:380px;" /></span>
+							</center>
+							Dejaremos la segunda opcion para evitar problemas con los <code>PATH</code> de windows.
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/2.PNG" style="width:450px; height:230px;" /></span>
+							</center>
+							Finalmente instalamos y cerramos la ventana de instalacion
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/3.PNG" style="width:450px; height:350px;" /></span>
+							</center>
+							Podemos verificar que <b>anaconda</b> quedo correctamente instalado abriendo <b>Anaconda Powershell Prompt</b>
+							desde el menu de inicio y escribiendo: <code>conda --version</code>.
+							Utilizare Powershell <u>porque dispone de los mismos comandos bash de Linux</u>.
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/4.PNG" style="width:450px; height:150px;" /></span>
+							</center>
+
+							<h3> Linux </h3>
+							En linux debemos descargar el instalador
+							<a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh">desde este link</a>.
+							El archivo tiene extension <code>.sh</code> lo cual quiere decir que debemos ejecutarlo por bash.
+							Para instalar debemos abrir una terminal y colocar:
+							<pre><code>sudo bash Miniconda3-latest-Linux-x86_64.sh</code></pre>
+							Y apretamos <code>enter</code> hasta que te aparezca el directorio donde quieres colocar conda.
+							Personalmente me gusta utilizar la ruta <code>/opt/miniconda3</code>. Si no cambias la ruta
+							quedara almacenado en el <code>/home</code>.
+							<br><br>
+							Una vez hecho eso nos va a preguntar si quieres agregar conda al <code>.init</code> de la terminal.
+							Yo siempre coloco que <b>No</b>.
+							<br><br>
+							En la ultima parte debemos configurar el <code>PATH</code> para acceder a conda en nuestra terminal.
+							Para esto vamos abrir el archivo oculto <code>.bashrc</code> con privilegios de <u>superusario</u>
+							<pre><code>sudo nano ~/.bashrc</code></pre>
+							Y al final del archivo agregamos la siguiente linea:
+							<pre><code>export PATH=/opt/miniconda3/bin:$PATH</code></pre>
+							donde <code>/opt/miniconda3</code> es el directorio que elejiste para guardar miniconda.
+							<br><br>
+							Listo! Ahora cerramos nuestra terminal, abrimos una nueva y colocamos <code>conda --version</code>
+							para ver que esta todo en orden.
+							<br><br><br>
+							<h2>Creando un Ambiente Virtual</h2>
+							Por defecto conda dispone del ambiente <code>(base)</code> el cual trae Python y algunos paquetes muy basicos.
+							<br><br>
+							Sin embargo nosotros queremos crear nuestro propio entorno. Para ello abrimos <b>Anaconda Powershell Prompt</b>
+							desde el inicio, o bien una nueva terminal en Linux.
+							<br><br>
+							Para crear un nuevo entorno:
+							<pre><code>conda create -n python pandas numpy</code></pre>
+							En la sentencia anterior estamos utilizando la funcion <code>create</code> de <code>conda</code>
+							para crear un nuevo ambiente virtual llamado <code>MiPrimerVE</code>. Notese que <code>-n</code> es el flag que
+						  permite ponerle un nombre a nuestro entorno (el string que venga despues del flag sera considerado el nombre).
+							<br>
+							Los demas string son librerias que podemos pasar como argumento para que sean instaladas durante el proceso de creacion.
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/5.PNG" style="width:550px; height:450px;" /></span>
+							</center>
+							Automaticamente nos preguntara si queremos instalar todas las dependencias necesarias. Aqui ponemos <code>y</code>
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/7.PNG" style="width:550px; height:250px;" /></span>
+							</center>
+							Una vez terminado el proceso, <code>conda</code> nos dice el comando necesario para entrar a nuestro entorno.
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/7.PNG" style="width:550px; height:250px;" /></span>
+							</center>
+							<pre><code>conda activate python</code></pre>
+							Si no te funciona este comando, prueba con:
+							<br><br>
+							<pre><code>source activate python</code></pre>
+							Para salir puedes utilizar <code>conda deactivate</code> o bien <code>source deactivate</code>
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/8.PNG" style="width:550px; height:80px;" /></span>
+							</center>
+							Deberias ver un <code>(python)</code> con el nombre del entorno.
+
+							<h2> Instalando una libreria </h2>
+							Para instalar una libreria, primero debemos entrar a nuestro entorno:
+							<pre><code>conda activate python</code></pre>
+							Luego utilizamos:
+							<pre><code>conda install LIBRERIA </code></pre>
+							Por ejemplo si queremos instalar <b>Jupyter Notebook</b> puedes escribir:
+							<pre><code>conda install notebook </code></pre>
+							Nos preguntara por las dependencias a instalar
+							<br><br>
+							<center>
+								<span class="image main"><img src="../images/Conda/9.PNG" style="width:550px; height:400px;" /></span>
+							</center>
+							damos <code>y</code> y listo.
+							<br><br>
+							En el caso particular de jupyter notebook debemos, desde nuestra terminal o prompt, colocar:
+							<pre><code>jupyter notebook</code></pre>
+							<center>
+								<span class="image main"><img src="../images/Conda/11.PNG" style="width:550px; height:200px;" /></span>
+							</center>
+							Automaticamente se abrira nuestro navegador con <b>Jupyter notebook</b> en el directorio donde hayamos
+							ejecutado el comando.
+							<br><br>
+							Usualmente, cuando debo instalar alguna libreria busco en google:
+							<pre><code>libreria anaconda install</code></pre>
+							Lo cual me envia a <a href="https://anaconda.org/anaconda/">Anaconda CLOUD</a> donde puedes buscar mas librerias.
+							<br><br>
+							Por ejemplo si quieres instalar <code>Scikit-learn</code>
+							<a href="https://anaconda.org/anaconda/scikit-learn">entra a este link</a> y repite los pasos anteriores!.
+							Si te fijas, conda ya nos entrega el comando; listo para copiar y pegar!
+						</div>
+					</div>
+
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li> -->
+									<!-- <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+									<!-- <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li> -->
+									<!-- <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
+									<li><a href="https://github.com/cridonoso" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
+									<!-- <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li> -->
+									<li><a href="cridonoso@inf.udec.cl" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+
+
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
