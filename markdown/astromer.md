@@ -1,14 +1,5 @@
-# Astromer
-## a transformer pre-trained model for light curve representation
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/banner.png?raw=true" width=600 height=180>
 
-### Description 
-Astromer is a model ...
+## <p style="text-align: center;">A transformer pre-trained model for light curve representation</p>
 
-This is a list: 
-- item
-- item
- - item 2
-
-```
- pip install astromer
-```
+The Astromer project aims to create a pre-trained foundational model for light curve representation. In collaboration with the Universidad de Concepción and the Institute of Applied Computation Sciences at Harvard, this project was inspired by the success of Large Language Models to develop a novel approach for embedding and representing light curve data.
