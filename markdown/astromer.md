@@ -24,4 +24,8 @@ The Astromer training pipeline is as follows:
 5. <b>Predict</b> the values for the masked observations
 6. Compute the root-mean-square error between the predicted and real values
 7. <b>Backpropagate</b> the error through the Astromer model to update the weights"
- <p align="center"><img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/lc.png?raw=true" width=480 height=350></p> 
+
+After pre-training, we can use the learned representations to create embeddings that can be used as input for other downstream models, such as classifiers or regressors.
+### Results 
+We shown significant improvement when using 
+ <p align="center"><img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/ogle_clf.png?raw=true" width=480 height=200></p> 
