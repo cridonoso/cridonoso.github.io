@@ -25,7 +25,25 @@ The Astromer training pipeline is as follows:
 6. Compute the root-mean-square error between the predicted and real values
 7. <b>Backpropagate</b> the error through the Astromer model to update the weights"
 
-After pre-training, we can use the learned representations to create embeddings that can be used as input for other downstream models, such as classifiers or regressors.
+<b>After pre-training</b>, we can use the learned representations to create embeddings that can be used as input for other <b>downstream models</b>, such as classifiers or regressors.
+
 ### Results 
-We shown significant improvement when using 
- <p align="center"><img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/ogle_clf.png?raw=true" width=480 height=200></p> 
+We have shown significant <b>improvement when using the Astromer embeddings</b> for training LSTM and MLP classifiers. In the figure below, the Baseline is an LSTM model trained directly on the light curves (without computing embeddings)
+ <p align="center">
+ <img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/labels_clf.png?raw=true" width=450 height=30>
+ <img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/ogle_clf.png?raw=true" width=480 height=200>
+ </p> 
+In our experiments, we tested different scenarios regarding the available training data. The x-axis represents the number of labeled samples used for training the classifier. As we increase the number of training samples, the classification performance also improves.
+
+The columns (a, b, c) represent different scenarios:
+
+> (a) We trained the classifier without updating the Astromer model weights
+
+> (b) We trained the classifier and backpropagated gradients to the Astromer encoder. In this case, we updated the Astromer weights by informing the model about the classes we want to classify.
+
+>(c) We first fine-tuned the Astromer model on a larger reconstruction dataset, and then trained the classifier as described in (b).
+
+### Python Library 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+Finally, we created a [Python library](https://pypi.org/project/ASTROMER/) to share the Astromer functionalities with the community. We also [open-sourced the code](https://github.com/astromer-science/main-code) and encourage users to upload their own pre-trained weights to reduce the need for training on similar data projects :deciduous_tree:.

@@ -25,6 +25,27 @@ Astromer optimizes an attention-based encoder to predict masked values that are 
 <li>Compute the root-mean-square error between the predicted and real values</li>
 <li><b>Backpropagate</b> the error through the Astromer model to update the weights&quot;</li>
 </ol>
+<p><b>After pre-training</b>, we can use the learned representations to create embeddings that can be used as input for other <b>downstream models</b>, such as classifiers or regressors.</p>
+<h3>Results</h3>
+<p>We have shown significant <b>improvement when using the Astromer embeddings</b> for training LSTM and MLP classifiers. In the figure below, the Baseline is an LSTM model trained directly on the light curves (without computing embeddings)
+ <p align="center">
+ <img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/labels_clf.png?raw=true" width=450 height=30>
+ <img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/ogle_clf.png?raw=true" width=480 height=200>
+ </p> 
+In our experiments, we tested different scenarios regarding the available training data. The x-axis represents the number of labeled samples used for training the classifier. As we increase the number of training samples, the classification performance also improves.</p>
+<p>The columns (a, b, c) represent different scenarios:</p>
+<blockquote>
+<p>(a) We trained the classifier without updating the Astromer model weights</p>
+</blockquote>
+<blockquote>
+<p>(b) We trained the classifier and backpropagated gradients to the Astromer encoder. In this case, we updated the Astromer weights by informing the model about the classes we want to classify.</p>
+</blockquote>
+<blockquote>
+<p>(c) We first fine-tuned the Astromer model on a larger reconstruction dataset, and then trained the classifier as described in (b).</p>
+</blockquote>
+<h3>Python Library</h3>
+<p><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python"></p>
+<p>Finally, we created a <a href="https://pypi.org/project/ASTROMER/">Python library</a> to share the Astromer functionalities with the community. We also <a href="https://github.com/astromer-science/main-code">open-sourced the code</a> and encourage users to upload their own pre-trained weights to reduce the need for training on similar data projects :deciduous_tree:.</p>
 
 `);
 
