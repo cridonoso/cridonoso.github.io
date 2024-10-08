@@ -456,6 +456,7 @@ a:active,a:focus {
 	text-align:center;
 }
 .site-title {
+	/* font-family: 'Caveat, cursive'; */
 	font-family:'Quattrocento Sans',sans-serif;
 	font-size:60px;
 	font-weight:300;
@@ -2162,11 +2163,11 @@ form.comment-form {
 /* CUSTOM STYLE */
 body { font-family: 'Roboto'; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Oswald'; }
-.site-title { font-family: 'Herr Von Muellerhoff'; }
-.site-description { font-family: 'Quattrocento Sans'; }
-.entry-title { font-family: 'Oswald'; }
-.main-navigation { font-family: 'Oswald'; }
-.widget-title { font-family: 'Oswald' !important; }
+.site-title { font-family: 'Comfortaa'; }
+.site-description { font-family: 'Comfortaa'; }
+.entry-title { font-family: 'Comfortaa'; }
+.main-navigation { font-family: 'Comfortaa'; }
+.widget-title { font-family: 'Comfortaa' !important; }
 body {
 	font-size: 14px;
 }

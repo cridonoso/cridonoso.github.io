@@ -24,4 +24,4 @@ The Astromer training pipeline is as follows:
 5. <b>Predict</b> the values for the masked observations
 6. Compute the root-mean-square error between the predicted and real values
 7. <b>Backpropagate</b> the error through the Astromer model to update the weights"
-
+ <p align="center"><img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/lc.png?raw=true" width=480 height=350></p> 
