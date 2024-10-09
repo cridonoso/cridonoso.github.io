@@ -10,9 +10,9 @@ Utilizing public data from Chile's Ministry of Science, we sought to develop a m
 
 A Random Forest classifier was used to train the model, and the resulting confusion matrix is depicted in the following figure.
 <p align="center">
-<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/quarantine/banner.png?raw=true" width=710 height=200></p>
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/quarantine/cm.png?raw=true" width=510 height=340></p>
 
 Post-training, we visualized feature importance, a metric that assesses the contribution of each feature to the prediction based on entropy and Gini impurity.
 
 <p align="center">
-<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/quarantine/banner.png?raw=true" width=710 height=200></p>
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/quarantine/importance.png?raw=true" width=810 height=1000></p>
