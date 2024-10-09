@@ -33,7 +33,7 @@ After training we evaluate the performance on a test set of the survey's answers
 
 One of the most interesting aspects of our analysis was the ability to visualize the distribution of probabilities for each text, rather than simply assigning a single, definitive label. 
  <p align="center">
-<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/contribution_probs.png?raw=true" width=620 height=530></p>
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/contribution_probs.png?raw=true" width=620 height=510></p>
 This shows that people can be involved in different ways, which is more like real life.
 <br><br>
 By visualizing the probability distributions using histograms or bar charts, we were able to gain a deeper understanding of the underlying patterns and relationships between different categories of contributions.
