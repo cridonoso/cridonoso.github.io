@@ -22,7 +22,7 @@ To categorize emotions, we employed the psychoevolutionary theory of emotions pr
 
 The accompanying image displays a word cloud for each emotion, highlighting the most frequently used words,
  <p align="center">
-<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/most_entropy_emo_1.png?raw=true" width=500 height=310></p>
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/most_entropy_emo_1.png?raw=true" width=500 height=320></p>
 
 #### Contributions
 For contributions, we first codify answer text using a pre-trained language model called [BETO embedding](https://github.com/dccuchile/beto). These embeddings then serve as input for a Long Short-Term Memory (LSTM) network, which classifies each text paragraph into one of several predefined contribution categories. We based our category system on [the continuum of civic engagement](https://www.unomaha.edu/international-studies-and-programs/_files/docs/adler-goggin-civic-engagement.pdf) framework proposed by Crowley (n.d.).
