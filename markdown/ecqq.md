@@ -1,5 +1,5 @@
 <p align="center">
-<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/banner.png?raw=true" width=1000 height=320></p>
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/banner.png?raw=true" width=1000 height=310></p>
 
  ## <p style="text-align: center;"> Describing citizen surveys using text anylisis</p>
 
@@ -11,3 +11,6 @@ The initiative aimed to <b>gather and analyze citizen perspectives on the nation
 The Ministry conducted extensive citizen surveys to collect data on various topics such as <i>education, healthcare, economic development, and social justice</i>. 
 
 Universities across Chile (<i>Universidad de Concepcion, Universidad de Chile, Pontificia Universidad Católica de Chile, and Universidad del desarrollo</i>) were then tasked with analyzing and synthesizing the survey results to identify key themes and priorities
+
+### Team Group 
+The team was composed of an interdisciplinary group ranging from software engineers to political scientists. In particular, I was responsible for data manipulation, modeling, and the design of the PostgreSQL database.
