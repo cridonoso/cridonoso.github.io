@@ -37,3 +37,7 @@ One of the most interesting aspects of our analysis was the ability to visualize
 This shows that people can be involved in different ways, which is more like real life.
 <br><br>
 By visualizing the probability distributions using histograms or bar charts, we were able to gain a deeper understanding of the underlying patterns and relationships between different categories of contributions.
+
+#### Repository
+Developers repo: https://github.com/ECQQ
+Ministry oficial repo: https://github.com/MinCiencia/ECQQ

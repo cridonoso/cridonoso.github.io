@@ -14,7 +14,7 @@ document.write(`
 <p>To categorize emotions, we employed the psychoevolutionary theory of emotions proposed by R. Plutchik (1980). Using a lexicon containing 2036 words and their associated emotions, we calculated the distance between each answer word and the lexicon words. This distance calculation allowed us to create an average score and determine the final emotion. </p>
 <p>The accompanying image displays a word cloud for each emotion, highlighting the most frequently used words,
  <p align="center">
-<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/most_entropy_emo_1.png?raw=true" width=500 height=310></p></p>
+<img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/most_entropy_emo_1.png?raw=true" width=500 height=320></p></p>
 <h4>Contributions</h4>
 <p>For contributions, we first codify answer text using a pre-trained language model called <a href="https://github.com/dccuchile/beto">BETO embedding</a>. These embeddings then serve as input for a Long Short-Term Memory (LSTM) network, which classifies each text paragraph into one of several predefined contribution categories. We based our category system on <a href="https://www.unomaha.edu/international-studies-and-programs/_files/docs/adler-goggin-civic-engagement.pdf">the continuum of civic engagement</a> framework proposed by Crowley (n.d.).</p>
 <p>After training we evaluate the performance on a test set of the survey&#39;s answers:
@@ -26,6 +26,9 @@ document.write(`
 This shows that people can be involved in different ways, which is more like real life.
 <br><br>
 By visualizing the probability distributions using histograms or bar charts, we were able to gain a deeper understanding of the underlying patterns and relationships between different categories of contributions.</p>
+<h4>Repository</h4>
+<p>Developers repo: <a href="https://github.com/ECQQ">https://github.com/ECQQ</a>
+Ministry oficial repo: <a href="https://github.com/MinCiencia/ECQQ">https://github.com/MinCiencia/ECQQ</a></p>
 
 `);
 
