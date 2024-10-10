@@ -1,6 +1,12 @@
 document.write(`
 <head>
 <meta charset="UTF-8">
+<meta property="og:title" content="Cristobal Donoso-Oliva">
+<meta property="og:image" content="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/web/yo-animado-2.png?raw=true">
+<meta property="og:description" content="Cristobal's portfolio">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cristobal Donoso | Portfolio</title>
 <link rel='stylesheet' href='../css/woocommerce-layout.css' type='text/css' media='all'/>
