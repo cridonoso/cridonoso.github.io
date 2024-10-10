@@ -15,6 +15,7 @@ document.write(`
         <ul class="sub-menu">
             <li><a href="./astromer.html">Astromer</a></li>
             <li><a href="./exoplanet.html">Exoplanet Detection</a></li>
+            <li><a href="./trikaw.html">AI for Transparency</a></li>
             <li><a href="./ecqq.html">El Chile Que Queremos</a></li>
             <li><a href="./covid.html">Quarantine Predictor</a></li>
         </ul>
