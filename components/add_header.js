@@ -2,7 +2,7 @@ document.write(`
 <header id="masthead" class="site-header">
 <div class="site-branding">
     <h1 class="site-title"><a href="../index.html" rel="home">Cristobal Donoso-Oliva</a></h1>
-    <h2 class="site-description">Computer Scientist</h2>
+	<h2 style="margin-top: -10px; text-align:center; font-size: 16px;">Computer Scientist</h2>
 </div>
 <nav id="site-navigation" class="main-navigation">
 <button class="menu-toggle">Menu</button>
