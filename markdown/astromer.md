@@ -1,8 +1,12 @@
 <p align="center">
 <img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/astromer/banner.png?raw=true" width=600 height=180></p>
 
- ## <p style="text-align: left;">A transformer pre-trained model for light curve representation</p>
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/astromer-science)
 
+## <p style="text-align: left;">A transformer pre-trained model for light curve representation</p>
+![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)![YAML](https://img.shields.io/badge/yaml-%23ffffff.svg?style=for-the-badge&logo=yaml&logoColor=151515)
+
+<br>
 The Astromer project aims to create a pre-trained foundational model for light curve representation. In collaboration with the Universidad de Concepción and the Institute of Applied Computation Sciences at Harvard, this project was inspired by the success of Large Language Models to develop a novel approach for embedding and representing light curve data.
 
 ### How does it work?
@@ -43,7 +47,6 @@ The columns (a, b, c) represent different scenarios:
 
 >(c) We first fine-tuned the Astromer model on a larger reconstruction dataset, and then trained the classifier as described in (b).
 
-### Python Library 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+### Python Library [![PyPI](https://img.shields.io/badge/PyPI-3775A9?logo=pypi&logoColor=fff)](https://pypi.org/project/ASTROMER/)
 
 Finally, we created a [Python library](https://pypi.org/project/ASTROMER/) to share the Astromer functionalities with the community. We also [open-sourced the code](https://github.com/astromer-science/main-code) and encourage users to upload their own pre-trained weights to reduce the need for training on similar data projects :deciduous_tree:.

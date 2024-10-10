@@ -2,7 +2,9 @@ document.write(`
 <p align="center">
 <img title="a title" alt="Alt text" src="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/ecqq/banner.png?raw=true" width=1000 height=310></p>
 
+<p><a href="https://github.com/ECQQ"><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a></p>
 <h2><p style="text-align: center;"> Describing citizen surveys using text anylisis</p></h2>
+<p><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python"><img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="scikit-learn"><img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="Postgres"><img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white" alt="TensorFlow"><img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"><img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy"><img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" alt="Matplotlib"></p>
 <p>El Chile Que Queremos (ECQQ, from the Spanish &#39;The Chile we desire&#39;) was a <a href="https://www.gob.cl/noticias/gobierno-presenta-el-chile-que-queremos-iniciativa-de-dialogos-y-escucha-social-para-avanzar-en-nuevas-propuestas-para-el-pais/">governmental initiative</a> launched by the <b>Chilean Ministry of Social Development and Sciences</b> in response to the widespread demonstrations of 2019. </p>
 <p>The initiative aimed to <b>gather and analyze citizen perspectives on the nation&#39;s future</b>, seeking to understand the deep-seated concerns and aspirations that fueled the social unrest. </p>
 <p>The Ministry conducted extensive citizen surveys to collect data on various topics such as <i>education, healthcare, economic development, and social justice</i>. </p>
@@ -26,8 +28,7 @@ document.write(`
 This shows that people can be involved in different ways, which is more like real life.
 <br><br>
 By visualizing the probability distributions using histograms or bar charts, we were able to gain a deeper understanding of the underlying patterns and relationships between different categories of contributions.</p>
-<h4>Repository</h4>
-<p>Developers repo: <a href="https://github.com/ECQQ">https://github.com/ECQQ</a>
+<p><br><br>
 Ministry oficial repo: <a href="https://github.com/MinCiencia/ECQQ">https://github.com/MinCiencia/ECQQ</a></p>
 
 `);
