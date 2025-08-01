@@ -18,6 +18,7 @@ document.write(`
             <li><a href="./trikaw.html">AI for Transparency</a></li>
             <li><a href="./ecqq.html">El Chile Que Queremos</a></li>
             <li><a href="./covid.html">Quarantine Predictor</a></li>
+            <li><a href="./fensearcher.html">FEN Searcher</a></li>
         </ul>
         </li>
         <li><a href="./contact.html">Contact</a></li>

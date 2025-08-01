@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- INICIO: Head unificado desde add_head.js -->
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Cristobal Donoso-Oliva">
+    <meta property="og:image" content="https://github.com/cridonoso/cridonoso.github.io/blob/master/figures/web/yo-animado-2.png?raw=true">
+    <meta property="og:description" content="Cristobal's portfolio">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Título específico de la página -->
+    <title>FenTrainer - Buscador de Material Académico</title>
+    
+    <!-- Estilos y fuentes del sitio principal -->
+    <link rel='stylesheet' href='../css/woocommerce-layout.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='../css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
+    <link rel='stylesheet' href='../css/woocommerce.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='../css/font-awesome.min.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='../style.css' type='text/css' media='all'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+    <link rel='stylesheet' href='../css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+    <!-- FIN: Head unificado -->
+
+    <!-- INICIO: Dependencias específicas para FenTrainer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #E8F0FE;
+            --accent-color: #d9534f;
+            --text-color: #333;
+            --border-color: #DDD;
+            --background-color: #FFFFFF;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F7F9;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        #main-container {
+            display: flex;
+            flex-grow: 1;
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            /* Asegura que el contenedor no se desborde en altura */
+            overflow: hidden;
+        }
+
+        #controls-panel {
+            width: 320px;
+            min-width: 320px;
+            background: var(--background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-control {
+            margin-bottom: 15px;
+        }
+
+        .filter-control label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        #random-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        
+        #category-filters {
+            flex-grow: 1;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+            /* <-- CAMBIOS AQUÍ: Organización en dos columnas */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
+            gap: 5px 10px; /* Espaciado vertical y horizontal */
+            align-content: flex-start; /* Alinea los items al inicio */
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0; /* Removido para que el 'gap' lo controle */
+            padding: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .filter-group input[type="checkbox"] {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        #results-and-viewer {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 20px;
+            height: 100%;
+        }
+        
+        #results-container {
+            /* <-- CAMBIOS AQUÍ: Altura fija para ver ~3 resultados */
+            max-height: 250px; 
+            min-height: 0; /* Necesario para que max-height funcione en flexbox */
+            flex-shrink: 0; /* Evita que se encoja más de la cuenta */
+            background: var(--background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            overflow-y: hidden; /* El scroll ahora está en la lista interna */
+            display: flex;
+            flex-direction: column;
+        }
+
+        #results-count {
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0; /* Evita que se encoja */
+        }
+
+        #results-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+            overflow-y: auto; /* El scroll se aplica aquí */
+        }
+
+        .result-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .result-item.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .result-item .title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .result-item .meta {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .result-item.active .meta {
+            color: #E0E0E0;
+        }
+
+        #pdf-viewer-container {
+            flex-grow: 1; /* <-- CAMBIO AQUÍ: Ocupa el espacio restante */
+            background: var(--background-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+        
+        #viewer-placeholder {
+            color: #888;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footnote {
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="home page">
+
+    <header id="masthead" class="site-header">
+        <div class="site-branding">
+            <h1 class="site-title"><a href="../index.html" rel="home">Cristobal Donoso-Oliva</a></h1>
+            <h2 style="margin-top: -10px; text-align:center; font-size: 16px;">Computer Scientist</h2>
+        </div>
+        <nav id="site-navigation" class="main-navigation">
+            <button class="menu-toggle">Menu</button>
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="menu-menu-1-container">
+                <ul id="menu-menu-1" class="menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="#">Projects</a>
+                        <ul class="sub-menu">
+                            <li><a href="./astromer.html">Astromer</a></li>
+                            <li><a href="./exoplanet.html">Exoplanet Detection</a></li>
+                            <li><a href="./trikaw.html">AI for Transparency</a></li>
+                            <li><a href="./ecqq.html">El Chile Que Queremos</a></li>
+                            <li><a href="./covid.html">Quarantine Predictor</a></li>
+                            <li><a href="./fensearcher.html">FEN Searcher</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="main-container">
+        <aside id="controls-panel">
+            <div class="filter-control">
+                <label for="course-selector">Asignatura:</label>
+                <select id="course-selector"></select>
+            </div>
+            
+            <h3 style="border-top: 1px solid var(--border-color); padding-top: 15px;">Filtros</h3>
+
+            <div class="filter-control">
+                <input type="text" id="search-box" placeholder="Buscar por palabra clave...">
+            </div>
+            
+            <div class="filter-control">
+                <button id="random-btn">Sorpréndeme (Archivo Aleatorio)</button>
+            </div>
+
+            <div class="filter-control">
+                <label for="year-filter">Año:</label>
+                <select id="year-filter">
+                    <option value="">Todos los años</option>
+                </select>
+            </div>
+
+            <h4>Categorías Temáticas:</h4>
+            <div id="category-filters">
+                <!-- Checkboxes se insertan dinámicamente aquí -->
+            </div>
+            
+            <div class="footnote">
+                <strong>Nota:</strong> El material académico disponible en este buscador no es de mi autoría. Fue extraído del repositorio oficial del Magíster en Economía de la Facultad de Economía y Negocios (FEN) de la Universidad de Chile, con el único fin de facilitar su acceso y búsqueda.
+            </div>
+        </aside>
+
+        <main id="results-and-viewer">
+            <section id="results-container">
+                <div id="results-count">Seleccione una asignatura para comenzar.</div>
+                <ul id="results-list"></ul>
+            </section>
+            <section id="pdf-viewer-container">
+                 <div id="viewer-placeholder">Seleccione un archivo de la lista para previsualizarlo.</div>
+                <iframe id="pdf-frame" title="Previsualización de PDF"></iframe>
+            </section>
+        </main>
+    </div>
+
+    <script>
+    const App = (() => {
+        const AVAILABLE_COURSES = {
+            "micro_1": { display: "Microeconomía I" },
+            "macro_1": { display: "Macroeconomía I" },
+            "micro_2": { display: "Microeconomía II" },
+        };
+
+        let state = {
+            allData: [],
+            categoryHeaders: [],
+            currentCourseKey: null,
+            searchTerm: '',
+            activeCategories: [],
+            selectedYear: '',
+        };
+
+        const DOM = {
+            courseSelector: document.getElementById('course-selector'),
+            searchBox: document.getElementById('search-box'),
+            categoryFiltersContainer: document.getElementById('category-filters'),
+            resultsCount: document.getElementById('results-count'),
+            resultsList: document.getElementById('results-list'),
+            pdfFrame: document.getElementById('pdf-frame'),
+            viewerPlaceholder: document.getElementById('viewer-placeholder'),
+            yearFilter: document.getElementById('year-filter'),
+            randomBtn: document.getElementById('random-btn'),
+        };
+        
+        const NON_CATEGORY_COLUMNS = new Set(['file_id', 'autor/a', 'año', 'tipo', 'forma', 'tema', 'keywords', 'path_original']);
+
+        const init = () => {
+            populateCourseSelector();
+            addEventListeners();
+            const initialCourseKey = Object.keys(AVAILABLE_COURSES)[0];
+            if (initialCourseKey) {
+                DOM.courseSelector.value = initialCourseKey;
+                loadCourseData(initialCourseKey);
+            }
+        };
+
+        const addEventListeners = () => {
+            DOM.courseSelector.addEventListener('change', (e) => loadCourseData(e.target.value));
+            DOM.searchBox.addEventListener('input', () => {
+                state.searchTerm = DOM.searchBox.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                render();
+            });
+            DOM.yearFilter.addEventListener('change', () => {
+                state.selectedYear = DOM.yearFilter.value;
+                render();
+            });
+            DOM.randomBtn.addEventListener('click', selectRandomFile);
+        };
+
+        const populateCourseSelector = () => {
+            for (const key in AVAILABLE_COURSES) {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = AVAILABLE_COURSES[key].display;
+                DOM.courseSelector.appendChild(option);
+            }
+        };
+
+        const loadCourseData = (courseKey) => {
+            if (!courseKey) return;
+            state.currentCourseKey = courseKey;
+            resetUIForNewCourse();
+            
+            const csvPath = `../data/${courseKey}/index.csv`;
+            Papa.parse(csvPath, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: (results) => {
+                    if (results.errors.length > 0) {
+                        DOM.resultsCount.textContent = `Error al cargar ${csvPath}.`;
+                        return;
+                    }
+                    state.allData = results.data;
+                    const headers = results.meta.fields;
+                    state.categoryHeaders = headers.filter(h => h && !NON_CATEGORY_COLUMNS.has(h.trim()));
+                    setupCategoryFilters();
+                    setupYearFilter();
+                    render();
+                },
+                error: (err) => {
+                    DOM.resultsCount.textContent = `Error: No se pudo encontrar el archivo ${csvPath}.`;
+                }
+            });
+        };
+        
+        const resetUIForNewCourse = () => {
+            state = { ...state, allData: [], categoryHeaders: [], activeCategories: [], selectedYear: '', searchTerm: '' };
+            DOM.searchBox.value = '';
+            DOM.yearFilter.innerHTML = '<option value="">Todos los años</option>';
+            DOM.categoryFiltersContainer.innerHTML = '';
+            DOM.resultsList.innerHTML = '';
+            DOM.resultsCount.textContent = `Cargando datos para ${AVAILABLE_COURSES[state.currentCourseKey].display}...`;
+            DOM.pdfFrame.style.display = 'none';
+            DOM.pdfFrame.src = 'about:blank';
+            DOM.viewerPlaceholder.style.display = 'block';
+        };
+        
+        const setupYearFilter = () => {
+            const years = new Set(state.allData.map(item => item.año).filter(year => year && !isNaN(year)));
+            const sortedYears = Array.from(years).sort((a, b) => b - a);
+            DOM.yearFilter.innerHTML = '<option value="">Todos los años</option>';
+            sortedYears.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                DOM.yearFilter.appendChild(option);
+            });
+        };
+
+        const setupCategoryFilters = () => {
+            DOM.categoryFiltersContainer.innerHTML = '';
+            state.categoryHeaders.forEach(category => {
+                const label = document.createElement('label');
+                label.className = 'filter-group';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = category;
+                checkbox.addEventListener('change', () => {
+                    state.activeCategories = Array.from(document.querySelectorAll('#category-filters input:checked')).map(cb => cb.value);
+                    render();
+                });
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(` ${category}`));
+                DOM.categoryFiltersContainer.appendChild(label);
+            });
+        };
+
+        const render = () => {
+            let filteredData = state.allData;
+
+            if (state.searchTerm) {
+                filteredData = filteredData.filter(item => 
+                    ['autor/a', 'tema', 'keywords', 'tipo', 'forma', 'año'].some(col => 
+                        (item[col] || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(state.searchTerm)
+                    )
+                );
+            }
+
+            if (state.selectedYear) {
+                filteredData = filteredData.filter(item => item.año === state.selectedYear);
+            }
+
+            if (state.activeCategories.length > 0) {
+                filteredData = filteredData.filter(item => 
+                    state.activeCategories.every(category => item[category] === '1')
+                );
+            }
+
+            renderResultsList(filteredData);
+        };
+
+        const renderResultsList = (data) => {
+            DOM.resultsList.innerHTML = '';
+            DOM.resultsCount.textContent = `${data.length} resultado(s) encontrado(s)`;
+
+            if (data.length === 0) {
+                const li = document.createElement('li');
+                li.textContent = 'No se encontraron archivos que coincidan con su búsqueda.';
+                li.style.padding = '15px';
+                DOM.resultsList.appendChild(li);
+                return;
+            }
+
+            data.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.className = 'result-item';
+                const filePath = `../data/${state.currentCourseKey}/files/file_${item.file_id}.pdf`;
+                listItem.dataset.path = filePath;
+
+                let temas = 'N/A';
+                try {
+                    temas = JSON.parse(item.tema.replace(/'/g, '"')).join(', ');
+                } catch (e) {
+                    temas = item.tema || 'N/A';
+                }
+
+                listItem.innerHTML = `
+                    <div class="title">${item['autor/a'] || 'Anónimo'} (${item.año || 'S/A'}) - ${item.forma || 'N/D'} de ${item.tipo || 'N/D'}</div>
+                    <div class="meta"><b>Temas:</b> ${temas}</div>
+                `;
+                
+                listItem.addEventListener('click', () => {
+                    document.querySelectorAll('.result-item').forEach(el => el.classList.remove('active'));
+                    listItem.classList.add('active');
+                    DOM.viewerPlaceholder.style.display = 'none';
+                    DOM.pdfFrame.style.display = 'block';
+                    DOM.pdfFrame.src = listItem.dataset.path;
+                });
+                
+                DOM.resultsList.appendChild(listItem);
+            });
+        };
+        
+        const selectRandomFile = () => {
+            const visibleItems = DOM.resultsList.querySelectorAll('.result-item');
+            if (visibleItems.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * visibleItems.length);
+            const randomItem = visibleItems[randomIndex];
+            randomItem.click();
+            randomItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+
+        return { init };
+    })();
+
+    document.addEventListener('DOMContentLoaded', App.init);
+    </script>
+</body>
+</html>
