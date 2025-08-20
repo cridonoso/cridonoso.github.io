@@ -1,0 +1,1893 @@
+[
+    {
+        "file": "ejercicio_0.pdf",
+        "banner": "Ejercicio 0 de Econometría II 2021 (basado en Examen Parcial)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Aspectos Computacionales",
+            "Estacionareidad",
+            "Estimación",
+            "Exogeneidad",
+            "Funciones de Impulso-Respuesta",
+            "IVAR",
+            "Modelos ARMA",
+            "Predicción",
+            "Sistemas Cointegrados",
+            "Tests de Especificación y Estabilidad"
+        ],
+        "keywords": [
+            "Estacionariedad",
+            "Estimación de Parámetros",
+            "Exogeneidad",
+            "Función de Impulso-Respuesta (IRF)",
+            "Matriz de varianzas y covarianzas",
+            "Media incondicional",
+            "Modelo VAR",
+            "Modelos AR",
+            "Modelos ARMA",
+            "Polinomios de Rezagos",
+            "Proceso univariado",
+            "Test de sobre-identificacion"
+        ]
+    },
+    {
+        "file": "ejercicio_1.pdf",
+        "banner": "Ejercicio 1 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Raíz Unitaria"
+        ]
+    },
+    {
+        "file": "ejercicio_103.pdf",
+        "banner": "Ejercicio 103 de Econometría II (Examen Final 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Agente Representativo",
+            "Condiciones de Optimalidad",
+            "Ecuación de Euler",
+            "Ecuación de no arbitraje",
+            "Estimación",
+            "Factor de Descuento",
+            "Función de Utilidad CRRA",
+            "Hipótesis de no arbitraje",
+            "Retorno Neto"
+        ]
+    },
+    {
+        "file": "ejercicio_104.pdf",
+        "banner": "Ejercicio 104: Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "GMM",
+            "Selección de Modelos",
+            "Tests de Hipótesis"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "GMM (Método Generalizado de Momentos)",
+            "Hipótesis Nula"
+        ]
+    },
+    {
+        "file": "ejercicio_108.pdf",
+        "banner": "Ejercicio 108 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Selección de Modelos",
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Criterios de Selección de Modelos",
+            "Distribución Asintótica",
+            "Estimador MLE (Máxima Verosimilitud)",
+            "LRT (Likelihood Ratio Test)",
+            "Modelo ARMA",
+            "Modelos AR"
+        ]
+    },
+    {
+        "file": "ejercicio_11.pdf",
+        "banner": "Control 3 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [],
+        "keywords": [
+            "Hipótesis Nula"
+        ]
+    },
+    {
+        "file": "ejercicio_115.pdf",
+        "banner": "Ejercicio 115 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Funciones de Impulso-Respuesta",
+            "Modelos VAR",
+            "Predicción"
+        ],
+        "keywords": [
+            "Error de Pronóstico",
+            "Función de Impulso-Respuesta",
+            "Modelos VAR"
+        ]
+    },
+    {
+        "file": "ejercicio_118.pdf",
+        "banner": "Ejercicio 118 de Econometría II 2021 (Fuente: Examen de Econometría II 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Estimación",
+            "Selección de Modelos",
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Autocovarianzas",
+            "Criterio de Información BIC",
+            "Criterios de Selección de Modelos",
+            "Estimación de Parámetros",
+            "Estimador de Varianza de Residuos",
+            "Modelo ARMA",
+            "Modelos AR",
+            "Plim (Límite en Probabilidad)",
+            "Proceso de Generación de Datos (DGP)"
+        ]
+    },
+    {
+        "file": "ejercicio_126.pdf",
+        "banner": "Ejercicio 126 de Econometría II (Examen Parcial 2024)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [
+            "Descomposición de Varianzas",
+            "Funciones de Impulso-Respuesta"
+        ],
+        "keywords": [
+            "Descomposición de Cholesky",
+            "Función de Impulso-Respuesta (IRF)",
+            "MSE de Predicción (Error Cuadrático Medio)",
+            "Modelo VAR"
+        ]
+    },
+    {
+        "file": "ejercicio_130.pdf",
+        "banner": "Control 5 de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_133.pdf",
+        "banner": "Control 4 de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_139.pdf",
+        "banner": "Ejercicio 139 - Examen Final de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [
+            "Distribución de Mixtures (Mezclas)",
+            "Test de Hipótesis"
+        ],
+        "keywords": [
+            "Distribución T de Student",
+            "Distribución de Mixtures (Mezclas)",
+            "Hipótesis Nula",
+            "Log-likelihood",
+            "Test de Hipótesis"
+        ]
+    },
+    {
+        "file": "ejercicio_140.pdf",
+        "banner": "Ejercicio 140 - Examen Final de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_144.pdf",
+        "banner": "Control 1 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad"
+        ],
+        "keywords": [
+            "Estacionariedad"
+        ]
+    },
+    {
+        "file": "ejercicio_148.pdf",
+        "banner": "Ejercicio 148 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad en Tendencia y Diferencia",
+            "Estimación",
+            "Funciones de Impulso-Respuesta",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Estacionariedad",
+            "Estacionario en Tendencia",
+            "Estimación de Parámetros",
+            "Función de Impulso-Respuesta (IRF)",
+            "Tendencia Determinística"
+        ]
+    },
+    {
+        "file": "ejercicio_149.pdf",
+        "banner": "Ejercicio 149 de Econometría II (Examen 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Selección de Modelos"
+        ],
+        "keywords": [
+            "Criterio de Información AIC",
+            "Criterio de Información BIC",
+            "Modelo VAR",
+            "Modelos VAR"
+        ]
+    },
+    {
+        "file": "ejercicio_153.pdf",
+        "banner": "Ejercicio 153 del Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Cointegración"
+        ],
+        "keywords": [
+            "Cointegración"
+        ]
+    },
+    {
+        "file": "ejercicio_156.pdf",
+        "banner": "Ejercicio 156 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_162.pdf",
+        "banner": "Control 1 (Soluciones propuestas) de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [
+            "Tests de Especificación y Estabilidad"
+        ],
+        "keywords": [
+            "Normalidad de Residuos",
+            "Restricciones Lineales",
+            "Test de Rao"
+        ]
+    },
+    {
+        "file": "ejercicio_169.pdf",
+        "banner": "Ejercicio 169 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Cointegración",
+            "Cointegración y Corrección de Errores",
+            "Sistemas Cointegrados"
+        ],
+        "keywords": [
+            "Cointegración",
+            "Orden de Integración",
+            "Precio de la Acción"
+        ]
+    },
+    {
+        "file": "ejercicio_17.pdf",
+        "banner": "Ejercicio 17 de Econometría II (Soluciones Propuestas Examen Parcial 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_173.pdf",
+        "banner": "Ejercicio 173 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Modelos de Transición Markoviana"
+        ],
+        "keywords": [
+            "Esperanza",
+            "Estimadores MLE (Máxima Verosimilitud)",
+            "Matriz de Transición",
+            "Probabilidades Ergódicas",
+            "Varianza Incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_179.pdf",
+        "banner": "Ejercicio 179: Control 4 de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [
+            "Estacionareidad",
+            "Estimación"
+        ],
+        "keywords": [
+            "Estacionariedad"
+        ]
+    },
+    {
+        "file": "ejercicio_181.pdf",
+        "banner": "Control 4 de Econometría II 2023 - Ejercicio 181",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_184.pdf",
+        "banner": "Control 5 de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_185.pdf",
+        "banner": "Control 5 de Econometría II 2023 - Ejercicio 185",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_188.pdf",
+        "banner": "Ejercicio 188 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimación",
+            "Tests asintóticos"
+        ],
+        "keywords": [
+            "Distribución Asintótica",
+            "Estimador Consistente",
+            "FONC (First Order Necessary Condition)",
+            "Log-likelihood",
+            "Normalidad Asintótica",
+            "SOSC (Second Order Sufficient Condition)"
+        ]
+    },
+    {
+        "file": "ejercicio_198.pdf",
+        "banner": "Ejercicio 198: Control 3 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad"
+        ],
+        "keywords": [
+            "Estacionariedad"
+        ]
+    },
+    {
+        "file": "ejercicio_2.pdf",
+        "banner": "Ejercicio 2 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Bicausalidad a la Granger"
+        ],
+        "keywords": [
+            "Bicausalidad a la Granger"
+        ]
+    },
+    {
+        "file": "ejercicio_207.pdf",
+        "banner": "Ejercicio 207 de Econometría II (Primavera 2022)",
+        "type": "Clase",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Estacionareidad",
+            "Estimación",
+            "Modelos ARMA",
+            "Representación MA(∞)"
+        ],
+        "keywords": [
+            "Absolutamente Sumable",
+            "Autocorrelaciones",
+            "Log-likelihood",
+            "Modelo ARMA",
+            "Proceso Autorregresivo (AR)",
+            "Proceso de Medias Móviles (MA)"
+        ]
+    },
+    {
+        "file": "ejercicio_224.pdf",
+        "banner": "Ejercicio 224 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Asimetría (Skewness)",
+            "Distribución Triangular",
+            "Esperanza",
+            "Estimación de Parámetros",
+            "Estimador",
+            "GMM (Método Generalizado de Momentos)",
+            "Kurtosis (Curtosis)",
+            "Moda",
+            "Varianza"
+        ]
+    },
+    {
+        "file": "ejercicio_225.pdf",
+        "banner": "Ejercicio 225 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Modelos GARCH"
+        ],
+        "keywords": [
+            "Modelos GARCH"
+        ]
+    },
+    {
+        "file": "ejercicio_249.pdf",
+        "banner": "Ejercicio 249 del Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_261.pdf",
+        "banner": "Ejercicio 261 de Econometría II (Examen Final 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimación",
+            "Estimadores Extremos",
+            "GMM",
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Distribución Asintótica",
+            "Estimador MLE (Máxima Verosimilitud)",
+            "Estimadores Extremos",
+            "Función Generadora de Momentos",
+            "GMM (Método Generalizado de Momentos)",
+            "Normalidad Asintótica"
+        ]
+    },
+    {
+        "file": "ejercicio_262.pdf",
+        "banner": "Ejercicio 262: Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Quiebres",
+            "Tests de Especificación y Estabilidad"
+        ],
+        "keywords": [
+            "Estabilidad del Proceso",
+            "Quiebre Estructural",
+            "Test de Hipótesis",
+            "Test de Quiebre Estructural"
+        ]
+    },
+    {
+        "file": "ejercicio_268.pdf",
+        "banner": "Ejercicio 268: Examen de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Funciones de Impulso-Respuesta",
+            "Intervalos de Confianza (Boostrapping y otros)"
+        ],
+        "keywords": [
+            "Funciones de Impulso-Respuesta (IRF)",
+            "Intervalos de Confianza"
+        ]
+    },
+    {
+        "file": "ejercicio_269.pdf",
+        "banner": "Ejercicio 269 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Agente Representativo",
+            "Condiciones de Primer Orden",
+            "Condición de Equilibrio",
+            "Política Óptima",
+            "Problema de Maximización",
+            "Proceso Univariado",
+            "Programación Dinámica"
+        ]
+    },
+    {
+        "file": "ejercicio_271.pdf",
+        "banner": "Ejercicio 271, Examen de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad"
+        ],
+        "keywords": [
+            "Estacionariedad"
+        ]
+    },
+    {
+        "file": "ejercicio_272.pdf",
+        "banner": "Ejercicio 272, Examen de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Modelos ARMA",
+            "Predicción",
+            "Representación MA(∞)",
+            "Selección de Modelos",
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Modelo ARMA",
+            "Modelos AR",
+            "Normalidad de Residuos",
+            "Observacionalmente Equivalente",
+            "Pronósticos"
+        ]
+    },
+    {
+        "file": "ejercicio_277.pdf",
+        "banner": "Control 2 de Econometría II 2023 (Soluciones propuestas)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": [
+            "Shocks Ortogonales"
+        ]
+    },
+    {
+        "file": "ejercicio_280.pdf",
+        "banner": "Ejercicio 280: Ayudantía N°4 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Causalidad",
+            "Estacionareidad",
+            "Funciones de Impulso-Respuesta",
+            "Representación Univariada"
+        ],
+        "keywords": [
+            "Causalidad a la Granger",
+            "DGP (Proceso de Generación de Datos)",
+            "Esperanza Incondicional",
+            "Estacionariedad",
+            "Función de Impulso-Respuesta (IRF)"
+        ]
+    },
+    {
+        "file": "ejercicio_284.pdf",
+        "banner": "Ejercicio 284 - Examen Parcial de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Causalidad",
+            "Estacionareidad",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Causalidad a la Granger",
+            "Estacionariedad",
+            "Hipótesis Nula",
+            "Test de Causalidad a la Granger",
+            "Test de Raíz Unitaria"
+        ]
+    },
+    {
+        "file": "ejercicio_287.pdf",
+        "banner": "Ejercicio 287: Ayudantía 11 de Econometría II - Primavera 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Distribución Asintótica",
+            "Estimación",
+            "GMM",
+            "Tests asintóticos"
+        ],
+        "keywords": [
+            "Consistencia",
+            "Distribución Exponencial",
+            "Esperanza",
+            "Estimador GMM de Primera Ronda",
+            "Estimador MLE (Máxima Verosimilitud)",
+            "Función Generadora de Momentos",
+            "GMM (Método Generalizado de Momentos)",
+            "Matriz de Ponderaciones",
+            "Normalidad Asintótica",
+            "Varianza"
+        ]
+    },
+    {
+        "file": "ejercicio_288.pdf",
+        "banner": "Ejercicio 288: Ayudantía 11 de Econometría II - Primavera 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Teoría Asintótica",
+            "Tests asintóticos"
+        ],
+        "keywords": [
+            "Distribución de Laplace",
+            "Distribución de Normal",
+            "Estimación de Parámetros",
+            "Estimador OLS (Mínimos Cuadrados Ordinarios)",
+            "Estimadores Extremos",
+            "Normalidad Asintótica"
+        ]
+    },
+    {
+        "file": "ejercicio_290.pdf",
+        "banner": "Control 5 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Algoritmo de Estimación",
+            "Estimación",
+            "Log-likelihood"
+        ],
+        "keywords": [
+            "Algoritmo de Estimación",
+            "Log-likelihood"
+        ]
+    },
+    {
+        "file": "ejercicio_296.pdf",
+        "banner": "Ejercicio 296 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Cointegración",
+            "Representación Univariada",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Cointegración",
+            "Raíz Unitaria",
+            "Representación Univariada"
+        ]
+    },
+    {
+        "file": "ejercicio_297.pdf",
+        "banner": "Ejercicio 297 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Modelos VAR"
+        ],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_298.pdf",
+        "banner": "Ejercicio 298 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Shocks",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Raíz Unitaria",
+            "Shocks"
+        ]
+    },
+    {
+        "file": "ejercicio_302.pdf",
+        "banner": "Ejercicio 302: Control 6 de Econometría II 2023 (Soluciones propuestas)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Estimador Consistente",
+            "Normalidad Asintótica",
+            "Teorema de Estimadores Extremos"
+        ]
+    },
+    {
+        "file": "ejercicio_304.pdf",
+        "banner": "Control 4 de Econometría II 2020",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2020",
+        "categories": [
+            "Cointegración"
+        ],
+        "keywords": [
+            "Cointegración"
+        ]
+    },
+    {
+        "file": "ejercicio_307.pdf",
+        "banner": "Ejercicio 307 (Examen Final de Econometría II 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimación",
+            "Modelos ARMA",
+            "Selección de Modelos",
+            "Teoría Asintótica",
+            "Tests asintóticos"
+        ],
+        "keywords": [
+            "Autocovarianzas",
+            "Estacionariedad",
+            "Estimación de Parámetros",
+            "Estimador Consistente",
+            "Modelo ARMA",
+            "Modelos AR",
+            "Normalidad Asintótica",
+            "Ruido Blanco"
+        ]
+    },
+    {
+        "file": "ejercicio_308.pdf",
+        "banner": "Ejercicio 308 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Modelos de Threshold",
+            "Métodos Numéricos"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Intervalos de Confianza",
+            "Modelo de Umbral"
+        ]
+    },
+    {
+        "file": "ejercicio_309.pdf",
+        "banner": "Ejercicio 309: Ayudantía Nº9 de Econometría II - Primavera 2021",
+        "type": "Clase",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Modelos de Transición Markoviana"
+        ],
+        "keywords": [
+            "Esperanza",
+            "Estimador",
+            "Estimadores MLE",
+            "Matriz de Transición",
+            "Probabilidades Ergódicas",
+            "Proceso Markoviano",
+            "Varianza Incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_321.pdf",
+        "banner": "Ejercicio 321 del Examen Parcial de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Funciones de Impulso-Respuesta",
+            "Selección de Modelos",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Comportamiento Estacional",
+            "Estimación de Parámetros",
+            "Función de Impulso-Respuesta (IRF)",
+            "Hipótesis Nula",
+            "Modelo AR(1)",
+            "Modelo ARMA",
+            "Modelo PAR (Autoregresivo Periódico)",
+            "Raíz Unitaria",
+            "Test de Hipótesis"
+        ]
+    },
+    {
+        "file": "ejercicio_346.pdf",
+        "banner": "Ejercicio 346 - Examen Final de Econometría II 2020",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2020",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_363.pdf",
+        "banner": "Ejercicio 363 de Econometría II (Examen Final 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_368.pdf",
+        "banner": "Ejercicio 368: Examen Final de Econometría II (Soluciones Propuestas) 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Cointegración",
+            "Modelos VAR"
+        ],
+        "keywords": [
+            "Cointegración"
+        ]
+    },
+    {
+        "file": "ejercicio_371.pdf",
+        "banner": "Ejercicio 371: Examen Final de Econometría II (Soluciones Propuestas) 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimador de Efecto Aleatorio",
+            "Estimador de Efecto Fijo",
+            "Variables Instrumentales"
+        ],
+        "keywords": [
+            "Estimador de Efecto Aleatorio",
+            "Estimador de Efecto Fijo",
+            "Variables Instrumentales"
+        ]
+    },
+    {
+        "file": "ejercicio_374.pdf",
+        "banner": "Ejercicio 2 de Ayudantía N°2 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Funciones de Impulso-Respuesta",
+            "Predicción"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Error de Pronóstico",
+            "Función de Impulso-Respuesta (IRF)",
+            "Proceso Autorregresivo (AR)",
+            "Pronósticos"
+        ]
+    },
+    {
+        "file": "ejercicio_376.pdf",
+        "banner": "Control 4 de Econometría II 2024 (Soluciones propuestas)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_390.pdf",
+        "banner": "Ejercicio 390: Markov Switching Regimes (Econometría 2, 2021)",
+        "type": "Clase",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Algoritmo EM",
+            "Estimación",
+            "Modelos de Transición Markoviana"
+        ],
+        "keywords": [
+            "Algoritmo EM",
+            "MLE (Máxima Verosimilitud)",
+            "Modelo de Transición Markoviana"
+        ]
+    },
+    {
+        "file": "ejercicio_393.pdf",
+        "banner": "Ejercicio 393 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_395.pdf",
+        "banner": "Ejercicio 395: Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimación",
+            "Estimadores Extremos",
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Consistencia y normalidad asintótica",
+            "Estimador MLE (Máxima Verosimilitud)",
+            "Estimadores Extremos",
+            "Normalidad Asintótica"
+        ]
+    },
+    {
+        "file": "ejercicio_396.pdf",
+        "banner": "Ejercicio 396 del Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Teorema de Cambio de Variables"
+        ]
+    },
+    {
+        "file": "ejercicio_398.pdf",
+        "banner": "Ejercicio 398 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Test de Hipótesis"
+        ],
+        "keywords": [
+            "Hipótesis Nula",
+            "Test LRT (Likelihood Ratio Test)"
+        ]
+    },
+    {
+        "file": "ejercicio_4.pdf",
+        "banner": "Control 4 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Representación de Corrección de Errores (ECM)"
+        ],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_402.pdf",
+        "banner": "Ejercicio 402 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_403.pdf",
+        "banner": "Ejercicio 403 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Estimador Consistente"
+        ]
+    },
+    {
+        "file": "ejercicio_404.pdf",
+        "banner": "Ejercicio 404 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_406.pdf",
+        "banner": "Control 2 de Econometría II 2023 - Ejercicio 406",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_407.pdf",
+        "banner": "Control 2 de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_410.pdf",
+        "banner": "Ejercicio 410 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "GMM",
+            "Modelos ARMA",
+            "Selección de Modelos",
+            "Tests de Especificación y Estabilidad"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Encompasamiento Parsimonioso",
+            "Estacionariedad",
+            "Estimación de Parámetros",
+            "Estimador Consistente",
+            "Estimador GMM de Primera Ronda",
+            "Exogeneidad",
+            "Función Objetivo GMM",
+            "GMM (Método Generalizado de Momentos)",
+            "Hipótesis Nula",
+            "Instrumento",
+            "Matriz de Ponderaciones",
+            "Modelos AR",
+            "Modelos ARMA",
+            "Momentos",
+            "Normalidad Asintótica",
+            "Representación Parsimoniosa",
+            "Ruido Blanco",
+            "Test de Hipótesis",
+            "Variables Instrumentales (IV)"
+        ]
+    },
+    {
+        "file": "ejercicio_417.pdf",
+        "banner": "Control 5 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [
+            "Quiebres"
+        ],
+        "keywords": [
+            "Quiebre Estructural"
+        ]
+    },
+    {
+        "file": "ejercicio_425.pdf",
+        "banner": "Ejercicio 425 - Control 6 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación"
+        ],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_427.pdf",
+        "banner": "Ejercicio 427 - Control 6 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimadores Extremos",
+            "Teoría Asintótica",
+            "Tests asintóticos"
+        ],
+        "keywords": [
+            "Estimadores Extremos",
+            "Normalidad Asintótica"
+        ]
+    },
+    {
+        "file": "ejercicio_43.pdf",
+        "banner": "Ejercicio 43: Proyección de yt+1 (Econometría II, 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad",
+            "Estimación",
+            "Predicción",
+            "Proyecciones locales"
+        ],
+        "keywords": [
+            "Estacionariedad",
+            "Estacionario en Covarianza",
+            "Estimación de Parámetros",
+            "Proyección"
+        ]
+    },
+    {
+        "file": "ejercicio_431.pdf",
+        "banner": "Control 2 de Econometría II (Soluciones propuestas) 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [
+            "Aspectos Computacionales",
+            "Estimación",
+            "Modelos VAR",
+            "Selección de Modelos"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Matriz de Varianzas y Covarianzas",
+            "Modelos VAR"
+        ]
+    },
+    {
+        "file": "ejercicio_432.pdf",
+        "banner": "Control 2 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [],
+        "keywords": [
+            "Condición de Orden de Identificación"
+        ]
+    },
+    {
+        "file": "ejercicio_436.pdf",
+        "banner": "Ejercicio 436 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Causalidad",
+            "Cointegración",
+            "Estacionariedad",
+            "Estacionariedad en Tendencia y Diferencia",
+            "Estimación",
+            "Predicción",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Agente Representativo",
+            "Cointegración",
+            "Condición de Inexistencia de Burbujas",
+            "Condición de Optimalidad",
+            "Consumo",
+            "Dividendos",
+            "Estacionariedad",
+            "Estacionario en Diferencia",
+            "Estacionario en Tendencia",
+            "Estimación de Parámetros",
+            "Exogeneidad",
+            "Función de Utilidad",
+            "Función de Utilidad Logarítmica",
+            "Orden de Integración",
+            "Precios",
+            "Problema de Maximización",
+            "Proceso de Generación de Datos",
+            "Proyección",
+            "Raíz Unitaria",
+            "Relación de Largo Plazo",
+            "Test de Raíz Unitaria",
+            "Variable de Estado"
+        ]
+    },
+    {
+        "file": "ejercicio_437.pdf",
+        "banner": "Ejercicio 437 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Desvíos de Normalidad",
+            "Estimación",
+            "GMM",
+            "Modelos de Mixtures (Mezclas)"
+        ],
+        "keywords": [
+            "Asimetría (Skewness)",
+            "Función Generadora de Momentos",
+            "GMM (Método Generalizado de Momentos)",
+            "Modelo de Mixtures (Mezclas)"
+        ]
+    },
+    {
+        "file": "ejercicio_440.pdf",
+        "banner": "Ejercicio 440 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Covarianzas",
+            "Distribución de Normal",
+            "Esperanza",
+            "Estimación de Parámetros",
+            "Log-likelihood",
+            "Modelo de Mixtures (Mezclas)",
+            "Varianza"
+        ]
+    },
+    {
+        "file": "ejercicio_442.pdf",
+        "banner": "Ejercicio 442 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Volatilidad (ARCH, GARCH, etc.)"
+        ],
+        "keywords": [
+            "Clustering de Volatilidad",
+            "Estimación de Parámetros",
+            "Exceso de Kurtosis",
+            "Kurtosis (Curtosis)",
+            "Leptokurtosis",
+            "Varianza Incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_443.pdf",
+        "banner": "Ejercicio 443 de Econometría II (Examen Final 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimación",
+            "GMM",
+            "Teoría Asintótica",
+            "Tests asintóticos"
+        ],
+        "keywords": [
+            "Distribución Asintótica",
+            "Estimación de Parámetros",
+            "Estimador GMM de Primera Ronda",
+            "GMM (Método Generalizado de Momentos)",
+            "Matriz de Ponderación Óptima",
+            "Momentos",
+            "Normalidad Asintótica",
+            "Varianza"
+        ]
+    },
+    {
+        "file": "ejercicio_45.pdf",
+        "banner": "Ejercicio 45 del Examen de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Proyecciones locales"
+        ],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_451.pdf",
+        "banner": "Ejercicio 451 - Examen de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad"
+        ],
+        "keywords": [
+            "Estacionariedad"
+        ]
+    },
+    {
+        "file": "ejercicio_46.pdf",
+        "banner": "Ejercicio 46 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Proyecciones locales"
+        ],
+        "keywords": [
+            "Proyección"
+        ]
+    },
+    {
+        "file": "ejercicio_47.pdf",
+        "banner": "Ejercicio 47 del Examen de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Modelo AR",
+            "Modelo ARMA"
+        ]
+    },
+    {
+        "file": "ejercicio_481.pdf",
+        "banner": "Ejercicio 481: Redes Neuronales (Ayudantía Nº8 de Econometría II, Primavera 2021)",
+        "type": "Clase",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Redes Neuronales"
+        ],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_488.pdf",
+        "banner": "Ejercicio 488 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Agente Representativo",
+            "Autocorrelaciones",
+            "Estacionareidad",
+            "Estacionareidad en Tendencia y Diferencia",
+            "Estimación",
+            "Función de Utilidad",
+            "Predicción",
+            "Tests de Raíces Unitarias"
+        ],
+        "keywords": [
+            "Agente Representativo",
+            "Autocorrelaciones",
+            "Autocovarianzas",
+            "Condición de Optimalidad",
+            "Consumo",
+            "Esperanza",
+            "Estacionariedad",
+            "Estacionario en Diferencia",
+            "Estacionario en Tendencia",
+            "Estimación de Parámetros",
+            "Factor de Descuento",
+            "Función de Utilidad",
+            "Medias Incondicionales",
+            "Precios",
+            "Problema de Optimización",
+            "Proceso Autorregresivo (AR)",
+            "Proceso de Generación de Datos",
+            "Proceso de Medias Móviles (MA)",
+            "Raíz Unitaria",
+            "Valor Esperado Descontado",
+            "Varianza"
+        ]
+    },
+    {
+        "file": "ejercicio_489.pdf",
+        "banner": "Ejercicio 489 de Econometría II (2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Descomposición de Varianzas",
+            "Estimación",
+            "Intervalos de Confianza (Boostrapping y otros)",
+            "Modelos ARMA",
+            "Predicción"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Intervalos de Confianza",
+            "MSE de Predicción (Error Cuadrático Medio)",
+            "Modelos ARMA"
+        ]
+    },
+    {
+        "file": "ejercicio_496.pdf",
+        "banner": "Ejercicio 3 de Ayudantía N°1 de Econometría II (2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Autocovarianza",
+            "Estimación"
+        ],
+        "keywords": [
+            "Autocovarianzas",
+            "Esperanza incondicional",
+            "Varianza incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_507.pdf",
+        "banner": "Control 6 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [
+            "Estimación",
+            "GMM"
+        ],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Estimador Consistente",
+            "GMM (Método Generalizado de Momentos)"
+        ]
+    },
+    {
+        "file": "ejercicio_508.pdf",
+        "banner": "Control 6 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [
+            "Consistencia y normalidad asintótica",
+            "Estimación",
+            "GMM"
+        ],
+        "keywords": [
+            "Estimador Consistente",
+            "Estimador GMM de Primera Ronda",
+            "GMM (Método Generalizado de Momentos)"
+        ]
+    },
+    {
+        "file": "ejercicio_509.pdf",
+        "banner": "Control 6 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_511.pdf",
+        "banner": "Ejercicio 511 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Estacionareidad",
+            "Estimación",
+            "Exogeneidad",
+            "Modelos ARMA",
+            "Selección de Rezagos"
+        ],
+        "keywords": [
+            "Elasticidad Precio de la Demanda",
+            "Estacionariedad",
+            "Exogeneidad",
+            "Mercado con Rezagos",
+            "Proceso AR(1)",
+            "Representación Univariada"
+        ]
+    },
+    {
+        "file": "ejercicio_512.pdf",
+        "banner": "Ejercicio 512 de Ayudantía N°8 de Econometría II 2022",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Selección de Modelos"
+        ],
+        "keywords": [
+            "DGP (Proceso de Generación de Datos)",
+            "Encompasamiento Parsimonioso",
+            "Modelo ARMA",
+            "Modelos AR"
+        ]
+    },
+    {
+        "file": "ejercicio_520.pdf",
+        "banner": "Ejercicio 520: GARCH-in-mean (Econometría II 2022)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Estimación",
+            "Volatilidad (ARCH, GARCH, etc.)"
+        ],
+        "keywords": [
+            "Algoritmo de Estimación",
+            "Estacionariedad",
+            "GARCH-in-mean",
+            "Log-likelihood"
+        ]
+    },
+    {
+        "file": "ejercicio_530.pdf",
+        "banner": "Control 4 de Econometría II 2022",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [],
+        "keywords": [
+            "Estimación de Parámetros",
+            "Estimador RLS (Recursive Least Squares)"
+        ]
+    },
+    {
+        "file": "ejercicio_535.pdf",
+        "banner": "Ejercicio 535 (Examen Final de Econometría II 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "Asimetría (Skewness)",
+            "Cadena de Markov",
+            "Esperanza incondicional",
+            "Varianza incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_549.pdf",
+        "banner": "Control 2 de Econometría II 2021 (Ejercicio 549)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Modelos VAR"
+        ],
+        "keywords": [
+            "Estimador MLE (Máxima Verosimilitud)",
+            "Log-likelihood",
+            "Modelo VAR"
+        ]
+    },
+    {
+        "file": "ejercicio_552.pdf",
+        "banner": "Ejercicio 552: Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Volatilidad (ARCH, GARCH, etc.)"
+        ],
+        "keywords": [
+            "Algoritmo de Estimación",
+            "Estimación de Parámetros",
+            "Modelos ARMA",
+            "Modelos GARCH",
+            "Varianza Incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_554.pdf",
+        "banner": "Ejercicio 554 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_555.pdf",
+        "banner": "Control 5 de Econometría II 2021 (Soluciones propuestas)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estacionareidad"
+        ],
+        "keywords": [
+            "Estacionariedad",
+            "Varianza Incondicional"
+        ]
+    },
+    {
+        "file": "ejercicio_558.pdf",
+        "banner": "Ejercicio 558 - Examen Final de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": [
+            "2SLS (Two-Stage Least Squares)"
+        ]
+    },
+    {
+        "file": "ejercicio_571.pdf",
+        "banner": "Control 4 de Econometría II 2024",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2024",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_574.pdf",
+        "banner": "Control 1 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [],
+        "keywords": []
+    },
+    {
+        "file": "ejercicio_592.pdf",
+        "banner": "Ejercicio 592 (Examen Parcial de Econometría II 2011)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2011",
+        "categories": [
+            "Algoritmo de Estimación",
+            "Estimación",
+            "Log-likelihood",
+            "Modelos ARMA"
+        ],
+        "keywords": [
+            "Algoritmo de Estimación",
+            "Estimación de Parámetros",
+            "Log-likelihood",
+            "Modelos ARMA"
+        ]
+    },
+    {
+        "file": "ejercicio_6.pdf",
+        "banner": "Ejercicio 6 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Descomposición de Varianzas",
+            "Estacionareidad",
+            "Estacionareidad en Tendencia y Diferencia",
+            "Funciones de Impulso-Respuesta",
+            "IVAR",
+            "Representación Univariada",
+            "Tests de Raíces Unitarias",
+            "Tests de Sobre-identificación"
+        ],
+        "keywords": [
+            "Descomposición de Cholesky",
+            "Estacionariedad",
+            "Funciones de Impulso-Respuesta (IRF)",
+            "Modelo IVAR",
+            "Modelo VAR",
+            "Representación Univariada",
+            "Shocks ortogonales"
+        ]
+    },
+    {
+        "file": "ejercicio_601.pdf",
+        "banner": "Control 1 de Econometría II 2023",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2023",
+        "categories": [
+            "Selección de Modelos",
+            "Tests de Hipótesis"
+        ],
+        "keywords": [
+            "Criterios de Selección de Modelos",
+            "Test de Hipótesis"
+        ]
+    },
+    {
+        "file": "ejercicio_609.pdf",
+        "banner": "Ejercicio 609: Examen Parcial de Econometría II 2021 (Soluciones Propuestas)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Estimación",
+            "Selección de Modelos"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Criterio de Información AIC",
+            "Criterio de Información BIC",
+            "Criterios de Selección de Modelos",
+            "DGP (Proceso de Generación de Datos)",
+            "Estimación de Parámetros",
+            "Estimador OLS (Mínimos Cuadrados Ordinarios)",
+            "Modelo ARMA",
+            "Modelos AR",
+            "Proceso Autorregresivo (AR)",
+            "Proceso de Medias Móviles (MA)"
+        ]
+    },
+    {
+        "file": "ejercicio_610.pdf",
+        "banner": "Ejercicio 610: Control 1 de Econometría II 2020",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2020",
+        "categories": [],
+        "keywords": [
+            "Test LRT (Likelihood Ratio Test)",
+            "Test de Hipótesis"
+        ]
+    },
+    {
+        "file": "ejercicio_75.pdf",
+        "banner": "Ejercicio 75 de Econometría 2 (2021)",
+        "type": "Clase",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación"
+        ],
+        "keywords": [
+            "Esperanza",
+            "Estimación de Parámetros",
+            "Estimador Consistente"
+        ]
+    },
+    {
+        "file": "ejercicio_8.pdf",
+        "banner": "Ejercicio 8 de Econometría II",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "IVAR",
+            "Modelos VAR"
+        ],
+        "keywords": [
+            "Modelo IVAR",
+            "Modelo VAR"
+        ]
+    },
+    {
+        "file": "ejercicio_82.pdf",
+        "banner": "Ejercicio 82 de Econometría II (Examen Final 2021)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación"
+        ],
+        "keywords": [
+            "Algoritmo de Estimación",
+            "Condiciones de Primer Orden",
+            "Costos de Inventarios",
+            "Costos de Producción",
+            "Estimación de Parámetros",
+            "Hipótesis Nula",
+            "Ruido Blanco"
+        ]
+    },
+    {
+        "file": "ejercicio_90.pdf",
+        "banner": "Ejercicio 90 de Econometría II 2022",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2022",
+        "categories": [
+            "Estacionareidad",
+            "Estimación",
+            "Funciones de Impulso-Respuesta",
+            "Teoría Asintótica"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Autocorrelaciones Parciales",
+            "Autocovarianzas",
+            "Distribución Asintótica"
+        ]
+    },
+    {
+        "file": "ejercicio_92.pdf",
+        "banner": "Ejercicio 92 de Econometría II (2013)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2013",
+        "categories": [
+            "Cointegración",
+            "Estacionariedad",
+            "Estacionariedad en Diferencia"
+        ],
+        "keywords": [
+            "Cointegración",
+            "Estacionariedad",
+            "Estacionario en Diferencia"
+        ]
+    },
+    {
+        "file": "ejercicio_93.pdf",
+        "banner": "Ejercicio 93 de Econometría II (2013)",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2013",
+        "categories": [
+            "Funciones de Impulso-Respuesta",
+            "Modelos de Threshold"
+        ],
+        "keywords": [
+            "Función de Impulso-Respuesta (IRF)",
+            "Modelo de Umbral",
+            "Shocks"
+        ]
+    },
+    {
+        "file": "ejercicio_96.pdf",
+        "banner": "Ejercicio 96 de Ayudantía N°3 de Econometría II 2021",
+        "type": "Evaluacion",
+        "professor": "No encontrado",
+        "year": "2021",
+        "categories": [
+            "Estimación",
+            "Modelos ARMA",
+            "Selección de Modelos"
+        ],
+        "keywords": [
+            "Autocorrelaciones",
+            "Modelos ARMA"
+        ]
+    }
+]
