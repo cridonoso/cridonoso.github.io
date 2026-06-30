@@ -1986,24 +1986,20 @@ function applyFilters() {
 }
 
 function randomExercise() {
-    const visible = document.querySelectorAll('.exercise.visible');
-    if (visible.length === 0) {
-        document.getElementById('chapter-filter').value = 'all';
-        document.getElementById('topic-filter').value = 'all';
-        applyFilters();
-        // Retry after showing all
-        setTimeout(randomExercise, 100);
-        return;
-    }
-    // Hide all
-    document.querySelectorAll('.exercise').forEach(el => el.classList.remove('visible'));
-    // Pick random
-    const idx = Math.floor(Math.random() * visible.length);
-    const chosen = visible[idx];
+    // Reset filters to show all exercises
+    document.getElementById('chapter-filter').value = 'all';
+    document.getElementById('topic-filter').value = 'all';
+    applyFilters();
+    // Get all exercises (now all visible)
+    const allExercises = document.querySelectorAll('.exercise');
+    // Pick one at random
+    const idx = Math.floor(Math.random() * allExercises.length);
+    const chosen = allExercises[idx];
+    // Hide all, then show only the chosen one
+    allExercises.forEach(el => el.classList.remove('visible'));
     chosen.classList.add('visible');
     chosen.querySelector('.exercise-body').style.display = 'block';
     document.getElementById('stats').textContent = '1 ejercicio visible (aleatorio)';
-    // Scroll
     chosen.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
