@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENECO641 - Ejercicios Tipo Examen</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" 
+  onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; color: #333; line-height: 1.6; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+header { background: #0d47a1; color: white; padding: 25px 30px; border-radius: 10px; margin-bottom: 25px; text-align: center; }
+header h1 { font-size: 1.8em; margin-bottom: 5px; }
+header p { font-size: 0.95em; opacity: 0.9; }
+.controls { background: white; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.controls label { font-weight: 600; font-size: 0.9em; }
+.controls select, .controls button { padding: 8px 14px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 0.9em; cursor: pointer; }
+.controls select:focus { border-color: #0d47a1; outline: none; }
+.btn { background: #0d47a1; color: white; border: none; padding: 8px 18px; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
+.btn:hover { background: #1565c0; }
+.btn-random { background: #e65100; }
+.btn-random:hover { background: #ef6c00; }
+.stats { font-size: 0.85em; color: #666; margin-left: auto; }
+.exercise { background: white; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow: hidden; display: none; }
+.exercise.visible { display: block; }
+.exercise-header { background: #e8eaf6; padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.exercise-header h2 { font-size: 1.15em; color: #0d47a1; }
+.exercise-header .meta { font-size: 0.8em; color: #555; }
+.exercise-body { padding: 20px; }
+.setup { background: #f5f5f5; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-size: 0.9em; border-left: 4px solid #0d47a1; }
+.qa-item { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #eee; }
+.qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.question { font-weight: 600; margin-bottom: 8px; padding: 10px 14px; background: #fafafa; border-radius: 6px; border-left: 3px solid #1565c0; }
+.answer-toggle { background: #e8f5e9; color: #2e7d32; border: 1.5px solid #a5d6a7; padding: 6px 14px; border-radius: 5px; cursor: pointer; font-size: 0.85em; font-weight: 600; transition: all 0.2s; margin-top: 4px; }
+.answer-toggle:hover { background: #c8e6c9; }
+.answer { display: none; margin-top: 10px; padding: 14px 16px; background: #f1f8e9; border-radius: 6px; border-left: 4px solid #43a047; font-size: 0.92em; line-height: 1.7; }
+.answer.show { display: block; }
+.answer strong, .question strong { color: #1a237e; }
+.boxed { border: 1.5px solid #e65100; padding: 2px 8px; border-radius: 4px; background: #fff3e0; display: inline-block; }
+.no-results { text-align: center; padding: 40px; color: #888; font-size: 1.1em; display: none; }
+.chip { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-right: 4px; }
+.chip-chapter { background: #e3f2fd; color: #1565c0; }
+.chip-topic { background: #fce4ec; color: #c62828; }
+footer { text-align: center; padding: 20px; font-size: 0.8em; color: #999; }
+ol, ul { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 10px; }
+  header { padding: 18px; }
+  header h1 { font-size: 1.3em; }
+  .controls { flex-direction: column; align-items: stretch; }
+  .controls select, .controls button { width: 100%; }
+  .exercise-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .exercise-header h2 { font-size: 1em; }
+  .exercise-body { padding: 14px; }
+  .question { font-size: 0.9em; padding: 8px 12px; }
+  .answer { font-size: 0.88em; padding: 10px 12px; }
+  .setup { font-size: 0.85em; padding: 10px 12px; }
+  .stats { margin-left: 0; text-align: center; width: 100%; }
+}
+@media (max-width: 480px) {
+  header h1 { font-size: 1.1em; }
+  header p { font-size: 0.85em; }
+  .exercise-header h2 { font-size: 0.9em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>📘 ENECO641 — Ejercicios Tipo Examen</h1>
+<p>Economía Laboral • Universidad de Chile</p>
+</header>
+
+<div class="controls">
+<label for="chapter-filter">Capítulo:</label>
+<select id="chapter-filter" onchange="applyFilters()">
+<option value="all">Todos los capítulos</option>
+
+<option value="0">Transversal</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+
+<label for="topic-filter">Tópico:</label>
+<select id="topic-filter" onchange="applyFilters()">
+<option value="all">Todos los tópicos</option>
+
+<option value="AKM con Cárteles">AKM con Cárteles</option>
+<option value="AKM, Brecha de Género">AKM, Brecha de Género</option>
+<option value="BM con Salario Mínimo">BM con Salario Mínimo</option>
+<option value="Burdett-Mortensen, Dispersión Salarial">Burdett-Mortensen, Dispersión Salarial</option>
+<option value="Capital Humano con Overeducation">Capital Humano con Overeducation</option>
+<option value="Capital Humano, Mincer, Signaling">Capital Humano, Mincer, Signaling</option>
+<option value="DMP con Productividad Heterogénea">DMP con Productividad Heterogénea</option>
+<option value="DMP, Búsqueda, Desempleo">DMP, Búsqueda, Desempleo</option>
+<option value="Demanda Laboral con Inmigración">Demanda Laboral con Inmigración</option>
+<option value="Demanda Laboral, Marshall-Hicks">Demanda Laboral, Marshall-Hicks</option>
+<option value="Diseños Cuasi-Experimentales Comparados">Diseños Cuasi-Experimentales Comparados</option>
+<option value="Fuzzy RDD, Returns to College">Fuzzy RDD, Returns to College</option>
+<option value="Instituciones, Salario Mínimo, Sindicatos">Instituciones, Salario Mínimo, Sindicatos</option>
+<option value="LATE con Outcome Binario">LATE con Outcome Binario</option>
+<option value="LATE con Outcome No Lineal">LATE con Outcome No Lineal</option>
+<option value="LATE, Potential Outcomes">LATE, Potential Outcomes</option>
+<option value="Licensing, Mark-down">Licensing, Mark-down</option>
+<option value="Monopsonio con Búsqueda">Monopsonio con Búsqueda</option>
+<option value="Oferta Laboral con Impuestos">Oferta Laboral con Impuestos</option>
+<option value="Oferta Laboral, Heckman, Frisch">Oferta Laboral, Heckman, Frisch</option>
+<option value="Preguntas Capciosas de Conceptos">Preguntas Capciosas de Conceptos</option>
+<option value="RDD con Múltiples Cutoffs">RDD con Múltiples Cutoffs</option>
+<option value="SBTC con Tareas y Offshoring">SBTC con Tareas y Offshoring</option>
+<option value="SBTC, CES, Skill Premium">SBTC, CES, Skill Premium</option>
+<option value="Salario Mínimo con Elasticidades Heterogéneas">Salario Mínimo con Elasticidades Heterogéneas</option>
+</select>
+
+<button class="btn btn-random" onclick="randomExercise()">🎲 Ejercicio Aleatorio</button>
+<button class="btn" onclick="showAll()">Mostrar Todos</button>
+<span class="stats" id="stats"></span>
+</div>
+
+<div id="exercises-container">
+
+
+<div class="exercise" data-chapter="1" data-topic="LATE, Potential Outcomes" data-num="1">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 1: Ejercicio 1: Potential Outcomes y LATE (35 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 1</span><span class="chip chip-topic">LATE, Potential Outcomes</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere el marco de potential outcomes con tratamiento binario $T_i \in \{0,1\}$ e instrumento binario $Z_i \in \{0,1\}$. Defina $Y_i(1), Y_i(0)$ como los potential outcomes y $T_i(1), T_i(0)$ como los potential treatments. El parámetro de interés es el efecto causal del tratamiento sobre los compliers.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[6 pts] Problema Fundamental y Parámetros.</strong> 
+Escriba el outcome observado $Y_i$ en función de los potential outcomes y explique por qué no podemos calcular $\tau_i = Y_i(1) - Y_i(0)$ directamente. Luego, defina formalmente ATE, ATT y ATU. ¿Cuál de estos tres parámetros requiere el supuesto identificador más débil? Justifique brevemente.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-1-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-1-0"><em>Respuesta:</em>
+El outcome observado se relaciona con los potenciales mediante la <strong>identidad de consistencia</strong> (parte de SUTVA):
+$$
+Y_i = T_i Y_i(1) + (1-T_i) Y_i(0) = \begin{cases} Y_i(1) &amp; \text{si } T_i = 1 \\ Y_i(0) &amp; \text{si } T_i = 0 \end{cases}
+$$
+No podemos calcular $\tau_i = Y_i(1) - Y_i(0)$ para cada individuo porque para cada persona solo observamos <strong>uno</strong> de los dos potenciales: el que corresponde al tratamiento que realmente recibió. El potencial no observado es un <strong>contrafactual</strong> que nunca podemos ver. Este es el <strong>Problema Fundamental de la Inferencia Causal</strong> (Holland, 1986).
+\bigskip
+<strong>Parámetros de interés:</strong>
+<ul>
+  <li><strong>ATE</strong> (Average Treatment Effect): $\E[Y_i(1) - Y_i(0)]$ — efecto promedio en toda la población.
+  </li><li><strong>ATT</strong> (Average Treatment Effect on the Treated): $\E[Y_i(1) - Y_i(0) \mid T_i = 1]$ — efecto promedio en quienes reciben el tratamiento.
+  </li><li><strong>ATU</strong> (Average Treatment Effect on the Untreated): $\E[Y_i(1) - Y_i(0) \mid T_i = 0]$ — efecto promedio en quienes no lo reciben.
+</ul>
+El parámetro que requiere el <strong>supuesto identificador más débil</strong> es el <strong>ATT</strong>. Para identificarlo solo necesitamos construir el contrafactual de los tratados (qué les habría pasado si no hubieran recibido el tratamiento), lo que requiere un supuesto de selección en observables o un diseño cuasi-experimental para el grupo de tratados. El ATE requiere identificar ambos contrafactuales (tratados y no tratados), y el ATU requiere identificar el contrafactual de los no tratados.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[10 pts] Supuestos LATE.</strong> 
+Enuncie los cuatro supuestos del teorema LATE (Independence, Exclusion, First Stage, Monotonicity) en notación formal y en lenguaje intuitivo. Para monotonicidad, escriba tanto la forma binaria como la forma general para un instrumento ordenado ($z &gt; z' \implies T_i(z) \geq T_i(z')$). Explique por qué monotonicidad descarta a los defiers y qué implicancia tiene esto para la interpretación del estimador IV.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-1-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-1-1"><em>Respuesta:</em>
+Los cuatro supuestos del teorema LATE (Imbens \&amp; Angrist, 1994; Angrist, Imbens \&amp; Rubin, 1996) son:
+<ol>
+  <li>[<strong>S1.</strong>] <strong>Independencia (Independence):</strong>
+  $$
+  (Y_i(1), Y_i(0), T_i(1), T_i(0)) \perp Z_i
+  $$
+  <em>Intuición:</em> el instrumento $Z_i$ es ``tan bueno como asignado aleatoriamente'' con respecto a todos los potenciales. No comparte causas comunes no observadas con los resultados ni con los tratamientos potenciales.
+  </li><li>[<strong>S2.</strong>] <strong>Exclusión (Exclusion):</strong>
+  $$
+  Y_i(t, 1) = Y_i(t, 0) = Y_i(t) \quad \text{para } t = 0, 1
+  $$
+  <em>Intuición:</em> el instrumento $Z_i$ afecta el outcome $Y_i$ <strong>solo a través</strong> de su efecto sobre el tratamiento $T_i$. No hay canales directos $Z_i \to Y_i$.
+  </li><li>[<strong>S3.</strong>] <strong>Primera Etapa (First Stage):</strong>
+  $$
+  \E[T_i \mid Z_i = 1] \neq \E[T_i \mid Z_i = 0]
+  $$
+  <em>Intuición:</em> el instrumento realmente predice el tratamiento. Sin esto, no hay variación que explotar.
+  </li><li>[<strong>S4.</strong>] <strong>Monotonicidad (Monotonicity):</strong>
+  $$
+  T_i(1) \geq T_i(0) \quad \forall i \quad \text{o} \quad T_i(1) \leq T_i(0) \quad \forall i
+  $$
+  Para un instrumento ordenado (no necesariamente binario):
+  $$
+  z &gt; z' \implies T_i(z) \geq T_i(z') \quad \forall i
+  $$
+  <em>Intuición:</em> el instrumento empuja a todos en la misma dirección. Nadie hace lo contrario de lo que el instrumento incentiva. Esto elimina a los <strong>defiers</strong>: individuos que toman el tratamiento cuando $Z=0$ pero no cuando $Z=1$.
+</ol>
+<strong>Implicancia de monotonicidad:</strong> al eliminar defiers, el estimador IV/Wald se interpreta como un <strong>promedio ponderado de efectos causales con pesos no negativos</strong>, específicamente sobre la subpoblación de compliers. Sin monotonicidad, los defiers contribuirían con signo opuesto al numerador del Wald y el estimador podría no ser un promedio interpretable de efectos individuales.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Wald Estimator.</strong>
+Partiendo del estimador IV $\beta_{\text{IV}} = \Cov(Y_i, Z_i)/\Cov(T_i, Z_i)$, demuestre que para un instrumento binario este se reduce al Wald estimator:
+$$
+\beta_{\text{Wald}} = \frac{\E[Y_i \mid Z_i = 1] - \E[Y_i \mid Z_i = 0]}{\E[T_i \mid Z_i = 1] - \E[T_i \mid Z_i = 0]}
+$$
+<em>Ayuda:</em> use el resultado $\Cov(A_i, Z_i) = \Pr(Z_i=1)\Pr(Z_i=0)(\E[A_i|Z_i=1] - \E[A_i|Z_i=0])$ para $A_i \in \{Y_i, T_i\}$.
+Bajo los supuestos LATE, ¿qué identifica exactamente este estimador? Sea preciso sobre la población.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-1-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-1-2"><em>Respuesta:</em>
+<strong>Demostración:</strong> Partiendo del estimador IV con $A_i \in \{Y_i, T_i\}$:
+$$
+\beta_{\text{IV}} = \frac{\Cov(Y_i, Z_i)}{\Cov(T_i, Z_i)}
+$$
+Usando la ayuda: $\Cov(A_i, Z_i) = \Pr(Z_i=1)\Pr(Z_i=0)\big(\E[A_i \mid Z_i=1] - \E[A_i \mid Z_i=0]\big)$.
+Aplicando para $Y_i$ y $T_i$:
+$$
+\beta_{\text{IV}} = \frac{\cancel{\Pr(Z_i=1)\Pr(Z_i=0)}\big(\E[Y_i \mid Z_i=1] - \E[Y_i \mid Z_i=0]\big)}{\cancel{\Pr(Z_i=1)\Pr(Z_i=0)}\big(\E[T_i \mid Z_i=1] - \E[T_i \mid Z_i=0]\big)} = \frac{\E[Y_i \mid Z_i=1] - \E[Y_i \mid Z_i=0]}{\E[T_i \mid Z_i=1] - \E[T_i \mid Z_i=0]}
+$$
+que es el <strong>estimador Wald</strong>.
+\bigskip
+<strong>¿Qué identifica bajo los supuestos LATE?</strong>
+Bajo los supuestos S1--S4 (Independencia, Exclusión, First Stage, Monotonicidad), el estimador Wald identifica:
+$$
+\beta_{\text{Wald}} = \E[Y_i(1) - Y_i(0) \mid T_i(1) &gt; T_i(0)]
+$$
+Este es el <strong>LATE</strong> (Local Average Treatment Effect): el efecto causal promedio del tratamiento para la subpoblación de <strong>compliers</strong> — individuos cuyo tratamiento es afectado por el instrumento ($T_i(1)=1$, $T_i(0)=0$). Es un efecto <strong>local</strong> al instrumento: distintos instrumentos identifican efectos para distintos grupos de compliers.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[6 pts] Subpoblaciones.</strong>
+Defina las cuatro subpoblaciones definidas por $(T_i(0), T_i(1))$: compliers, always-takers, never-takers y defiers. Para cada grupo, indique su estatus de tratamiento bajo $Z_i=0$ y bajo $Z_i=1$. 
+Considere el instrumento clásico de Angrist \&amp; Evans (1998): $Z_i = 1$ si los dos primeros hijos son del mismo sexo, y $T_i = 1$ si la madre tiene un tercer hijo. Dé una interpretación intuitiva de quiénes son los compliers y los always-takers en este contexto.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-1-3', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-1-3"><em>Respuesta:</em>
+Las cuatro subpoblaciones definidas por los tratamientos potenciales $(T_i(0), T_i(1))$ son:
+$$
+\begin{array}{c|c|c|c}
+\text{Tipo} &amp; T_i(0) &amp; T_i(1) &amp; \text{Descripción} \\ \hline
+\text{Complier (C)} &amp; 0 &amp; 1 &amp; \text{Toman el tratamiento solo si } Z=1 \\
+\text{Never-taker (NT)} &amp; 0 &amp; 0 &amp; \text{Nunca toman el tratamiento} \\
+\text{Always-taker (AT)} &amp; 1 &amp; 1 &amp; \text{Siempre toman el tratamiento} \\
+\text{Defier (D)} &amp; 1 &amp; 0 &amp; \text{Hacen lo contrario al instrumento}
+\end{array}
+$$
+\bigskip
+<strong>Aplicación: Angrist \&amp; Evans (1998)</strong> — $Z_i = 1$ si los dos primeros hijos son del mismo sexo; $T_i = 1$ si la madre tiene un tercer hijo.
+<ul>
+  <li><strong>Compliers:</strong> madres que tienen un tercer hijo <strong>solo si</strong> los dos primeros son del mismo sexo. Son madres en el margen: prefieren tener al menos un hijo de cada sexo, pero si no logran esa composición con los dos primeros, intentan de nuevo.
+  </li><li><strong>Always-takers:</strong> madres que tienen un tercer hijo <strong>independientemente</strong> del sexo de los dos primeros. Su decisión está determinada por otros factores (preferencia por familias numerosas, creencias religiosas, etc.), no por la composición de género.
+  </li><li><strong>Never-takers:</strong> madres que no tienen un tercer hijo aunque los dos primeros sean del mismo sexo. Su decisión no cambia con el instrumento.
+  </li><li><strong>Defiers:</strong> (excluidos por monotonicidad) madres que tienen un tercer hijo solo si los dos primeros son de distinto sexo. Monotonicidad asume que no existen.
+</ul></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts] Equivalencia de Primera Etapa.</strong>
+Demuestre algebraicamente que para un instrumento binario:
+$$
+\Cov(Z_i, T_i) \neq 0 \iff \E[T_i \mid Z_i = 1] \neq \E[T_i \mid Z_i = 0]
+$$
+Muestre todos los pasos. <em>Ayuda:</em> defina $p \equiv \Pr(Z_i = 1)$.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-1-4', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-1-4"><em>Respuesta:</em>
+Partimos de la definición de covarianza:
+$$
+\Cov(Z_i, T_i) = \E[Z_i T_i] - \E[Z_i]\E[T_i]
+$$
+Dado que $Z_i$ es binaria, $Z_i T_i = 1 \cdot T_i$ cuando $Z_i = 1$ y $0$ cuando $Z_i = 0$, por tanto:
+$$
+\E[Z_i T_i] = \E[T_i \mid Z_i = 1] \cdot \Pr(Z_i = 1)
+$$
+Además, $\E[Z_i] = \Pr(Z_i = 1)$. Y por ley de esperanzas totales:
+$$
+\E[T_i] = \E[T_i \mid Z_i = 1]\Pr(Z_i = 1) + \E[T_i \mid Z_i = 0]\Pr(Z_i = 0)
+$$
+Sea $p \equiv \Pr(Z_i = 1)$, entonces $\Pr(Z_i = 0) = 1-p$. Sustituyendo:
+$$
+\begin{aligned}
+\Cov(Z_i, T_i) &amp;= \E[T_i \mid Z_i = 1] \cdot p - p\big[\E[T_i \mid Z_i = 1] p + \E[T_i \mid Z_i = 0] (1-p)\big] \\
+&amp;= p\big[\E[T_i \mid Z_i = 1] - p\E[T_i \mid Z_i = 1] - (1-p)\E[T_i \mid Z_i = 0]\big] \\
+&amp;= p\big[(1-p)\E[T_i \mid Z_i = 1] - (1-p)\E[T_i \mid Z_i = 0]\big] \\
+&amp;= p(1-p)\big[\E[T_i \mid Z_i = 1] - \E[T_i \mid Z_i = 0]\big]
+\end{aligned}
+$$
+Como $p(1-p) &gt; 0$ (el instrumento tiene variación en ambos valores), entonces:
+$$
+\Cov(Z_i, T_i) \neq 0 \iff \E[T_i \mid Z_i = 1] \neq \E[T_i \mid Z_i = 0]
+$$
+<strong>Conclusión:</strong> la condición de primera etapa es equivalente a que la covarianza entre el instrumento y el tratamiento sea distinta de cero. Ambas son formas equivalentes de decir que el instrumento es relevante.</div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="1" data-topic="LATE con Outcome No Lineal" data-num="2">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 2: Ejercicio 2: LATE con Outcome No Lineal (35 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 1</span><span class="chip chip-topic">LATE con Outcome No Lineal</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere el marco de LATE con tratamiento binario $T_i \in \{0,1\}$ e instrumento binario $Z_i \in \{0,1\}$. Sea $X_i &gt; 0$ una covariable observable (por ejemplo, años de educación). El outcome de interés es:
+$$
+Y_i = T_i \cdot X_i^2 + (1 - T_i) \cdot X_i
+$$
+Suponga que se cumplen todos los supuestos del teorema LATE (Independencia, Exclusión, First Stage, Monotonicidad).</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Potenciales del Outcome.</strong>
+Defina formalmente $Y_i(1)$ y $Y_i(0)$ en términos de $X_i$. Luego, escriba $Y_i(1)$ e $Y_i(0)$ para cada uno de los cuatro tipos: compliers (C), never-takers (NT), always-takers (AT) y defiers (D). No es necesario calcular esperanzas aún.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-2-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-2-0"><em>Respuesta:</em>
+<strong>Potenciales del outcome:</strong>
+$$
+Y_i(1) = 1 \cdot X_i^2 + (1-1) \cdot X_i = X_i^2, \qquad
+Y_i(0) = 0 \cdot X_i^2 + (1-0) \cdot X_i = X_i
+$$
+<strong>Outcome observado por grupo según $Z$:</strong>
+\bigskip
+\begin{minipage}{0.48\textwidth}
+\centering
+<strong>$Z=0$</strong> \\
+\begin{tabular}{c|c|l} 
+&amp; $T_i(0)$ &amp; Outcome \\
+\hline
+C &amp; 0 &amp; $Y_i(0) = X_i$ \\
+NT &amp; 0 &amp; $Y_i(0) = X_i$ \\
+AT &amp; 1 &amp; $Y_i(1) = X_i^2$ \\
+D &amp; 1 &amp; $Y_i(1) = X_i^2$
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+<strong>$Z=1$</strong> \\
+\begin{tabular}{c|c|l} 
+&amp; $T_i(1)$ &amp; Outcome \\
+\hline
+C &amp; 1 &amp; $Y_i(1) = X_i^2$ \\
+NT &amp; 0 &amp; $Y_i(0) = X_i$ \\
+AT &amp; 1 &amp; $Y_i(1) = X_i^2$ \\
+D &amp; 0 &amp; $Y_i(0) = X_i$
+\end{tabular}
+\end{minipage}</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[12 pts] Demostración LATE.</strong>
+Usando el algoritmo de expansión por LIE sobre los cuatro grupos, demuestre que:
+$$
+\frac{E[Y_i \mid Z_i = 1] - E[Y_i \mid Z_i = 0]}{E[T_i \mid Z_i = 1] - E[T_i \mid Z_i = 0]} = E[X_i^2 - X_i \mid C]
+$$
+donde $C = \{T_i(1) &gt; T_i(0)\}$.
+<em>Ayuda:</em> Siga el algoritmo: (1) expanda numerador para $Z=1$ y $Z=0$ por LIE, (2) reemplace los potenciales según $Y_i(1)$ e $Y_i(0)$, (3) reste, (4) cancele usando los supuestos, (5) repita para el denominador, (6) cociente.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-2-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-2-1"><strong>Paso 1: Numerador para $Z=1$.</strong>
+Por LIE sobre los cuatro grupos, usando consistencia ($Y_i = Y_i(T_i(Z_i))$):
+$$
+\begin{aligned}
+E[Y_i \mid Z_i=1] &amp;= E[Y_i(1) \mid C]P(C) + E[Y_i(0) \mid NT]P(NT) \\
+&amp;\quad + E[Y_i(1) \mid AT]P(AT) + E[Y_i(0) \mid D]P(D) \$$4pt]
+&amp;= E[X_i^2 \mid C]P(C) + E[X_i \mid NT]P(NT) \\
+&amp;\quad + E[X_i^2 \mid AT]P(AT) + E[X_i \mid D]P(D)
+\end{aligned}
+$$
+\bigskip
+<strong>Paso 2: Numerador para $Z=0$.</strong>
+$$
+\begin{aligned}
+E[Y_i \mid Z_i=0] &amp;= E[Y_i(0) \mid C]P(C) + E[Y_i(0) \mid NT]P(NT) \\
+&amp;\quad + E[Y_i(1) \mid AT]P(AT) + E[Y_i(1) \mid D]P(D) \$$4pt]
+&amp;= E[X_i \mid C]P(C) + E[X_i \mid NT]P(NT) \\
+&amp;\quad + E[X_i^2 \mid AT]P(AT) + E[X_i^2 \mid D]P(D)
+\end{aligned}
+$$
+\bigskip
+<strong>Paso 3: Resta.</strong>
+$$
+\begin{aligned}
+E[Y_i \mid Z=1] &amp;- E[Y_i \mid Z=0] = \\
+&amp;\big[E[X_i^2 \mid C] - E[X_i \mid C]\big] P(C) \\
+&amp;+ \big[E[X_i \mid NT] - E[X_i \mid NT]\big] P(NT) \\
+&amp;+ \big[E[X_i^2 \mid AT] - E[X_i^2 \mid AT]\big] P(AT) \\
+&amp;+ \big[E[X_i \mid D] - E[X_i^2 \mid D]\big] P(D)
+\end{aligned}
+$$
+Los términos de $NT$ y $AT$ se cancelan algebraicamente (son idénticos). Bajo monotonicidad, $P(D) = 0$. Por tanto:
+$$
+E[Y_i \mid Z=1] - E[Y_i \mid Z=0] = \big[E[X_i^2 \mid C] - E[X_i \mid C]\big] P(C)
+$$
+\bigskip
+<strong>Paso 4: Denominador (first stage).</strong>
+$$
+\begin{aligned}
+E[T_i \mid Z=1] &amp;= 1 \cdot P(C) + 0 \cdot P(NT) + 1 \cdot P(AT) + 0 \cdot P(D) = P(C) + P(AT) \\
+E[T_i \mid Z=0] &amp;= 0 \cdot P(C) + 0 \cdot P(NT) + 1 \cdot P(AT) + 1 \cdot P(D) = P(AT) + \cancelto{0}{P(D)} \\
+\Rightarrow \quad E[T_i \mid Z=1] - E[T_i \mid Z=0] &amp;= P(C)
+\end{aligned}
+$$
+\bigskip
+<strong>Paso 5: Cociente Wald.</strong>
+$$
+\frac{E[Y_i \mid Z=1] - E[Y_i \mid Z=0]}{E[T_i \mid Z=1] - E[T_i \mid Z=0]}
+= \frac{\big[E[X_i^2 \mid C] - E[X_i \mid C]\big] \cancel{P(C)}}{\cancel{P(C)}}
+= E[X_i^2 - X_i \mid C]
+$$
+donde $C = \{T_i(1) = 1,\; T_i(0) = 0\} = \{T_i(1) &gt; T_i(0)\}$. $\square$</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[7 pts] Interpretación Económica.</strong>
+Suponga que $X_i$ son años de educación y $T_i$ indica participación en un programa de capacitación laboral. ¿Qué interpretación económica tiene el parámetro $E[X_i^2 - X_i \mid C]$? ¿Bajo qué condiciones sería positivo? Relacione su respuesta con la noción de <em>retornos crecientes</em> a la educación.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-2-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-2-2"><em>Respuesta:</em>
+El parámetro $E[X_i^2 - X_i \mid C]$ es el <strong>efecto causal promedio de la capacitación laboral sobre los compliers</strong>. Para un complier $i$, el efecto individual es:
+$$
+Y_i(1) - Y_i(0) = X_i^2 - X_i = X_i(X_i - 1)
+$$
+La función $f(x) = x^2 - x$ es <strong>convexa</strong> ($f''(x)=2&gt;0$), con un mínimo en $x=0.5$ donde $f(0.5) = -0.25$. Cambia de signo en $x=0$ y $x=1$:
+$$
+\begin{array}{c|c}
+X_i &amp; \text{Efecto}\\
+\hline
+0 &lt; X_i &lt; 1 &amp; \text{Negativo}\\
+X_i = 1 &amp; \text{Cero}\\
+X_i &gt; 1 &amp; \text{Positivo y creciente}
+\end{array}
+$$
+<strong>Interpretación económica:</strong> La capacitación laboral y la educación formal son <strong>complementos</strong> en la producción de ingresos. Para que la capacitación tenga un efecto positivo, se requiere una base educativa mínima ($X_i &gt; 1$), lo que sugiere que la educación formal provee las habilidades previas necesarias para absorber y aplicar los conocimientos de la capacitación. Por debajo de ese umbral, la capacitación puede ser contraproducente o tener rendimiento nulo.
+El efecto crece cuadráticamente con $X_i$: a mayor educación base, mayor es el retorno de la capacitación. Esto es consistente con la noción de <strong>retornos crecientes</strong> a la capacitación en función de la educación previa, y explica por qué programas de capacitación dirigidos a poblaciones con baja escolaridad suelen mostrar efectos acotados o nulos.</div>
+</div>
+
+<div class="qa-item">
+<div class="question">¿Puede determinar si $E[X_i^2 - X_i \mid C]$ es necesariamente positivo? Justifique algebraicamente.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-2-3', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-2-3"><em>Respuesta:</em>
+Sí, podemos determinar que es positivo. El razonamiento es el siguiente:
+<ol>
+  <li>Sea $g(x) = x^2 - x$. Su segunda derivada es $g''(x) = 2 &gt; 0$, por lo que $g$ es <strong>convexa</strong>.
+  </li><li>Por la desigualdad de Jensen para funciones convexas:
+  $$
+  E[g(X) \mid C] \geq g(E[X \mid C])
+  $$
+  </li><li>Reemplazando $g$ y el dato $E[X_i \mid C] = 3$:
+  $$
+  E[X_i^2 - X_i \mid C] \geq (E[X_i \mid C])^2 - E[X_i \mid C] = 3^2 - 3 = 6
+  $$
+  </li><li>Como $6 &gt; 0$, la cota inferior del LATE es positiva, luego:
+  $$
+  E[X_i^2 - X_i \mid C] \geq 6 &gt; 0
+  $$
+</ol>
+No es necesario que cada $X_i$ individualmente supere 1 (lo cual no podemos saber con solo la media). La convexidad de $g$ nos da una cota inferior del LATE que solo depende de $E[X \mid C]$, y esa cota es positiva.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><em>(Desafío)</em> Encuentre una condición suficiente sobre $E[X_i \mid C]$ que garantice que el LATE sea positivo, y otra que garantice que sea negativo. Use la desigualdad de Jensen.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-2-4', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-2-4"><em>Respuesta:</em>
+<strong>Condición suficiente para LATE positivo:</strong>
+Si $E[X_i \mid C] &gt; 1$, entonces por Jensen:
+$$
+E[X_i^2 - X_i \mid C] \geq (E[X_i \mid C])^2 - E[X_i \mid C] = E[X_i \mid C] \big( E[X_i \mid C] - 1 \big) &gt; 0
+$$
+Por tanto $E[X_i^2 - X_i \mid C] &gt; 0$. La condición $E[X_i \mid C] &gt; 1$ es suficiente.
+\bigskip
+<strong>Condición suficiente para LATE negativo:</strong>
+Jensen da una cota inferior para funciones convexas, no una cota superior. No podemos usarlo para garantizar negatividad. En su lugar, si el soporte de $X_i \mid C$ está contenido en $[0,1]$, entonces cada término individual $X_i^2 - X_i = X_i(X_i-1) \leq 0$, y por tanto:
+$$
+E[X_i^2 - X_i \mid C] \leq 0
+$$
+La condición suficiente es que $0 \leq X_i \leq 1$ para todos los compliers.</div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="1" data-topic="Fuzzy RDD, Returns to College" data-num="3">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 3: Ejercicio 3: Returns to College — Fuzzy RDD (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 1</span><span class="chip chip-topic">Fuzzy RDD, Returns to College</span></div>
+</div>
+<div class="exercise-body">
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts]</strong> ¿Es este un diseño sharp o fuzzy? Aproximadamente, ¿cuál es el efecto de ser admitido sobre salarios?</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-3-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-3-0"><em>Respuesta:</em>
+Es un diseño <strong>Fuzzy</strong>, porque la probabilidad de admisión no salta de 0 a 1 en el cutoff, sino de aproximadamente 0.5 a 0.75. Esto implica que hay <em>always-takers</em> (admitidos pese a estar bajo el umbral) y <em>never-takers</em> (no admitidos pese a estar sobre el umbral).
+El efecto causal de la admisión sobre los ingresos se obtiene del cociente entre el salto en el outcome y el salto en la probabilidad de tratamiento:
+$$
+\tau_{\text{FRD}} = \frac{\Delta Y}{\Delta T} \approx \frac{7{,}700 - 7{,}150}{0.75 - 0.50} = \frac{550}{0.25} \approx \$2{,}200
+$$
+El salto en ingresos de \$550 es el <strong>ITT</strong> (intention-to-treat), no el efecto del tratamiento en sí. Al escalar por el primer etapa, el efecto de ser admitido es de aproximadamente \$2{,}200 para los compliers del umbral.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[10 pts]</strong> Sea $Y_i$ el ingreso posterior a la universidad del individuo $i$, $g_i$ la distancia entre su nota y el umbral (GPA distance), y $A_i$ el tratamiento de interés: $A_i = 1$ si fue admitido a FIU, $A_i = 0$ si no lo fue. ¿Qué modelo de regresión podríamos usar para estimar el efecto del tratamiento (es decir, la admisión universitaria) sobre el resultado de interés (ingresos)? Justifique su modelo y describa cómo lo estimaría.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-3-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-3-1"><em>Respuesta:</em>
+Se debe usar un modelo de <strong>Regresión Discontinua Fuzzy (Fuzzy RDD)</strong> estimado por <strong>2SLS</strong>, ya que la admisión $A_i$ es endógena (autoselección: estudiantes con mayor GPA pueden tener mayor capacidad no observada). El instrumento es cruzar el umbral:
+$$
+Z_i = \mathbf{1}\{g_i \geq 0\}
+$$
+<strong>Primera etapa:</strong> predice la admisión usando el instrumento, controlando por la running variable $g_i$ con pendientes diferenciadas a cada lado del cutoff:
+$$
+A_i = \alpha + \pi Z_i + \beta_1 g_i + \beta_2 (g_i \cdot Z_i) + \varepsilon_i
+$$
+<strong>Segunda etapa:</strong> usa la admisión predicha para estimar el efecto causal sobre ingresos:
+$$
+Y_i = \mu + \tau \hat{A}_i + \gamma_1 g_i + \gamma_2 (g_i \cdot Z_i) + \eta_i
+$$
+El coeficiente $\tau$ es el <strong>LATE</strong> para los compliers del umbral. La estimación se realiza dentro de un <strong>bandwidth óptimo</strong> alrededor del cutoff (e.g., método IK o CCT) para asegurar que la comparación sea local a estudiantes con GPA similar.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts]</strong> ¿Qué figura adicional le gustaría ver para evaluar la validez interna de estas estimaciones?</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-3-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-3-2"><em>Respuesta:</em>
+Varias figuras adicionales permitirían evaluar la validez interna:
+<ol>
+  <li><strong>McCrary density test:</strong> la densidad de la running variable $g_i$ debe ser continua en el cutoff $g_i = 0$. Si hay un salto, sugiere manipulación del GPA alrededor del umbral (estudiantes esforzándose apenas para pasar).
+  </li><li><strong>Placebo test con covariables:</strong> gráfico de covariables predeterminadas (edad, género, educación de los padres, ingresos previos) contra $g_i$. No deberían saltar en $g_i = 0$.
+  </li><li><strong>Placebo test con cutoffs falsos:</strong> estimar el mismo modelo en cutoffs arbitrarios (e.g., $g_i = -0.15$, $g_i = 0.15$) donde no debería haber efecto.
+  </li><li><strong>Sensibilidad al bandwidth:</strong> mostrar que $\hat{\tau}$ es estable para distintos valores del bandwidth alrededor del cutoff.
+</ol></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts]</strong> En base a la evidencia estudiada en el curso, ¿es el impacto positivo en ingresos evidencia de retorno por ``capital humano''? ¿Existe una explicación alternativa para este resultado?</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-3-3', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-3-3"><em>Respuesta:</em>
+El impacto positivo <strong>puede</strong> ser evidencia de retornos a capital humano, pero no es la única interpretación posible. Existen explicaciones alternativas:
+<ul>
+  <li><strong>Capital humano:</strong> la universidad enseña habilidades que aumentan la productividad del estudiante, y por tanto sus ingresos. Este canal es especialmente plausible para estudiantes marginales (compliers del umbral), que son justamente quienes más pueden beneficiarse de la educación al no tener alternativas equivalentes.
+  </li><li><strong>Señalización (signaling):</strong> el título universitario sirve como señal de capacidad innata ante los empleadores, independientemente de lo aprendido. Los ingresos aumentan no por mayor productividad, sino porque el título ``certifica'' que el estudiante tenía la capacidad de completar los estudios.
+  </li><li><strong>Credencialismo / licensing:</strong> el título es un requisito legal o institucional para acceder a ciertos empleos, como ocurre en profesiones reguladas (medicina, derecho, ingeniería). En este caso, el título no necesariamente refleja productividad.
+  </li><li><strong>Networking / efectos de pares:</strong> la universidad provee contactos y redes sociales que mejoran las oportunidades laborales, independientemente del aprendizaje académico.
+</ul>
+El artículo de Zimmerman (2014) usa un diseño de Fuzzy RDD con estudiantes justo en el margen de admisión, lo que hace más creíble el canal de capital humano: estos estudiantes son similares en capacidad observada (GPA casi idéntico), y la diferencia en ingresos aparece solo porque unos fueron admitidos y otros no. Sin embargo, distinguir entre capital humano y señalización requeriría evidencia adicional (e.g., efectos nulos en ocupaciones donde el título no es necesario, o retornos heterogéneos por tipo de habilidad enseñada).</div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="5" data-topic="SBTC, CES, Skill Premium" data-num="4">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 4: Ejercicio 4: Skill-biased Technical Change (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 5</span><span class="chip chip-topic">SBTC, CES, Skill Premium</span></div>
+</div>
+<div class="exercise-body">
+
+<div class="qa-item">
+<div class="question"><strong>[15 pts]</strong> Derive una expresión para el premio de habilidades $\omega = \frac{w_H}{w_L}$, donde $w_H$ y $w_L$ son los productos marginales (salarios) del trabajo calificado y no calificado. Exprese su respuesta en términos de $A_H$, $A_L$, $H$, $L$ y $\sigma$.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-4-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-4-0"><em>Respuesta:</em>
+Una empresa competitiva maximiza beneficios tomando los precios $w_H$ y $w_L$ como dados:
+$$
+\max_{H, L} \; \pi = \big[(A_L L)^\rho + (A_H H)^\rho\big]^{1/\rho} - w_H H - w_L L
+$$
+Las condiciones de primer orden igualan el producto marginal de cada factor a su salario:
+$$
+\begin{aligned}
+\frac{\partial \pi}{\partial H} = 0 &amp;\Rightarrow w_H = \frac{\partial Y}{\partial H}
+= \frac{1}{\rho}\big[(A_L L)^\rho + (A_H H)^\rho\big]^{\frac{1}{\rho}-1} \cdot \rho (A_H H)^{\rho-1} \cdot A_H \\
+&amp;\Rightarrow w_H = \big[(A_L L)^\rho + (A_H H)^\rho\big]^{\frac{1-\rho}{\rho}} \cdot A_H^\rho \cdot H^{\rho-1} \$$6pt]
+\frac{\partial \pi}{\partial L} = 0 &amp;\Rightarrow w_L = \frac{\partial Y}{\partial L}
+= \frac{1}{\rho}\big[(A_L L)^\rho + (A_H H)^\rho\big]^{\frac{1}{\rho}-1} \cdot \rho (A_L L)^{\rho-1} \cdot A_L \\
+&amp;\Rightarrow w_L = \big[(A_L L)^\rho + (A_H H)^\rho\big]^{\frac{1-\rho}{\rho}} \cdot A_L^\rho \cdot L^{\rho-1}
+\end{aligned}
+$$
+El término $\big[(A_L L)^\rho + (A_H H)^\rho\big]^{\frac{1-\rho}{\rho}}$ se cancela al tomar el cociente:
+$$
+\omega = \frac{w_H}{w_L} = \frac{A_H^\rho H^{\rho-1}}{A_L^\rho L^{\rho-1}}
+= \left(\frac{A_H}{A_L}\right)^\rho \left(\frac{H}{L}\right)^{\rho-1}
+$$
+Usando la relación $\sigma = 1/(1-\rho)$, de donde $\rho = (\sigma-1)/\sigma$ y $\rho-1 = -1/\sigma$, obtenemos la expresión en términos de la elasticidad de sustitución:
+$$
+<span class="boxed">$\;\omega = \left(\frac{A_H</span>{A_L}\right)^{\frac{\sigma-1}{\sigma}} \left(\frac{H}{L}\right)^{-\frac{1}{\sigma}}\;}
+$$
+<strong>Interpretación:</strong> El premio de habilidades $\omega$ depende positivamente de la ventaja tecnológica a favor del trabajo calificado ($A_H/A_L$) y negativamente de la abundancia relativa de trabajo calificado ($H/L$). La magnitud de estos efectos está gobernada por $\sigma$: cuando $\sigma &gt; 1$ (sustitutos), un aumento en $H/L$ reduce $\omega$; cuando $\sigma &lt; 1$ (complementos), lo aumenta.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts]</strong> Use el resultado anterior para calcular el <em>log premio de habilidades</em> $\ln(\omega)$, y obtenga su derivada con respecto a $\ln(H/L)$. Interprete el signo de esta expresión.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-4-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-4-1"><em>Respuesta:</em>
+Partiendo del resultado del inciso (a):
+$$
+\omega = \left(\frac{A_H}{A_L}\right)^{\frac{\sigma-1}{\sigma}} \left(\frac{H}{L}\right)^{-\frac{1}{\sigma}}
+$$
+Tomando logaritmo natural:
+$$
+\ln(\omega) = \frac{\sigma-1}{\sigma} \ln\left(\frac{A_H}{A_L}\right) - \frac{1}{\sigma} \ln\left(\frac{H}{L}\right)
+$$
+Derivando con respecto a $\ln(H/L)$:
+$$
+\frac{\partial \ln(\omega)}{\partial \ln(H/L)} = -\frac{1}{\sigma}
+$$
+<strong>Interpretación:</strong> La derivada es la <strong>elasticidad del premio de habilidades respecto a la abundancia relativa de trabajo calificado</strong>. Es negativa, lo que implica que aumentar la oferta relativa de trabajadores calificados reduce el premio (curva de demanda relativa con pendiente negativa). La magnitud depende de $\sigma$:
+<ul>
+  <li>Si $\sigma &gt; 1$ (sustitutos): $-1/\sigma \in (-1, 0)$, el premio es \emph{inelástico} a cambios en $H/L$ — un aumento en la oferta de calificados reduce el premio menos que proporcionalmente.
+  </li><li>Si $\sigma &lt; 1$ (complementos): $-1/\sigma &lt; -1$, el premio es \emph{elástico} — el mismo aumento en $H/L$ reduce el premio más que proporcionalmente.
+  </li><li>Si $\sigma = 1$ (Cobb-Douglas): $-1/\sigma = -1$, elasticidad unitaria.
+</ul></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts]</strong> Estimaciones empíricas de Acemoglu y Autor sugieren que:
+$$
+\ln(w_t) = \text{constante} + 0.027 \cdot t - 0.612 \cdot \ln\left(\frac{H_t}{L_t}\right)
+$$
+¿Cómo interpreta el signo y la magnitud de los coeficientes? Use estos parámetros para calcular la elasticidad de sustitución $\sigma$ (no es necesario calcular el número exacto, pero sí explicar cómo lo obtendría). ¿Es este resultado consistente con lo que usted y su grupo encontró para Chile en el Problem Set 2?</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-4-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-4-2"><em>Respuesta:</em>
+<strong>Interpretación de los coeficientes:</strong>
+<ol>
+  <li><strong>Coeficiente de $t$ ($0.027$):</strong> es la tendencia temporal del log premio de habilidades. Indica que, manteniendo constante $H/L$, el premio de habilidades crece un $2.7\%$ anual. Esto refleja <strong>cambio tecnológico sesgado hacia el trabajo calificado (SBTC)</strong>: $A_H/A_L$ aumenta cada año, incrementando el premio incluso si la oferta relativa de calificados no cambia.
+  </li><li><strong>Coeficiente de $\ln(H/L)$ ($-0.612$):</strong> es la elasticidad del premio de habilidades respecto a la abundancia relativa de trabajo calificado. Un aumento de $1\%$ en $H/L$ reduce el premio en $0.612\%$. El signo negativo indica que el trabajo calificado y no calificado son <strong>sustitutos</strong> en la producción.
+</ol>
+\bigskip
+<strong>Cálculo de $\sigma$:</strong>
+Del inciso (b), sabemos que:
+$$
+\frac{\partial \ln(\omega)}{\partial \ln(H/L)} = -\frac{1}{\sigma}
+$$
+En la regresión estimada, $\partial \ln(\omega)/\partial \ln(H/L) = -0.612$. Igualando:
+$$
+-\frac{1}{\sigma} = -0.612 \quad \Longrightarrow \quad \sigma = \frac{1}{0.612} \approx 1.63
+$$
+La elasticidad de sustitución entre trabajo calificado y no calificado es $\sigma \approx 1.63 &gt; 1$. Esto es consistente con la literatura: $H$ y $L$ son sustitutos, y un aumento en la oferta relativa de calificados reduce el premio de habilidades.
+\bigskip
+<strong>Consistencia con los resultados para Chile (PS2):</strong>
+[Completar con los resultados del Problem Set 2: valor de $\sigma$ estimado para Chile y si es consistente con $\sigma \approx 1.63$.]</div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="6" data-topic="Licensing, Mark-down" data-num="5">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 5: Ejercicio 5: Licensing Problem (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 6</span><span class="chip chip-topic">Licensing, Mark-down</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">En muchos empleos del sector público, el salario está fijado por una <em>escala nacional</em>, pero los empleadores (e.g., hospitales o escuelas) pueden imponer <em>criterios selectivos de contratación</em>. Para este ejercicio, suponga que el empleador <em>no puede fijar</em> el salario $w$ (i.e., está exógenamente determinado), pero sí puede fijar un umbral de calidad $T$. Por ejemplo, un hospital solo contratará médicos que aprueben un examen con nota superior a $T$ luego de egresar de sus carreras.
+\bigskip
+<strong>Variables:</strong>
+<ul>
+  <li>$S(T)$: horas que trabajan los médicos que califican con el umbral $T$ (oferta laboral). $S'(T) &lt; 0$.
+  </li><li>$p(T)$: productividad o valor de cada médico contratado (que cumple con estar por sobre el umbral $T$). $p'(T) &gt; 0$.
+  </li><li>$\pi(T) = [p(T) - w] S(T)$: beneficio total del empleador.
+  </li><li>$\eta_p^T = \dfrac{\partial p(T)}{\partial T} \dfrac{T}{p(T)}$: elasticidad de la productividad al umbral.
+  </li><li>$\eta_S^T = \dfrac{\partial S(T)}{\partial T} \dfrac{T}{S(T)}$: elasticidad de la oferta laboral al umbral.
+</ul></div>
+
+<div class="qa-item">
+<div class="question"><strong>[10 pts]</strong> Escriba la condición de primer orden del problema $\max_T \pi(T)$.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-5-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-5-0"><em>Respuesta:</em>
+El empleador elige $T$ para maximizar el beneficio:
+$$
+\max_T \; \pi(T) = [p(T) - w] S(T)
+$$
+La condición de primer orden (CPO) es:
+$$
+\frac{\partial \pi(T)}{\partial T} = p'(T) S(T) + [p(T) - w] S'(T) = 0
+$$
+Esta expresión tiene dos efectos de aumentar el umbral $T$:
+<ul>
+  <li><strong>Efecto positivo</strong> ($p'(T)S(T)$): al subir $T$, los médicos contratados son más productivos, lo que aumenta el beneficio por hora contratada.
+  </li><li><strong>Efecto negativo</strong> ($[p(T)-w]S'(T)$): al subir $T$, se reduce la oferta de médicos que califican ($S'(T) &lt; 0$), lo que reduce el beneficio total.
+</ul>
+En el óptimo, ambos efectos se igualan.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[10 pts]</strong> Usando la CPO, derive una expresión para $\dfrac{p(T) - w}{p(T)}$ en función de $\eta_p^T$ y $\eta_S^T$.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-5-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-5-1"><em>Respuesta:</em>
+Partimos de la CPO:
+$$
+p'(T) S(T) + [p(T) - w] S'(T) = 0
+$$
+Despejamos $[p(T) - w]$:
+$$
+[p(T) - w] S'(T) = -p'(T) S(T)
+$$
+$$
+p(T) - w = -\frac{p'(T) S(T)}{S'(T)}
+$$
+Dividimos ambos lados por $p(T)$:
+$$
+\frac{p(T) - w}{p(T)} = -\frac{p'(T) S(T)}{p(T) S'(T)}
+$$
+Multiplicamos numerador y denominador por $T/T$:
+$$
+\frac{p(T) - w}{p(T)} = -\frac{p'(T) T}{p(T)} \cdot \frac{S(T)}{T S'(T)} = -\frac{p'(T) T / p(T)}{S'(T) T / S(T)}
+$$
+Reconociendo las elasticidades $\eta_p^T = p'(T) T / p(T)$ y $\eta_S^T = S'(T) T / S(T)$:
+$$
+<span class="boxed">$\;\frac{p(T) - w</span>{p(T)} = -\frac{\eta_p^T}{\eta_S^T}\;}
+$$
+Dado que $S'(T) &lt; 0$, tenemos $\eta_S^T &lt; 0$, por lo que $-\eta_p^T/\eta_S^T &gt; 0$. Es decir, el lado izquierdo es positivo: el empleador paga un salario $w$ menor que la productividad $p(T)$, generando un <strong>mark-down</strong>.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts]</strong> Interprete esta fórmula y discuta su relación con el ``mark-down'' estudiado en clases.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-5-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-5-2"><em>Respuesta:</em>
+<strong>Interpretación de la fórmula:</strong>
+$$
+\frac{p(T) - w}{p(T)} = -\frac{\eta_p^T}{\eta_S^T}
+$$
+El lado izquierdo es la proporción de la productividad que el empleador retiene como beneficio (la brecha entre productividad y salario, como fracción de la productividad). Esta brecha depende de dos elasticidades:
+<ul>
+  <li>$\eta_p^T$ (elasticidad de la productividad al umbral): mide cuánto aumenta la productividad al endurecer el estándar. A mayor $\eta_p^T$, más beneficioso es subir $T$ (los médicos marginales son mucho más productivos), y mayor es el mark-down óptimo.
+  </li><li>$\eta_S^T$ (elasticidad de la oferta al umbral): mide cuánto se reduce la oferta de trabajo al endurecer el estándar. Es negativa. A mayor $|\eta_S^T|$ (más sensible la oferta), menor es el mark-down porque subir $T$ reduce mucho la cantidad de trabajadores disponibles.
+</ul>
+\bigskip
+<strong>Relación con el mark-down de monopsonio:</strong>
+En el modelo estándar de <strong>monopsonio</strong> visto en clases, el empleador con poder de mercado fija un salario $w$ por debajo del producto marginal del trabajo ($p$). El <strong>mark-down</strong> se define como:
+$$
+\frac{p - w}{p} = \frac{1}{\eta_S^w}
+$$
+donde $\eta_S^w$ es la elasticidad de la oferta laboral al salario (positiva). A mayor elasticidad de oferta, menor es el mark-down porque los trabajadores responden más a cambios en $w$.
+En este ejercicio, el empleador no fija $w$ (está dado institucionalmente), pero puede fijar el <strong>umbral de calidad</strong> $T$. La expresión derivada es análoga al mark-down de monopsonio, pero con dos diferencias:
+<ol>
+  </li><li>Aparece $\eta_p^T$ porque el empleador no solo afecta la cantidad contratada al cambiar $T$, sino también la <strong>productividad promedio</strong> de los contratados.
+  </li><li>La elasticidad relevante es respecto a $T$ (el umbral), no respecto a $w$ (el salario).
+</ol>
+<strong>Intuición económica:</strong> así como un monopsonista explota su poder de mercado pagando un salario menor a la productividad, el empleador público explota su capacidad de fijar estándares de contratación para generar una brecha entre productividad y salario. La magnitud de esa brecha depende de qué tan sensible es la productividad al estándar ($\eta_p^T$) y qué tan sensible es la oferta laboral al estándar ($\eta_S^T$).</div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="2" data-topic="Oferta Laboral, Heckman, Frisch" data-num="6">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 6: Ejercicio 6: Oferta Laboral y Selección (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 2</span><span class="chip chip-topic">Oferta Laboral, Heckman, Frisch</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Un investigador quiere estimar la elasticidad de la oferta laboral femenina al salario. Tiene un corte transversal de mujeres donde observa $Y_i$ = horas trabajadas, $w_i$ = salario por hora, $X_i$ = controles (edad, educación, hijos). Solo observa el salario de quienes trabajan ($Y_i &gt; 0$).</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Efecto ingreso y sustitución.</strong> Parta del modelo estático de oferta laboral con utilidad $U(C, L)$ donde $L$ es ocio y $C$ es consumo, con restricción presupuestaria $C = wH + V$ donde $H = \bar{T} - L$ son horas trabajadas y $V$ es ingreso no laboral. Derive la condición de optimalidad y explique por qué un aumento en $w$ tiene un efecto ambiguo sobre $H$. ¿Qué determina si domina el efecto sustitución o el efecto ingreso? <em>Referencia: Capítulo 2, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-6-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-6-0"><em>Respuesta:</em>
+El individuo maximiza $U(C, L)$ sujeto a $C = w(\bar{T} - L) + V$. La CPO es:
+$$
+\frac{U_L}{U_C} = w \quad \text{(TMS = salario)}
+$$
+Un aumento en $w$ tiene dos efectos:
+<ul>
+  <li><strong>Efecto sustitución:</strong> el ocio se encarece relativo al consumo $\Rightarrow$ reduce ocio $\Rightarrow$ aumenta $H$.
+  </li><li><strong>Efecto ingreso:</strong> mayor $w$ aumenta el ingreso real $\Rightarrow$ aumenta consumo de ocio (bien normal) $\Rightarrow$ reduce $H$.
+</ul>
+El efecto total es ambiguo y depende de la magnitud relativa de ambos. Si el ocio es un bien normal, el efecto ingreso va en contra del efecto sustitución. La elasticidad Hicksiana (compensada) es siempre positiva; la elasticidad Marshaliana (no compensada) puede ser positiva o negativa. <em>Ver libro Cap. 2, Slutsky para oferta laboral.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts] Heckman Selection Bias.</strong> Explique por qué OLS de $Y_i$ sobre $w_i$ usando solo mujeres que trabajan produce estimadores sesgados. Formalice el problema usando la ecuación de selección: $T_i^* = \gamma Z_i + \eta_i$, donde $T_i = 1$ si $T_i^* &gt; 0$ (trabaja) y $w_i$ solo se observa si $T_i = 1$. ¿Qué supuesto permite identificar el modelo de Heckman (two-step)? <em>Referencia: Capítulo 2, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-6-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-6-1"><em>Respuesta:</em>
+El problema es que solo observamos el salario $w_i$ para quienes trabajan ($Y_i &gt; 0$). Si la decisión de trabajar está correlacionada con factores no observados que también afectan las horas (motivación, preferencias por trabajo), entonces:
+$$
+\E[Y_i \mid T_i = 1, w_i] \neq \E[Y_i \mid w_i]
+$$
+Formalmente, el modelo de Heckman (1979) plantea:
+\begin{aligned}
+\text{Ecuación de horas:} \quad Y_i &amp;= \beta w_i + \delta X_i + \varepsilon_i \\
+\text{Ecuación de participación:} \quad T_i^* &amp;= \gamma Z_i + \eta_i, \quad T_i = \mathbf{1}\{T_i^* &gt; 0\}
+\end{aligned}
+con $(\varepsilon_i, \eta_i)$ correlacionados. Bajo normalidad conjunta:
+$$
+\E[Y_i \mid T_i = 1, w_i, X_i] = \beta w_i + \delta X_i + \rho \sigma_\varepsilon \lambda(\gamma Z_i)
+$$
+donde $\lambda(\cdot) = \phi(\cdot)/\Phi(\cdot)$ es el <strong>inverse Mills ratio</strong>. Omitir $\lambda(\cdot)$ genera sesgo por selección muestral.
+El supuesto identificador clave es que exista al menos una variable en $Z_i$ que afecte la participación pero no las horas (exclusión en la ecuación de horas). <em>Ver libro Cap. 2, Sección 2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Elasticidad Frisch.</strong> Defina la elasticidad Frisch de oferta laboral. ¿En qué se diferencia de las elasticidades Marshaliana y Hicksiana? ¿Qué parámetro es relevante para evaluar el efecto de cambios impositivos transitorios versus permanentes? <em>Referencia: Capítulo 2, Sección 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-6-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-6-2"><em>Respuesta:</em>
+Las tres elasticidades son:
+<ul>
+  <li><strong>Marshaliana (no compensada):</strong> $\eta_M = \frac{\partial H}{\partial w} \frac{w}{H}$ — incluye efecto ingreso y sustitución. Apropiada para cambios permanentes en $w$.
+  </li><li><strong>Hicksiana (compensada):</strong> $\eta_H = \frac{\partial H^c}{\partial w} \frac{w}{H}$ — solo efecto sustitución (mantiene utilidad constante). Siempre positiva.
+  </li><li><strong>Frisch:</strong> $\eta_F = \frac{\partial H}{\partial w} \frac{w}{H}$ manteniendo constante la <strong>utilidad marginal de la riqueza</strong> $\lambda$. Relevante para cambios transitorios en $w$ en un modelo dinámico.
+</ul>
+La elasticidad Frisch es la más apropiada para evaluar cambios impositivos <strong>transitorios</strong> (ej: un bono temporal) porque en un modelo de ciclo de vida, el individuo puede reasignar horas entre períodos. Para cambios <strong>permanentes</strong>, la elasticidad Marshaliana (o Hicksiana) es la relevante. Típicamente $\eta_F &gt; \eta_H &gt; \eta_M$, y la literatura encuentra $\eta_F \approx 0.3-0.5$ para hombres y mayor para mujeres. <em>Ver libro Cap. 2, Sección 4.2.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="3" data-topic="Capital Humano, Mincer, Signaling" data-num="7">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 7: Ejercicio 7: Capital Humano y Retornos a la Educación (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 3</span><span class="chip chip-topic">Capital Humano, Mincer, Signaling</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere la ecuación de Mincer: $\ln Y_i = \alpha + \beta S_i + \gamma_1 Exp_i + \gamma_2 Exp_i^2 + \varepsilon_i$, donde $S$ son años de educación, $Exp$ es experiencia laboral, y $Y$ son ingresos.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[7 pts] Ecuación de Mincer y Ability Bias.</strong> Derive la ecuación de Mincer a partir del modelo de capital humano (Ben-Porath). ¿Por qué OLS de $\ln Y_i$ sobre $S_i$ entrega un estimador $\hat{\beta}$ sesgado de la tasa de retorno a la educación? Proponga una estrategia de identificación para corregir este sesgo. <em>Referencia: Capítulo 3, Secciones 1--2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-7-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-7-0"><em>Respuesta:</em>
+La ecuación de Mincer se deriva de un modelo donde los individuos eligen $S$ años de educación (costo = ingreso no percibido) y reciben un retorno $\beta$ por cada año adicional. Bajo el supuesto de que los años de ingreso post-educación son los mismos independientemente de $S$, se obtiene:
+$$
+\ln Y(S) = \ln Y_0 + \beta S + \gamma_1 Exp + \gamma_2 Exp^2
+$$
+<strong>Sesgo por habilidad (ability bias):</strong> OLS es sesgado si $\Cov(S_i, \varepsilon_i) \neq 0$, lo que ocurre porque personas con mayor habilidad innata ($\varepsilon_i$) tienden a obtener más educación ($S_i$). Esto genera un sesgo hacia arriba: $\hat{\beta}_{OLS} &gt; \beta$.
+<strong>Estrategia de identificación:</strong> usar <strong>variables instrumentales</strong>. Los instrumentos clásicos son:
+<ul>
+  <li>Cuarto de nacimiento (Quarter of Birth, Angrist \&amp; Krueger, 1991): personas nacidas en distintos trimestres tienen distinta edad al entrar a la escuela y por tanto distinta educación obligatoria.
+  </li><li>Cambios en la edad de escolaridad obligatoria como instrumento (Card, 1995).
+</ul>
+Alternativamente, gemelos idénticos (diferencias dentro de la familia eliminan habilidad no observada compartida). <em>Ver libro Cap. 3, Sección 2.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Capital Humano vs. Señalización.</strong> La teoría del capital humano predice que la educación aumenta la productividad. La teoría de señalización (Spence, 1973) predice que la educación solo revela habilidad innata. Diseñe un test empírico para distinguir entre ambas teorías. ¿Qué predeciría cada una sobre los retornos a educación para grupos con distinto costo de señalización? <em>Referencia: Capítulo 3, Sección 3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-7-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-7-1"><em>Respuesta:</em>
+<strong>Predicciones contrastantes:</strong>
+<ul>
+  <li><strong>Capital humano:</strong> la educación <em>crea</em> productividad. Individuos con la misma educación pero distinta habilidad innata deberían tener retornos similares si el contenido educativo es el mismo.
+  </li><li><strong>Señalización:</strong> la educación solo <em>revela</em> productividad. Si el costo de educarse es menor para personas más hábiles, en equilibrio solo ellas obtienen educación. Quienes no se educan tienen menor habilidad, no porque la educación no enseñe nada.
+</ul>
+<strong>Test empírico:</strong> comparar retornos para grupos con distinto costo de señalización. Por ejemplo:
+<ul>
+  </li><li>Personas con discapacidades de aprendizaje (mayor costo de señalización): si la educación es solo señal, debieran tener menor retorno porque la señal es más costosa de adquirir. Si es capital humano, el retorno debiera ser similar (asumiendo que aprenden igual).
+  </li><li>Personas que entran a la universidad por sorteo (ej: Zimmerman 2014): si el título universitario es solo señal, el efecto de ser admitido debiera ser grande para quienes obtienen el título pero pequeño para quienes entran pero no se titulan. Si es capital humano, incluso quienes no se titulan debieran mostrar algún retorno por los conocimientos adquiridos.
+</ul>
+La evidencia sugiere que ambos canales operan, pero el de capital humano explica la mayor parte del retorno. <em>Ver libro Cap. 3, Sección 3.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts] Roy Model.</strong> Explique el modelo de Roy (1951) de autoselección ocupacional. Si hay dos ocupaciones (pesca y caza) con distinta dispersión salarial, ¿qué tipo de personas elige cada una? ¿Cómo sesga esto las estimaciones OLS del retorno a cambiar de ocupación? <em>Referencia: Capítulo 3, Sección 5.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-7-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-7-2"><em>Respuesta:</em>
+El modelo de Roy describe cómo los trabajadores se autoseleccionan en ocupaciones según su <strong>ventaja comparativa</strong>. Suponga dos ocupaciones con salarios:
+$$
+\ln w_{1i} = \mu_1 + \varepsilon_{1i}, \quad \ln w_{2i} = \mu_2 + \varepsilon_{2i}
+$$
+donde $(\varepsilon_1, \varepsilon_2)$ tiene correlación $\rho$. Cada individuo elige la ocupación que maximiza su ingreso.
+<strong>Patrones de selección:</strong>
+<ul>
+  <li>Si $\sigma_1 &gt; \sigma_2$ (pesca más dispersa que caza): los individuos con alta habilidad en pesca ($\varepsilon_1$ grande) eligen pesca; los de baja habilidad en pesca eligen caza. Hay <strong>selección positiva</strong> en pesca y <strong>selección negativa</strong> en caza.
+  </li><li>Si $\rho$ es alta (habilidades transferibles): la mayoría elige la ocupación con mayor media $\mu$.
+</ul>
+<strong>Sesgo en OLS:</strong> si comparamos salarios medios entre ocupaciones, OLS sobreestima el retorno a cambiar de ocupación porque quienes eligen cada ocupación tienen ventaja comparativa en ella. El retorno promedio para un individuo <em>aleatorio</em> sería menor que la diferencia observada entre ocupaciones. <em>Ver libro Cap. 3, Sección 5.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[5 pts] Calidad Docente.</strong> ¿Cómo estimaría el efecto causal de la calidad del profesor sobre los resultados de los estudiantes? Discuta el uso de <em>value-added models</em> y sus limitaciones. <em>Referencia: Capítulo 3, Sección 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-7-3', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-7-3"><em>Respuesta:</em>
+Los <strong>value-added models</strong> (VAM) estiman el efecto del profesor $j$ sobre el puntaje del estudiante $i$ como:
+$$
+Y_{it} = \beta Y_{i,t-1} + \gamma X_{it} + \theta_j + \varepsilon_{it}
+$$
+donde $\theta_j$ es el ``valor agregado'' del profesor (efecto fijo).
+<strong>Limitaciones:</strong>
+<ol>
+  <li><strong>Asignación no aleatoria:</strong> estudiantes más hábiles pueden ser asignados a ciertos profesores. Si bien controlar por $Y_{i,t-1}$ ayuda, persiste sesgo si hay tendencias no lineales.
+  </li><li><strong>Error de medición:</strong> los $\hat{\theta}_j$ se estiman con ruido, y al usarlos como regresores en otra etapa se produce <strong>shrinkage</strong> (contracción hacia la media, como en Chetty et al.).
+  </li><li><strong>Efectos de pares:</strong> el VAM puede confundir efecto del profesor con efecto de los compañeros.
+</ol>
+La mejor evidencia combina VAM con <strong>experimentos naturales</strong> (ej: asignación aleatoria de profesores a aulas dentro de una escuela, o uso de la movilidad de profesores entre escuelas como instrumento). <em>Ver libro Cap. 3, Sección 4.3.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="4" data-topic="Demanda Laboral, Marshall-Hicks" data-num="8">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 8: Ejercicio 8: Demanda Laboral y Marshall-Hicks (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 4</span><span class="chip chip-topic">Demanda Laboral, Marshall-Hicks</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Una empresa produce usando trabajo $L$ y capital $K$ con una función de producción Cobb-Douglas $Y = L^\alpha K^\beta$, con $\alpha + \beta &lt; 1$ (rendimientos decrecientes). El salario $w$ y el costo del capital $r$ son dados.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Demanda de Corto y Largo Plazo.</strong> Derive la demanda de trabajo de corto plazo (capital fijo en $\bar{K}$) y de largo plazo (capital variable). Muestre que la demanda de largo plazo es más elástica que la de corto plazo. ¿Por qué? <em>Referencia: Capítulo 4, Secciones 1--2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-8-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-8-0"><em>Respuesta:</em>
+<strong>Corto plazo</strong> ($K = \bar{K}$ fijo): la empresa maximiza $\pi = L^\alpha \bar{K}^\beta - wL - r\bar{K}$. La CPO es:
+$$
+\alpha L^{\alpha-1} \bar{K}^\beta = w \quad \Rightarrow \quad L_{SR} = \left(\frac{\alpha \bar{K}^\beta}{w}\right)^{1/(1-\alpha)}
+$$
+La elasticidad corto plazo es: $\eta_{SR} = -\frac{1}{1-\alpha}$.
+<strong>Largo plazo</strong> ($K$ variable): maximizamos $\pi = L^\alpha K^\beta - wL - rK$. Las CPO son:
+\begin{aligned}
+\alpha L^{\alpha-1} K^\beta &amp;= w \\
+\beta L^\alpha K^{\beta-1} &amp;= r
+\end{aligned}
+Resolviendo:
+$$
+L_{LR} = \left[\left(\frac{\alpha}{w}\right)^{1-\beta} \left(\frac{\beta}{r}\right)^\beta \right]^{1/(1-\alpha-\beta)}
+$$
+La elasticidad largo plazo es: $\eta_{LR} = -\frac{1-\beta}{1-\alpha-\beta}$.
+<strong>Comparación:</strong> $\eta_{LR} &gt; \eta_{SR}$ en valor absoluto porque a largo plazo la empresa puede ajustar ambos factores, sustituyendo capital por trabajo cuando $w$ sube. El efecto sustitución entre factores solo opera a largo plazo. <em>Ver libro Cap. 4, Sección 2.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts] Reglas de Marshall-Hicks.</strong> Enuncie las cuatro reglas de Marshall-Hicks sobre la elasticidad de la demanda laboral. Aplíquelas al caso de: (i) trabajadores de la construcción vs.\ trabajadores de salud en un sistema público; (ii) conductores de Uber versus conductores de taxi con licencia. <em>Referencia: Capítulo 4, Sección 3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-8-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-8-1"><em>Respuesta:</em>
+Las <strong>cuatro reglas de Marshall-Hicks</strong> establecen que la demanda por trabajo es más elástica cuando:
+<ol>
+  <li>La elasticidad de sustitución entre factores ($\sigma$) es alta.
+  </li><li>La elasticidad de demanda por el producto final es alta.
+  </li><li>La participación del trabajo en los costos totales es alta.
+  </li><li>La oferta de otros factores (capital) es más elástica.
+</ol>
+<strong>Aplicaciones:</strong>
+<ul>
+  </li><li><strong>Construcción vs.\ Salud pública:</strong> la construcción tiene mayor elasticidad de demanda porque (1) el producto final es más elástico (la vivienda tiene sustitutos, la salud pública no), (2) la participación del trabajo es mayor en construcción, y (3) hay más sustitución con capital (maquinaria vs.\ albañiles) que en salud (es difícil reemplazar médicos con máquinas).
+  </li><li><strong>Uber vs.\ Taxis:</strong> los conductores de Uber tienen demanda más elástica porque (1) Uber puede reclutar conductores fácilmente (oferta de trabajo elástica), (2) hay sustitutos cercanos (Lyft, Didi), y (3) el trabajo es una alta proporción del costo del servicio. Los taxistas con licencia tienen demanda más inelástica porque las licencias restringen la oferta de conductores.
+</ul>
+<em>Ver libro Cap. 4, Sección 3.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Efectos Cruzados entre Factores.</strong> Suponga que el gobierno subsidia el uso de robots ($K$ se abarata). Usando el marco de demanda derivada, analice el efecto sobre el empleo de trabajadores calificados ($H$) y no calificados ($L$) bajo dos escenarios: (i) $H$ y $L$ son sustitutos de $K$; (ii) $H$ es complemento de $K$, $L$ es sustituto. <em>Referencia: Capítulo 4, Sección 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-8-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-8-2"><em>Respuesta:</em>
+Una caída en $r$ (costo del capital) tiene dos efectos sobre el empleo de cada factor:
+<strong>Efecto sustitución:</strong> las empresas reemplazan factores más caros por capital más barato, reduciendo la demanda de factores que son sustitutos de $K$.
+<strong>Efecto escala:</strong> el costo marginal cae, la empresa produce más, y aumenta la demanda de todos los factores (complementariedad por expansión).
+<strong>Escenario (i) $H$ y $L$ sustitutos de $K$:</strong> el efecto sustitución reduce la demanda de $H$ y $L$, mientras el efecto escala la aumenta. El efecto neto es ambiguo y depende de la elasticidad de demanda del producto final.
+<strong>Escenario (ii) $H$ complemento de $K$, $L$ sustituto de $K$:</strong> la caída en $r$ aumenta la demanda de $H$ (efecto sustitución positivo porque son complementos) y reduce la de $L$ (efecto sustitución negativo). El efecto escala aumenta la demanda de ambos. El resultado: $H$ probablemente aumenta (ambos efectos en la misma dirección), $L$ tiene un efecto ambiguo (sustitución negativa, escala positiva). Este es el mecanismo del <strong>SBTC</strong>: el capital (computerizado) es complemento de $H$ y sustituto de $L$, generando polarización. <em>Ver libro Cap. 4, Sección 4.2 y Cap. 5.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="7" data-topic="DMP, Búsqueda, Desempleo" data-num="9">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 9: Ejercicio 9: Modelo DMP de Búsqueda y Desempleo (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 7</span><span class="chip chip-topic">DMP, Búsqueda, Desempleo</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere el modelo Diamond-Mortensen-Pissarides (DMP) en estado estacionario. Hay una masa de trabajadores normalizada a 1, y una masa de firmas que entran libremente. El flujo de matches está dado por la función de matching $M(u, v) = A u^\alpha v^{1-\alpha}$, donde $u$ es la tasa de desempleo, $v$ es la tasa de vacantes, $A$ es la eficiencia del matching, y $\alpha \in (0,1)$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Curva de Beveridge y Equilibrio.</strong> Defina la condición de flujo de estado estacionario para el desempleo y derive la curva de Beveridge (relación entre $u$ y $v$). Grafíquela. ¿Qué desplaza la curva de Beveridge? ¿Qué la mueve a lo largo de la curva? <em>Referencia: Capítulo 7, Secciones 1--2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-9-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-9-0"><em>Respuesta:</em>
+En estado estacionario, los flujos hacia el empleo y desde el empleo se igualan. Sea $s$ la tasa de destrucción de empleos (exógena) y $f(\theta) = M/u = A \theta^{1-\alpha}$ la tasa de llegada de ofertas a un desempleado, donde $\theta = v/u$ es la <strong>tightness</strong> del mercado. La condición de flujo es:
+$$
+s(1-u) = f(\theta) u \quad \Rightarrow \quad u = \frac{s}{s + f(\theta)}
+$$
+La <strong>curva de Beveridge</strong> relaciona $u$ y $v$:
+$$
+u = \frac{s}{s + A (v/u)^{1-\alpha}} \quad \text{o equivalentemente} \quad v = \left( \frac{s(1-u)}{A u} \right)^{1/(1-\alpha)} u
+$$
+Tiene pendiente negativa en el espacio $(u, v)$.
+<ul>
+  <li><strong>Desplazamientos:</strong> cambios en $s$ (destrucción) o $A$ (eficiencia del matching). Una mayor $A$ desplaza la curva hacia adentro (menos desempleo para cada nivel de vacantes). Una mayor $s$ la desplaza hacia afuera.
+  </li><li><strong>Movimientos a lo largo:</strong> cambios en la creación de vacantes por parte de las firmas (shocks de productividad, cambios en el costo de publicar vacantes).
+</ul>
+<em>Ver libro Cap. 7, Sección 2.2 y Figura 7.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts] Ecuaciones de Valor y Nash Bargaining.</strong> Escriba las ecuaciones de Bellman para un trabajador empleado ($W$), un trabajador desempleado ($U$), una firma con un puesto ocupado ($J$) y una firma con vacante ($V$). Bajo entrada libre ($V = 0$), derive la <strong>job creation condition</strong>. Luego, asuma que el salario se determina por negociación Nash con poder de negociación del trabajador $\beta$. Derive el salario de equilibrio y explique por qué el desempleado tiene poder de negociación (outside option). <em>Referencia: Capítulo 7, Secciones 3--4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-9-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-9-1"><em>Respuesta:</em>
+Las ecuaciones de Bellman en tiempo continuo son (donde $p$ es productividad, $w$ salario, $c$ costo de vacante, $z$ ingreso del desempleado, $r$ tasa de descuento):
+\begin{aligned}
+rW &amp;= w + s(U - W) \\
+rU &amp;= z + \theta q(\theta)(W - U) \quad \text{con } q(\theta) = M/v = A\theta^{-\alpha} \\
+rJ &amp;= (p - w) + s(V - J) \\
+rV &amp;= -c + q(\theta)(J - V)
+\end{aligned}
+Bajo <strong>entrada libre</strong> ($V = 0$), de $rV = 0$ obtenemos la <strong>job creation condition</strong>:
+$$
+0 = -c + q(\theta) J \quad \Rightarrow \quad J = \frac{c}{q(\theta)} = \frac{c}{A} \theta^\alpha
+$$
+<strong>Nash bargaining:</strong> el salario se negocia dividiendo el excedente total $S = (W - U) + (J - V)$ con participación $\beta$ para el trabajador:
+$$
+W - U = \beta S, \quad J - V = (1-\beta)S
+$$
+De la ecuación de $J$ y $rU$, el salario de equilibrio es:
+$$
+w = \beta(p + c\theta) + (1-\beta)z
+$$
+<strong>Outside option:</strong> el desempleado tiene poder de negociación porque puede rechazar la oferta y seguir buscando. Su amenaza ($U$) depende del ingreso $z$ y de la probabilidad de encontrar otro empleo ($\theta q(\theta)(W-U)$). A mayor $z$ o mayor $\theta$, mejor es su outside option y mayor el salario negociado. <em>Ver libro Cap. 7, Sección 4.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Condición de Hosios y Eficiencia.</strong> Derive la condición de Hosios (1990) para la eficiencia del equilibrio descentralizado. ¿Qué distorsiones genera un mercado de búsqueda? ¿Qué política corregiría un equilibrio ineficiente? Aplique al caso chileno: ¿cómo afecta el seguro de desempleo a la eficiencia del mercado laboral? <em>Referencia: Capítulo 7, Sección 5.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-9-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-9-2"><em>Respuesta:</em>
+En el mercado de búsqueda hay dos <strong>externalidades</strong>:
+<ul>
+  <li><strong>Externalidad de congestión:</strong> al crear una vacante, la firma reduce la probabilidad de que otras firmas llenen sus vacantes.
+  </li><li><strong>Externalidad de espesor de mercado:</strong> al buscar empleo, el desempleado aumenta la probabilidad de que las firmas llenen sus vacantes.
+</ul>
+La <strong>condición de Hosios</strong> establece que el equilibrio es eficiente si y solo si el poder de negociación del trabajador $\beta$ iguala la elasticidad del matching respecto al desempleo $\alpha$:
+$$
+\beta = \alpha
+$$
+Si $\beta &lt; \alpha$, hay muy pocas vacantes (desempleo ineficientemente alto). Si $\beta &gt; \alpha$, hay demasiadas vacantes (desempleo ineficientemente bajo).
+<strong>Políticas:</strong> si $\beta \neq \alpha$, el gobierno puede corregir la ineficiencia con:
+<ul>
+  </li><li>Subsidios a la creación de vacantes (si $\beta &gt; \alpha$)
+  </li><li>Impuestos a las vacantes o seguro de desempleo generoso (si $\beta &lt; \alpha$)
+</ul>
+<strong>Caso chileno:</strong> el seguro de desempleo (Cuenta Individual de Cesantía + Fondo Solidario) aumenta $z$ (ingreso del desempleado), lo que mejora la outside option del trabajador y aumenta $w$ (vía bargaining). Esto reduce la creación de vacantes ($\theta$ cae) y aumenta el desempleo. Si el seguro es muy generoso, puede alejar el equilibrio del óptimo de Hosios. La evidencia para Chile sugiere que el seguro de cesantía tiene efectos moderados sobre la duración del desempleo, posiblemente porque el sistema de cuentas individuales internaliza parcialmente el costo. <em>Ver libro Cap. 7, Sección 5.2.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="8" data-topic="Burdett-Mortensen, Dispersión Salarial" data-num="10">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 10: Ejercicio 10: Dispersión Salarial y Búsqueda en el Empleo (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 8</span><span class="chip chip-topic">Burdett-Mortensen, Dispersión Salarial</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere el modelo de Burdett-Mortensen (1998) con búsqueda en el empleo (on-the-job search). Hay una masa continua de trabajadores y firmas. Las firmas publican salarios $w$ y los trabajadores reciben ofertas a una tasa $\lambda_0$ cuando están desempleados y $\lambda_1$ cuando están empleados. Los trabajadores son idénticos en productividad $p$. Las ofertas llegan de la distribución de salarios $F(w)$ que es endógena.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts] Comportamiento del Trabajador.</strong> Explique por qué un trabajador empleado acepta una oferta externa solo si $w' &gt; w$. Derive la función de valor de un empleado con salario actual $w$, $V(w)$, y de un desempleado $V_u$. ¿Qué implica la búsqueda en el empleo para la distribución de salarios? <em>Referencia: Capítulo 8, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-10-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-10-0"><em>Respuesta:</em>
+Un trabajador empleado compara su salario actual $w$ con cualquier oferta externa $w'$. Solo acepta si $w' &gt; w$ (mejora salarial). Esto genera <strong>job-to-job transitions</strong> y explica por qué hay trabajadores con la misma productividad ganando salarios distintos.
+Las ecuaciones de Bellman (en tiempo continuo con descuento $r$) son:
+\begin{aligned}
+rV(w) &amp;= w + \lambda_1 \int_{w}^{\bar{w}} [V(w') - V(w)] \, dF(w') + s[V_u - V(w)] \\
+rV_u &amp;= b + \lambda_0 \int_{\underline{w}}^{\bar{w}} [V(w') - V_u] \, dF(w')
+\end{aligned}
+donde $b$ es el ingreso del desempleo y $s$ la tasa de destrucción.
+<strong>Implicancia:</strong> la búsqueda en el empleo genera una distribución de salarios $F(w)$ no degenerada incluso con trabajadores idénticos. Los trabajadores suben de salario a medida que reciben ofertas mejores (job ladder), pero nunca aceptan salarios más bajos. Esto produce <strong>dispersión salarial</strong> como fenómeno de equilibrio: firmas que pagan distinto salario coexisten porque los trabajadores no se cambian instantáneamente a la firma que paga más (hay fricciones de búsqueda). <em>Ver libro Cap. 8, Sección 1.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Comportamiento de la Firma y Distribución de Equilibrio.</strong> Derive la función de beneficios de una firma que paga salario $w$. ¿Por qué las firmas eligen pagar salarios distintos? Explique cómo se determina la distribución de equilibrio $F(w)$. <em>Referencia: Capítulo 8, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-10-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-10-1"><em>Respuesta:</em>
+Una firma que paga salario $w$ tiene un stock de trabajadores $N(w)$ dado por el flujo de trabajadores que aceptan su oferta menos los que se van. En estado estacionario, la función de beneficios por trabajador es:
+$$
+\pi(w) = (p - w) N(w)
+$$
+El tamaño de la firma $N(w)$ es creciente en $w$: a mayor salario, más trabajadores aceptan la oferta y menos se van (porque hay menos ofertas externas mejores). Las firmas enfrentan un <strong>trade-off</strong>: salarios más altos atraen y retienen más trabajadores, pero reducen el margen por trabajador $(p-w)$.
+En equilibrio, las firmas son heterogéneas en el salario que pagan porque son indiferentes entre pagar un salario alto (muchos trabajadores, bajo margen) y uno bajo (pocos trabajadores, alto margen). La condición de indiferencia implica:
+$$
+\pi(w) = \pi(\underline{w}) \quad \forall w
+$$
+Esto determina la distribución de salarios $F(w)$ que es continua y creciente en $[\underline{w}, \bar{w}]$. La distribución tiene un salario mínimo $\underline{w} = b$ (el ingreso del desempleo) y un salario máximo $\bar{w} = p$ (la productividad). <em>Ver libro Cap. 8, Sección 2.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question">La forma de la distribución de salarios.
+</ol>
+¿Qué extensión del modelo (Postel-Vinay \&amp; Robin, 2002) mejora el ajuste empírico? <em>Referencia: Capítulo 8, Secciones 3--4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-10-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-10-2"><em>Respuesta:</em>
+<strong>Predicción 1: Salario y tenure.</strong> El BM predice que los trabajadores con mayor tenure tienen salarios más altos (porque han tenido más tiempo para recibir ofertas externas y subir en la escalera salarial). Esto es consistente con los datos: existe una correlación positiva entre tenure y salario. Sin embargo, el BM también predice que los trabajadores se cambian de firma cada vez que reciben una oferta mejor, lo que implica que el salario depende solo del tiempo en el mercado laboral, no de la firma actual. En los datos, hay un efecto firma persistente.
+<strong>Predicción 2: Distribución de salarios.</strong> El BM genera una distribución de salarios con densidad decreciente (muchas firmas pagan salarios bajos, pocas pagan altos). Esto contrasta con los datos, donde la distribución es aproximadamente normal-log o con cola derecha larga.
+<strong>Extensión PVR (Postel-Vinay \&amp; Robin, 2002):</strong> introducen <strong>negociación secuencial</strong> (sequential auction): cuando un trabajador recibe una oferta externa, su empleador actual puede contraofertar para retenerlo. Esto genera:
+<ul>
+  <li>Mayor persistencia del efecto firma: los trabajadores no siempre se cambian ante una oferta mejor, pueden renegociar.
+  </li><li>Distribución de salarios más realista, con compresión en la cola inferior y dispersión en la cola superior.
+  </li><li>Predice que trabajadores con mayor productividad terminan en firmas que pagan más (sorting positivo).
+</ul>
+<em>Ver libro Cap. 8, Sección 4 y Cap. 9, Sección 1.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="9" data-topic="AKM, Brecha de Género" data-num="11">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 11: Ejercicio 11: Descomposición AKM y Brecha de Género (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 9</span><span class="chip chip-topic">AKM, Brecha de Género</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">El modelo AKM (Abowd, Kramarz \&amp; Margolis, 1999) descompone el log salario del trabajador $i$ en la firma $j(i,t)$ en el año $t$ como:
+$$
+\ln w_{it} = \alpha_i + \psi_{j(i,t)} + X_{it}'\beta + \varepsilon_{it}
+$$
+donde $\alpha_i$ es el <strong>efecto trabajador</strong> (habilidad portable), $\psi_j$ es el <strong>efecto firma</strong> (premio salarial de la firma), y $X_{it}$ son controles observables.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Identificación y Limitaciones.</strong> ¿Qué supuestos se requieren para identificar $\alpha_i$ y $\psi_j$ por separado? Explique el problema de los <strong>móviles</strong> (workers que cambian de firma) y por qué las firmas que nunca contratan ni pierden trabajadores no tienen $\psi_j$ identificado. ¿Qué es el <strong>efecto Limited Mobility Bias</strong> (LMB)? <em>Referencia: Capítulo 9, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-11-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-11-0"><em>Respuesta:</em>
+<strong>Supuestos de identificación:</strong>
+<ol>
+  <li><strong>Movilidad exógena:</strong> los movimientos entre firmas no están correlacionados con el error $\varepsilon_{it}$ (no hay selección por shocks salariales transitorios).
+  </li><li><strong>Conexión suficiente:</strong> la red de movilidad entre firmas debe ser conexa (todos los $\psi_j$ se identifican relativo a una firma de referencia).
+</ol>
+<strong>Rol de los móviles:</strong> los efectos trabajador y firma no se pueden separar si cada trabajador permanece siempre en la misma firma. Los <strong>móviles</strong> (trabajadores que cambian de firma) son los que identifican los $\psi_j$: cuando un trabajador se mueve de la firma $A$ a la $B$, su cambio salarial (controlando por $\alpha_i$) revela la diferencia $\psi_B - \psi_A$. Firmas que nunca intercambian trabajadores con otras (aisladas) no tienen $\psi_j$ identificado.
+<strong>Limited Mobility Bias (LMB):</strong> cuando muchos trabajadores no se mueven o la red de movilidad es poco densa, los $\hat{\psi}_j$ se estiman con ruido (pocos movimientos por firma). Andrews et al. (2008, 2012) muestran que esto genera un sesgo positivo en la varianza estimada de $\psi_j$ y en la correlación entre $\alpha_i$ y $\psi_j$ (sorting). Se requieren correcciones por <strong>two-way FE</strong> con muchos clústeres pequeños. <em>Ver libro Cap. 9, Sección 1.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Descomposición de la Desigualdad.</strong> Usando AKM, la varianza de $\ln w$ se descompone como: $\Var(\ln w) = \Var(\alpha) + \Var(\psi) + 2\Cov(\alpha, \psi) + \Var(X\beta) + \Var(\varepsilon)$. Interprete cada término. ¿Qué significa que $\Cov(\alpha, \psi) &gt; 0$? ¿Qué implicancias tiene para la desigualdad salarial que el $\Var(\psi)$ haya aumentado en el tiempo? <em>Referencia: Capítulo 9, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-11-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-11-1"><em>Respuesta:</em>
+<strong>Interpretación de los términos:</strong>
+<ul>
+  <li>$\Var(\alpha)$: desigualdad por diferencias en habilidad portable entre trabajadores (educación, experiencia, habilidad innata).
+  </li><li>$\Var(\psi)$: desigualdad por diferencias entre firmas en el premio salarial que pagan. Refleja poder de mercado, productividad, rentabilidad de cada firma.
+  </li><li>$\Cov(\alpha, \psi)$: <strong>sorting</strong> entre trabajadores y firmas. Si es positivo, los trabajadores más hábiles están en las firmas que pagan mejores premios (sorting positivo). Si es negativo, hay sorting negativo.
+  </li><li>$\Var(X\beta)$: desigualdad explicada por observables (edad, educación, etc.).
+  </li><li>$\Var(\varepsilon)$: desigualdad residual (shocks transitorios, error de medición).
+</ul>
+<strong>$\Cov(\alpha, \psi) &gt; 0$:</strong> significa que hay <strong>sorting positivo</strong> — los trabajadores más productivos trabajan en las mejores firmas. Esto amplifica la desigualdad: la diferencia entre un trabajador hábil en una buena firma y uno no hábil en una mala firma es mayor que la suma de sus efectos individuales.
+<strong>Aumento de $\Var(\psi)$ en el tiempo:</strong> si la dispersión de premios entre firmas ha aumentado, significa que cada vez importa más <em>dónde</em> trabajas para determinar tu salario. Esto puede deberse a: (i) mayor heterogeneidad entre firmas por globalización/tecnología, (ii) aumento del poder de mercado de ciertas firmas (superstar firms), (iii) debilitamiento de instituciones compresoras como sindicatos o salario mínimo. La evidencia muestra que $\Var(\psi)$ explica una porción creciente de la desigualdad total en EE.UU. y Europa. <em>Ver libro Cap. 9, Sección 2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts] Brecha de Género.</strong> Aplique la descomposición AKM para analizar la brecha salarial de género. ¿Qué fracción de la brecha se debe a diferencias en $\alpha_i$ (habilidad) vs.\ diferencias en $\psi_j$ (segregación ocupacional/firma)? ¿Cómo se relaciona la brecha con la elasticidad de oferta laboral femenina (menor elasticidad $\Rightarrow$ mayor markdown)? <em>Referencia: Capítulo 9, Sección 3 y Capítulo 6.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-11-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-11-2"><em>Respuesta:</em>
+La brecha salarial de género se descompone en tres canales usando AKM:
+<ol>
+  <li><strong>Diferencias en $\alpha_i$:</strong> mujeres y hombres pueden tener distintos niveles de habilidad observada (educación, experiencia) o no observada. La brecha por experiencia interrumpida (hijos) es la más documentada.
+  </li><li><strong>Diferencias en $\psi_j$ (segregación):</strong> mujeres trabajan en firmas que pagan menores premios salariales (efecto firma). Esto refleja <strong>segregación ocupacional</strong> y <strong>segregación entre firmas</strong>: las mujeres están sobrerrepresentadas en firmas con menor productividad o menor poder de mercado.
+  </li><li><strong>Diferencias en bargaining:</strong> incluso dentro de la misma firma y mismo puesto, las mujeres pueden obtener menor salario por menor poder de negociación.
+</ol>
+<strong>Evidencia:</strong> Card, Cardoso \&amp; Kline (2016) usando datos de Portugal encuentran que el sorting ($\Cov(\text{género}, \psi_j)$) explica aproximadamente 20-30\% de la brecha. El resto se debe a diferencias en $\alpha_i$ (experiencia, interrupciones) y bargaining.
+<strong>Relación con elasticidad de oferta laboral (Cap. 6):</strong> las mujeres enfrentan una demanda laboral menos elástica que los hombres porque tienen menor movilidad (restricciones familiares, menor búsqueda en el empleo). En el marco de monopsonio (Cap. 6), menor elasticidad de oferta laboral $\Rightarrow$ mayor <strong>markdown</strong> (brecha entre productividad y salario). Esto explica por qué las mujeres ganan menos incluso siendo igualmente productivas. La evidencia encuentra que la elasticidad de oferta laboral femenina es 0.5--1.0 vs.\ 1.5--2.5 para hombres, consistente con markdowns mayores para mujeres. <em>Ver libro Cap. 9, Sección 3.3 y Cap. 6, Sección 4.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="10" data-topic="Instituciones, Salario Mínimo, Sindicatos" data-num="12">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 12: Ejercicio 12: Instituciones Laborales (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 10</span><span class="chip chip-topic">Instituciones, Salario Mínimo, Sindicatos</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">En este ejercicio analizamos el efecto del salario mínimo, los sindicatos y los incentivos en el sector público.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts] Salario Mínimo: Modelos en Competencia vs.\ Monopsonio.</strong> Explique por qué el modelo competitivo predice que un salario mínimo $w_{min} &gt; w^*$ reduce el empleo, mientras que el modelo de monopsonio puede predecir que lo aumenta. Use un gráfico de oferta y demanda laboral para cada caso. ¿Qué dice la evidencia empírica (Card \&amp; Krueger, 1994) y por qué fue tan influyente? <em>Referencia: Capítulo 10, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-12-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-12-0"><em>Respuesta:</em>
+<strong>Modelo competitivo:</strong> la empresa toma el salario como dado y contrata hasta donde $VMP_L = w$. Un salario mínimo sobre el equilibrio ($w_{min} &gt; w^*$) reduce la cantidad demandada de trabajo (se sube por la curva de demanda) y aumenta la cantidad ofrecida (se sube por la curva de oferta), generando un excedente de oferta: <strong>desempleo</strong>. Predicción clara: $w_{min} \uparrow \Rightarrow L \downarrow$.
+<strong>Modelo de monopsonio:</strong> la empresa enfrenta una curva de oferta laboral con pendiente positiva (tiene poder de mercado). Contrata hasta donde $VMP_L = CMgL$ (costo marginal del trabajo), pagando $w^* &lt; VMP_L$. Un salario mínimo entre $w^*$ y el salario competitivo $w_c$ obliga a la empresa a subir el salario, pero como el $CMgL$ ahora es plano (la empresa ya no puede discriminar), la empresa contrata <strong>más</strong> trabajadores hasta que $VMP_L = w_{min}$. Predicción: $w_{min}$ moderado $\Rightarrow L \uparrow$.
+<strong>Evidencia:</strong> Card \&amp; Krueger (1994) estudiaron el aumento del salario mínimo en Nueva Jersey (de \$4.25 a \$5.05) usando Pennsylvania como control (DiD). Encontraron que el empleo en fast-food <strong>no disminuyó</strong> y posiblemente aumentó. Esto fue influyente porque:
+<ol>
+  <li>Desafió el consenso teórico (Buchanan: ``water runs uphill'').
+  </li><li>Usó un diseño creíble (DiD con grupo de control comparable).
+  </li><li>Mostró que los mercados laborales reales tienen fricciones (monopsonio) que invalidan la predicción competitiva simple.
+</ol>
+La literatura posterior (Cengiz et al., 2019) usando stacked DiD encuentra que aumentos moderados del salario mínimo tienen efectos nulos o positivos en el empleo, y reducen la desigualdad salarial en la cola baja. <em>Ver libro Cap. 10, Sección 1.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Sindicatos: Premium Salarial y Hold-Up Problem.</strong> Defina el <strong>premio salarial sindical</strong> (union wage premium) y explique cómo se estima. ¿Qué es el <strong>hold-up problem</strong> y cómo afecta la inversión en capital específico? ¿Cómo ha afectado la caída de la sindicalización a la desigualdad salarial? <em>Referencia: Capítulo 10, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-12-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-12-1"><em>Respuesta:</em>
+<strong>Premio salarial sindical:</strong> es la diferencia porcentual entre el salario de un trabajador sindicalizado y un trabajador no sindicalizado comparable. Se estima con OLS (controlando por educación, experiencia, industria, etc.) o con efectos fijos de trabajador si hay datos de panel (comparing workers who switch union status). La estimación OLS sugiere un premio de 10-15\% en EE.UU. (menor en Europa). Sin embargo, el OLS puede estar sesgado si la sindicalización es endógena.
+<strong>Hold-up problem:</strong> los sindicatos pueden apropiarse de parte de las rentas generadas por inversiones en capital específico (ej: capacitación pagada por la firma). Si la firma anticipa que el sindicato exigirá mayores salarios una vez que la inversión está hecha, la firma invierte menos de lo óptimo. Esto genera un <strong>subinversión en capital específico</strong> en sectores sindicalizados.
+<strong>Caída de la sindicalización y desigualdad:</strong> la tasa de sindicalización en EE.UU. cayó de ~25\% en 1970 a ~10\% en 2020. Esto ha contribuido al aumento de la desigualdad porque:
+<ol>
+  <li>Los sindicatos comprimen la distribución salarial dentro de la firma (menor dispersión entre trabajadores de la misma firma).
+  </li><li>Los sindicatos reducen la dispersión entre firmas al estandarizar salarios en la industria.
+  </li><li>La caída de la sindicalización explica entre 15-25\% del aumento de la desigualdad salarial masculina (Western \&amp; Rosenfeld, 2011).
+</ol>
+<em>Ver libro Cap. 10, Sección 2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts] Economía de Personal y Sector Público.</strong> Un alcalde debe diseñar un sistema de incentivos para los funcionarios municipales. Proponga un esquema de <strong>pay-for-performance</strong> y discuta sus problemas potenciales (multitarea, medición, cooperación). ¿Por qué el sector público usa menos incentivos por desempeño que el sector privado? Relacione su respuesta con el modelo de <strong>licensing</strong> del Capítulo 6. <em>Referencia: Capítulo 10, Sección 3 y Capítulo 6.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-12-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-12-2"><em>Respuesta:</em>
+<strong>Esquema de pay-for-performance:</strong> vincular una parte del salario a indicadores de desempeño (ej: número de permisos procesados, satisfacción de usuarios, reducción de tiempos de espera).
+<strong>Problemas potenciales:</strong>
+<ol>
+  <li><strong>Multitarea:</strong> si solo algunos aspectos del trabajo son medibles, los funcionarios enfocarán esfuerzo en esos y descuidarán tareas no medidas (ej: tramitar permisos rápido pero con errores).
+  </li><li><strong>Medición:</strong> los outputs del sector público son difíciles de cuantificar (calidad del servicio, equidad en la atención). Indicadores imperfectos generan incentivos distorsionados.
+  </li><li><strong>Cooperación:</strong> el pago individual puede desincentivar la colaboración entre funcionarios, esencial en servicios públicos complejos.
+  </li><li><strong>Captura de indicadores:</strong> los funcionarios pueden manipular las métricas (ej: rechazar casos difíciles para mejorar indicadores).
+</ol>
+<strong>¿Por qué el sector público usa menos incentivos?</strong>
+<ul>
+  </li><li>La <strong>multitarea</strong> es más severa que en el privado: los funcionarios tienen múltiples objetivos no siempre alineados.
+  </li><li>El <strong>riesgo político</strong>: cambiar el sistema de incentivos es costoso electoralmente.
+  </li><li><strong>Equidad:</strong> la opinión pública valora la igualdad salarial en el servicio público más que en el privado.
+</ul>
+<strong>Relación con Licensing (Cap. 6):</strong> el modelo de licensing mostró que cuando el salario es fijo (escala nacional) pero el empleador fija un umbral de calidad $T$, la brecha entre productividad y salario ($p(T)-w$) depende de las elasticidades $\eta_p^T$ y $\eta_S^T$. En el sector público:
+<ul>
+  </li><li>El salario $w$ está fijado institucionalmente (escala nacional), no por mercado.
+  </li><li>El empleador (municipio) puede subir el estándar $T$ para atraer funcionarios más productivos, pero esto reduce la oferta laboral $S(T)$.
+  </li><li>El mark-down $(p-w)/p = -\eta_p^T/\eta_S^T$ refleja cuánto poder tiene el empleador público para obtener productividad por sobre el salario fijo. Para ciertos perfiles (médicos, ingenieros) con alta $\eta_S^T$, el mark-down es pequeño, y el empleador compite vía $T$ (no vía $w$).
+</ul>
+<em>Ver libro Cap. 10, Sección 3.2 y Cap. 6, Sección 5.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="1" data-topic="LATE con Outcome Binario" data-num="13">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 13: Ejercicio 13: LATE con Outcome Binario (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 1</span><span class="chip chip-topic">LATE con Outcome Binario</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Sea $Y_i \in \{0,1\}$ un outcome binario (ej: empleado/desempleado), $T_i \in \{0,1\}$ tratamiento, $Z_i \in \{0,1\}$ instrumento. Se cumple LATE. Considere que $Y_i = \mathbf{1}\{X_i &gt; 0\}$ donde $X_i$ es una variable latente no observada, y $T_i$ afecta la probabilidad de que $Y_i = 1$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[10 pts]</strong> Defina $Y_i(1)$ e $Y_i(0)$ en términos de $X_i$ y $T_i$. Demuestre que el Wald estimador identifica:
+$$
+\frac{E[Y_i \mid Z=1] - E[Y_i \mid Z=0]}{E[T_i \mid Z=1] - E[T_i \mid Z=0]} = E[\mathbf{1}\{X_i &gt; 0\} \mid C] - E[\mathbf{1}\{X_i \leq 0\} \mid C]
+$$
+donde $C = \{T_i(1) &gt; T_i(0)\}$.</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-13-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-13-0"><em>Respuesta:</em>
+Dado que $Y_i = \mathbf{1}\{X_i &gt; 0\}$, los potenciales son:
+$$
+Y_i(1) = \mathbf{1}\{X_i &gt; 0\} \mid T_i=1, \quad Y_i(0) = \mathbf{1}\{X_i &gt; 0\} \mid T_i=0
+$$
+Pero en rigor $Y_i(1)$ e $Y_i(0)$ son el valor que toma $Y_i$ cuando $T_i=1$ y $T_i=0$ respectivamente, que dependen de $X_i$ pero no de $T_i$ directamente (son funciones de $X_i$).
+Expandiendo por LIE sobre los 4 grupos:
+$$
+E[Y_i \mid Z=1] = E[Y_i(1) \mid C]P(C) + E[Y_i(0) \mid NT]P(NT) + E[Y_i(1) \mid AT]P(AT) + E[Y_i(0) \mid D]P(D)
+$$
+Pero $Y_i(1) = Y_i(0) = \mathbf{1}\{X_i &gt; 0\}$ para cada individuo (no depende de $T$). Entonces:
+$$
+E[Y_i \mid Z=1] - E[Y_i \mid Z=0] = [E[Y_i(1) \mid C] - E[Y_i(0) \mid C]] P(C) + [E[Y_i(0) \mid D] - E[Y_i(1) \mid D]] P(D)
+$$
+Como $Y_i(1)=Y_i(0)$ (exclusión fuerte), la diferencia $E[Y_i(1) \mid C] - E[Y_i(0) \mid C] = 0$. ¡Esto implicaría que el Wald es cero!
+Pero esto es porque el problema está mal planteado: si $Y_i = \mathbf{1}\{X_i &gt; 0\}$, el tratamiento $T_i$ debe afectar a $Y_i$ a través de $X_i$. Un mejor setup es:
+$$
+Y_i = T_i \cdot \mathbf{1}\{X_i &gt; c_1\} + (1-T_i) \cdot \mathbf{1}\{X_i &gt; c_0\}
+$$
+donde $c_1 \neq c_0$. En ese caso, $Y_i(1) = \mathbf{1}\{X_i &gt; c_1\}$ e $Y_i(0) = \mathbf{1}\{X_i &gt; c_0\}$. El LATE sería:
+$$
+E[\mathbf{1}\{X_i &gt; c_1\} - \mathbf{1}\{X_i &gt; c_0\} \mid C]
+$$
+que mide el cambio en la probabilidad de $Y_i=1$ inducido por el tratamiento para los compliers.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Proponga un ejemplo concreto donde $Y_i$ binario, $T_i$ y $Z_i$ tengan sentido económico y donde este LATE sea interpretable. Calcule el Wald usando datos hipotéticos. <em>Referencia: Capítulo 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-13-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-13-1"><em>Respuesta:</em>
+<strong>Ejemplo:</strong> $Z_i = 1$ si la madre recibe un voucher educativo, $T_i = 1$ si el hijo asiste a escuela privada, $Y_i = 1$ si el hijo se gradúa de la universidad.
+$Y_i(1) = \mathbf{1}\{X_i &gt; c_1\}$ es la probabilidad de graduación si asiste a privada, $Y_i(0) = \mathbf{1}\{X_i &gt; c_0\}$ si asiste a pública, donde $X_i$ es habilidad latente. Si la privada tiene mejores recursos, $c_1 &lt; c_0$ (se necesita menos habilidad para graduarse en la privada).
+<strong>Datos hipotéticos:</strong> $E[Y \mid Z=1] = 0.45$, $E[Y \mid Z=0] = 0.30$, $E[T \mid Z=1] = 0.80$, $E[T \mid Z=0] = 0.30$.
+Wald $= (0.45-0.30)/(0.80-0.30) = 0.15/0.50 = 0.30$. El LATE es 0.30: para los compliers, asistir a escuela privada aumenta la probabilidad de graduación universitaria en 30 puntos porcentuales.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[7 pts]</strong> ¿Cómo cambiaría la interpretación si $Y_i$ fuera un outcome de conteo (ej: número de hijos)? <em>Referencia: Capítulo 1, LATE.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-13-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-13-2"><em>Respuesta:</em>
+Si $Y_i$ es conteo (ej: número de hijos), entonces $Y_i(1)$ e $Y_i(0)$ toman valores enteros no negativos. El LATE:
+$$
+E[Y_i(1) - Y_i(0) \mid C]
+$$
+es el cambio promedio en el número de hijos para los compliers. Esto es un efecto en niveles, no porcentual. Podría ser no entero (ej: 0.3 hijos adicionales en promedio).
+La demostración del LATE no cambia con la naturaleza del outcome: los potenciales $Y_i(1), Y_i(0)$ pueden ser binarios, conteo, continuos. La estructura del teorema es invariante al tipo de outcome. Lo único que cambia es la interpretación. <em>Ver libro Cap. 1, Teorema 1.5.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="1" data-topic="RDD con Múltiples Cutoffs" data-num="14">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 14: Ejercicio 14: RDD con Múltiples Cutoffs y Polinomios (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 1</span><span class="chip chip-topic">RDD con Múltiples Cutoffs</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Un investigador estudia el efecto de recibir una beca universitaria ($T_i$) sobre ingresos futuros ($Y_i$). La beca se asigna según el puntaje en un examen nacional $R_i$. Sin embargo, el cutoff varía por región: en la Región Metropolitana el corte es $c=600$, en regiones es $c=550$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>8 pts.</strong> Proponga un modelo de regresión que estime el efecto promedio de la beca usando ambos cutoffs simultáneamente. ¿Qué supuesto se necesita para que esta estimación sea válida? <em>Referencia: Capítulo 1, RDD.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-14-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-14-0"><em>Respuesta:</em>
+Se puede estimar un modelo RDD <strong>pooled</strong> con efectos fijos de región:
+$$
+Y_i = \alpha + \tau T_i + \gamma_1 \tilde{R}_i + \gamma_2 (\tilde{R}_i \cdot D_i) + \delta_r + \varepsilon_i
+$$
+donde $\tilde{R}_i = R_i - c_r$ es la distancia al cutoff de su región, $D_i = \mathbf{1}\{R_i \geq c_r\}$ indica si supera el cutoff regional, y $\delta_r$ es efecto fijo de región.
+El coeficiente $\tau$ es el efecto promedio de la beca bajo el supuesto de que el efecto es <strong>homogéneo entre regiones</strong>. Si hay heterogeneidad, $\tau$ estima un promedio ponderado de LATEs regionales.
+<strong>Supuesto clave:</strong> la running variable $R_i$ no es manipulable alrededor de ningún cutoff regional. Además, las regiones no pueden asignar estudiantes selectivamente a distintos cutoffs.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>9 pts.</strong> ¿Cómo evaluaría si el efecto es heterogéneo entre regiones? Proponga un test estadístico. <em>Referencia: Capítulo 1, RDD.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-14-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-14-1"><em>Respuesta:</em>
+Para testear heterogeneidad entre regiones, se estima:
+$$
+Y_i = \alpha + \tau T_i + \sum_{r} \beta_r (T_i \times \delta_r) + \gamma_1 \tilde{R}_i + \gamma_2 (\tilde{R}_i \cdot D_i) + \delta_r + \varepsilon_i
+$$
+y se realiza un test $F$ de significancia conjunta de los $\beta_r$ (interacciones entre tratamiento y región). Si se rechaza $H_0: \beta_1 = \beta_2 = \dots = 0$, hay evidencia de heterogeneidad.
+Alternativamente, se puede estimar el modelo por separado para cada región y comparar los $\hat{\tau}_r$ visualmente (forest plot) o con un test de Chow.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>8 pts.</strong> Un crítico argumenta que los estudiantes pueden mudarse de región para obtener el cutoff más bajo. ¿Cómo evalúa esta crítica? ¿Qué test de validez interna usaría? <em>Referencia: Capítulo 1, Internal Validity RDD.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-14-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-14-2"><em>Respuesta:</em>
+Si los estudiantes pueden mudarse para beneficiarse del cutoff más bajo, habría <strong>manipulación de la running variable</strong>: estudiantes con puntajes cercanos a 550 migrarían a regiones para obtener la beca. Esto violaría el supuesto de continuidad de potenciales en el cutoff.
+<strong>Tests de validez interna:</strong>
+<ol>
+  <li><strong>McCrary density test</strong> por región: la densidad de $R_i$ debe ser continua en cada cutoff regional. Si hay un salto en $c=550$ pero no en $c=600$, sugiere migración selectiva.
+  </li><li><strong>Placebo con densidad de estudiantes foráneos:</strong> graficar la proporción de estudiantes que migraron contra la distancia al cutoff. Si hay un salto en $c=550$, es evidencia de manipulación.
+  </li><li><strong>Test de covariates:</strong> verificar que la proporción de estudiantes de otras regiones sea continua en el cutoff.
+  </li><li><strong>Donut-hole RDD:</strong> estimar excluyendo observaciones muy cercanas al cutoff (donde la manipulación es más plausible).
+</ol>
+<em>Ver libro Cap. 1, Sección 1.4.3.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="5" data-topic="SBTC con Tareas y Offshoring" data-num="15">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 15: Ejercicio 15: SBTC con Tareas y Offshoring (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 5</span><span class="chip chip-topic">SBTC con Tareas y Offshoring</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere el modelo de tareas (Autor, Levy \&amp; Murnane, 2003). La producción requiere tres tipos de tareas: rutinarias ($R$), abstractas ($A$) y manuales ($M$). Los trabajadores calificados ($H$) tienen ventaja comparativa en $A$, los no calificados ($L$) en $M$, y ambos pueden hacer $R$. El costo de offshoring de tareas rutinarias cae.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> Explique por qué la caída en el costo de offshoring de tareas $R$ puede generar <strong>polarización</strong> del empleo (crecimiento en empleos de alta y baja calificación, caída en los medios). <em>Referencia: Capítulo 5, Sección 3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-15-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-15-0"><em>Respuesta:</em>
+La caída en el costo de offshoring permite a las empresas enviar tareas rutinarias ($R$) al extranjero. Esto reduce la demanda de trabajadores en ocupaciones rutinarias (medios: administrativos, operarios). Los trabajadores medios se reasignan hacia:
+<ul>
+  <li>Tareas abstractas ($A$): si tienen educación universitaria (upgrading).
+  </li><li>Tareas manuales ($M$): si no la tienen (downgrading).
+</ul>
+Resultado: aumenta el empleo en ocupaciones de alta calificación ($A$, gerenciales, profesionales) y baja calificación ($M$, servicios personales), pero se reduce en las medias ($R$, administrativos, producción). Esto es la <strong>polarización</strong>. <em>Ver libro Cap. 5, Fig. 5.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Derive la condición bajo la cual el cambio tecnológico (aumento en $A_H/A_L$) aumenta el premio de habilidades $\omega$. ¿Qué rol juega $\sigma$? <em>Referencia: Capítulo 5, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-15-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-15-1"><em>Respuesta:</em>
+Del modelo CES: $\ln \omega = \frac{\sigma-1}{\sigma} \ln\left(\frac{A_H}{A_L}\right) - \frac{1}{\sigma} \ln\left(\frac{H}{L}\right)$.
+El efecto de un aumento en $A_H/A_L$ sobre $\omega$ es:
+$$
+\frac{\partial \ln \omega}{\partial \ln(A_H/A_L)} = \frac{\sigma-1}{\sigma}
+$$
+Esto es positivo si $\sigma &gt; 1$, cero si $\sigma = 1$, negativo si $\sigma &lt; 1$.
+<strong>Intuición:</strong>
+<ul>
+  <li>$\sigma &gt; 1$ (sustitutos): la tecnología que mejora $A_H$ aumenta la demanda relativa de $H$ más que la de $L$, elevando $\omega$. Es el caso de <strong>SBTC</strong>.
+  </li><li>$\sigma &lt; 1$ (complementos): un aumento en $A_H$ beneficia más a $L$ (efecto derrame), reduciendo $\omega$.
+</ul>
+La evidencia sugiere $\sigma \approx 1.5-2$ en EE.UU., consistente con SBTC. <em>Ver libro Cap. 5, Sección 1.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> ¿Cómo se modifica el análisis si consideramos la oferta endógena de calificados (modelo race between education and technology)? <em>Referencia: Capítulo 5, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-15-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-15-2"><em>Respuesta:</em>
+En el modelo <strong>race between education and technology</strong> (Tinbergen, 1975), tanto $A_H/A_L$ como $H/L$ son endógenos:
+<ul>
+  <li>La tecnología ($A_H/A_L$) aumenta por SBTC, empujando $\omega$ al alza.
+  </li><li>La oferta de calificados ($H/L$) aumenta por inversión en educación, empujando $\omega$ a la baja.
+</ul>
+El $\omega$ observado es el resultado de esta carrera:
+$$
+\omega_t = \left(\frac{A_{Ht}}{A_{Lt}}\right)^{\frac{\sigma-1}{\sigma}} \left(\frac{H_t}{L_t}\right)^{-\frac{1}{\sigma}}
+$$
+Si la oferta de calificados crece más rápido que la demanda tecnológica, $\omega$ cae (como en los 1970s en EE.UU.). Si la demanda tecnológica corre más rápido, $\omega$ sube (como desde 1980). La educación masiva (aumento en $H/L$) contrarresta el aumento en la desigualdad impulsado por la tecnología. <em>Ver libro Cap. 5, Sección 2.1.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="6" data-topic="Monopsonio con Búsqueda" data-num="16">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 16: Ejercicio 16: Monopsonio con Búsqueda y Salarios (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 6</span><span class="chip chip-topic">Monopsonio con Búsqueda</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Una empresa enfrenta una curva de oferta laboral $S(w) = w^\eta$ donde $\eta$ es la elasticidad de oferta. La productividad marginal del trabajo es $p$ constante.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Derive el salario óptimo de monopsonio y el mark-down $\frac{p-w}{p}$. ¿Cómo depende de $\eta$? <em>Referencia: Capítulo 6, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-16-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-16-0"><em>Respuesta:</em>
+El beneficio es $\pi(w) = (p - w) S(w) = (p - w) w^\eta$. La CPO:
+$$
+\frac{\partial \pi}{\partial w} = -w^\eta + (p-w) \eta w^{\eta-1} = 0
+$$
+Multiplicando por $w^{1-\eta}$: $-w + (p-w)\eta = 0 \Rightarrow -w + \eta p - \eta w = 0 \Rightarrow \eta p = w(1+\eta)$.
+$$
+w^* = \frac{\eta}{1+\eta} p \quad \Rightarrow \quad \frac{p - w^*}{p} = \frac{1}{1+\eta}
+$$
+El mark-down es $\frac{1}{1+\eta}$. A mayor $\eta$ (oferta más elástica), menor mark-down. Si $\eta \to \infty$ (competencia perfecta), $w^* \to p$ y mark-down $\to 0$.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> Suponga ahora que los trabajadores tienen costos de búsqueda heterogéneos. Muestre que la elasticidad de oferta a la firma ($\eta$) es menor que la elasticidad agregada de mercado. ¿Qué implica esto para la estimación del mark-down? <em>Referencia: Capítulo 6, Secciones 2--3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-16-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-16-1"><em>Respuesta:</em>
+Cuando los trabajadores tienen costos de búsqueda, la elasticidad de oferta <strong>a una firma individual</strong> es menor que la elasticidad de oferta al mercado porque:
+<ul>
+  <li>Los trabajadores no se cambian instantáneamente a la firma que paga un céntimo más (hay fricciones).
+  </li><li>La firma enfrenta una curva de oferta residual con pendiente positiva: para atraer más trabajadores debe pagar un salario mayor, pero solo una fracción de los trabajadores del mercado responde.
+</ul>
+<strong>Implicancia:</strong> si se estima el mark-down usando la elasticidad de oferta <em>agregada</em> (que es mayor), se subestima el verdadero mark-down. Esto es consistente con la evidencia de que los mark-down estimados con datos de firmas (elasticidad firme-específica) son mucho mayores que los estimados con datos agregados. El trabajo de Card (2022) encuentra elasticidades firme-específicas de 0.1--1.5, que implican mark-down de 40--90\%. <em>Ver libro Cap. 6, Secciones 3--4.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Un hipotético sindicato negocia colectivamente el salario para todos los trabajadores de la firma. ¿Cómo cambia el equilibrio? ¿Puede el sindicato aumentar el empleo? <em>Referencia: Capítulo 6, Sección 5 y Capítulo 10.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-16-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-16-2"><em>Respuesta:</em>
+Si un sindicato negocia un salario $w_S$ por sobre el monopsonio $w^*$, hay dos efectos:
+<ul>
+  <li><strong>Si $w_S$ está entre $w^*$ y el salario competitivo $w_c$:</strong> la empresa sube el salario y, como el costo marginal de contratar ahora es el salario mismo (el sindicato fija el precio), la empresa contrata <strong>más</strong> trabajadores (se mueve a lo largo de su VMP hasta $w_S = VMP$). El empleo <strong>aumenta</strong>.
+  </li><li><strong>Si $w_S &gt; w_c$:</strong> el salario está por sobre el producto marginal, la empresa reduce empleo.
+</ul>
+Por tanto, un sindicato con poder de negociación moderado puede <strong>aumentar el empleo</strong> corrigiendo la distorsión del monopsonio (eficiencia). Esto contrasta con el modelo competitivo, donde el sindicato siempre reduce el empleo. En el modelo de monopsonio, el sindicato actúa como un ``contrapeso'' al poder de mercado del empleador. <em>Ver libro Cap. 6, Sección 5.1 y Cap. 10, Sección 2.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="2" data-topic="Oferta Laboral con Impuestos" data-num="17">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 17: Ejercicio 17: Oferta Laboral con Impuestos y Subsidios (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 2</span><span class="chip chip-topic">Oferta Laboral con Impuestos</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere un individuo con utilidad $U(C, L) = \ln C + \alpha \ln L$, donde $C$ es consumo, $L$ ocio, $\bar{T}=16$ horas disponibles. El salario por hora es $w$ y hay un impuesto proporcional $\tau$ sobre el ingreso laboral.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Derive la oferta laboral $H^*(w, \tau, \alpha)$. ¿Cómo cambia $H$ ante un aumento en $\tau$? Distinga efecto ingreso y efecto sustitución. <em>Referencia: Capítulo 2, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-17-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-17-0"><em>Respuesta:</em>
+Maximizar $U = \ln C + \alpha \ln L$ s.a. $C = (1-\tau) w H + V$, $H + L = 16$.
+Sustituyendo: $U = \ln((1-\tau) w (16-L) + V) + \alpha \ln L$. CPO:
+$$
+\frac{-(1-\tau)w}{(1-\tau) w (16-L) + V} + \frac{\alpha}{L} = 0
+$$
+Despejando: $\alpha[(1-\tau) w (16-L) + V] = (1-\tau) w L$.
+Si $V=0$: $\alpha (1-\tau) w (16-L) = (1-\tau) w L \Rightarrow \alpha (16-L) = L \Rightarrow L = \frac{16\alpha}{1+\alpha}$.
+Entonces $H = 16 - L = \frac{16}{1+\alpha}$.
+<strong>Con $V=0$, $H$ no depende de $w$ ni $\tau$!</strong> Esto ocurre porque la función $\ln C + \alpha \ln L$ tiene elasticidad de sustitución unitaria (Cobb-Douglas): el efecto ingreso y sustitución se cancelan exactamente.
+<strong>Con $V&gt;0$:</strong> resolviendo:
+$$
+L = \frac{\alpha(V + (1-\tau)w \cdot 16)}{(1+\alpha)(1-\tau)w}, \quad H = \frac{16}{1+\alpha} - \frac{\alpha V}{(1+\alpha)(1-\tau)w}
+$$
+Un aumento en $\tau$: reduce $w$ neto, reduciendo $H$ por efecto sustitución, pero como también reduce el ingreso disponible, el efecto ingreso aumenta $H$. El efecto neto es ambiguo.</div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> Suponga que el gobierno introduce un subsidio al ingreso (EITC) que aumenta el salario efectivo en 20\% para quienes trabajan al menos 20 horas. ¿Cómo estimaría el efecto del EITC sobre la oferta laboral usando un RDD? <em>Referencia: Capítulo 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-17-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-17-1"><em>Respuesta:</em>
+El EITC crea un <strong>cutoff</strong> en $H=20$ horas: quienes trabajan menos no reciben el subsidio. Esto genera un RDD <strong>sharp</strong> donde:
+<ul>
+  <li>Running variable: $R_i = H_i - 20$ (horas relativas al umbral).
+  </li><li>Tratamiento $T_i$: recibe subsidio si $H_i \geq 20$.
+  </li><li>Outcome $Y_i$: ingreso total, horas futuras, participación laboral.
+</ul>
+Sin embargo, $H_i$ es endógena (el individuo la elige), por lo que hay <strong>autoselección</strong> alrededor del cutoff. Esto requiere un diseño <strong>fuzzy</strong> donde el instrumento es la elegibilidad potencial. Mejor usar <strong>bunching</strong> (estimar la elasticidad de oferta laboral a partir de la acumulación de individuos en el cutoff) que RDD clásico.
+Alternativa: si el EITC se introdujo en un año específico, se puede usar <strong>DiD</strong> comparando cambios en horas de elegibles vs.\ no elegibles antes/después de la reforma. <em>Ver libro Cap. 2, Sección 1.4.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Explique el método de <strong>bunching</strong> para estimar la elasticidad de oferta laboral. ¿Qué supuestos se requieren? <em>Referencia: Capítulo 2, Sección 1.4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-17-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-17-2"><em>Respuesta:</em>
+El método de <strong>bunching</strong> explota la acumulación de individuos en puntos kink (cambios en la pendiente impositiva) o notch (saltos discretos en el impuesto). La elasticidad se estima comparando la densidad observada en el cutoff con la densidad contrafactual (suavizada).
+Para un kink: la elasticidad compensada es:
+$$
+\eta = \frac{b/w}{\log((1-\tau_1)/(1-\tau_0))}
+$$
+donde $b$ es el exceso de individuos acumulados en el kink, $w$ es la densidad contrafactual, y $\tau_0, \tau_1$ son las tasas impositivas antes y después del kink.
+<strong>Supuestos:</strong>
+<ol>
+  <li>La densidad contrafactual es suave (polinomio de orden alto ajustado excluyendo el área del kink).
+  </li><li>No hay optimización intertemporal que desplace el comportamiento hacia otros períodos.
+  </li><li>Los individuos perciben el kink y pueden ajustar su ingreso (no hay restricciones de horas).
+</ol>
+La evidencia de Saez (2010) encuentra elasticidades entre 0.1 y 0.4 usando bunching en impuesto a la renta. <em>Ver libro Cap. 2, Sección 1.4.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="3" data-topic="Capital Humano con Overeducation" data-num="18">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 18: Ejercicio 18: Capital Humano con Overeducation y Señalización (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 3</span><span class="chip chip-topic">Capital Humano con Overeducation</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">En el mercado laboral hay trabajadores con educación alta ($S=16$, universitaria) y media ($S=12$, secundaria). Un trabajador con $S=16$ puede ser contratado en ocupaciones que requieren $S=12$ (overeducation). El salario en cada ocupación es $w_H$ y $w_L$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>8 pts.</strong> Explique el fenómeno de <strong>overeducation</strong> (sobreeducación) usando el modelo de señalización. ¿Bajo qué condiciones un trabajador con $S=16$ acepta un trabajo de $S=12$? <em>Referencia: Capítulo 3, Sección 3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-18-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-18-0"><em>Respuesta:</em>
+En el modelo de señalización, la educación es una señal de productividad. Si los costos de educarse son menores para los hábiles, en equilibrio los hábiles obtienen $S=16$ y los no hábiles $S=12$. Pero si hay más hábiles que puestos que requieren $S=16$, algunos hábiles deben aceptar trabajos de $S=12$ (overeducation). Esto ocurre cuando:
+$$
+w_H \cdot \Pr(\text{empleo hábil} \mid S=16) + w_L \cdot \Pr(\text{overeducation}) &gt; w_L
+$$
+Si la probabilidad de conseguir empleo hábil es baja, algunos hábiles optan directamente por $S=12$ (desaliento).
+La sobreeducación es ineficiente porque los trabajadores invierten en educación costosa que no usan. Esto es un <strong>costo social</strong> de la señalización. <em>Ver libro Cap. 3, Sección 3.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>9 pts.</strong> Proponga una estrategia empírica para distinguir si el retorno a la educación se debe a capital humano o a señalización, usando datos de overeducation. ¿Qué predeciría cada teoría sobre el salario de los sobreeducados? <em>Referencia: Capítulo 3, Sección 3.3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-18-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-18-1"><em>Respuesta:</em>
+<strong>Predicciones contrastantes:</strong>
+<ul>
+  <li><strong>Capital humano:</strong> el salario depende de la educación <em>adquirida</em>, no de la requerida. Un trabajador con $S=16$ en un puesto de $S=12$ debería ganar más que un trabajador con $S=12$ en el mismo puesto (porque es más productivo).
+  </li><li><strong>Señalización:</strong> el salario depende de la educación <em>requerida</em> para el puesto, no de la adquirida. Un trabajador con $S=16$ en un puesto de $S=12$ gana lo mismo que uno con $S=12$ (la señal no es relevante si el puesto no la requiere).
+</ul>
+<strong>Estrategia empírica:</strong> estimar:
+$$
+\ln w_i = \beta_0 + \beta_1 S_i^a + \beta_2 S_i^r + \beta_3 (S_i^a - S_i^r) + X_i'\gamma + \varepsilon_i
+$$
+donde $S_i^a$ son años de educación adquiridos, $S_i^r$ los requeridos. Capital humano predice $\beta_1 &gt; 0$ y $\beta_3 = 0$ (el retorno es a los años adquiridos). Señalización predice $\beta_2 &gt; 0$ y $\beta_1 = 0$ (el retorno es a los requeridos). La evidencia muestra que ambos canales importan, pero $\beta_1$ domina, apoyando capital humano. <em>Ver libro Cap. 3, Sección 3.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>8 pts.</strong> ¿Cómo afecta la sobreeducación a la desigualdad salarial? Discuta usando el marco de Roy (autoselección ocupacional). <em>Referencia: Capítulo 3, Sección 5.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-18-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-18-2"><em>Respuesta:</em>
+En el modelo de Roy, los trabajadores se autoseleccionan en ocupaciones según su ventaja comparativa. La sobreeducación surge cuando hay workers que serían más productivos en ocupaciones altas pero terminan en ocupaciones bajas por restricciones de demanda (no hay suficientes puestos calificados). Esto genera:
+<ul>
+  <li><strong>Mayor desigualdad dentro de ocupaciones bajas:</strong> porque ahora hay mezcla de trabajadores con distinta educación.
+  </li><li><strong>Menor desigualdad entre ocupaciones:</strong> porque algunos trabajadores calificados están en ocupaciones bajas, comprimiendo la brecha salarial media entre ocupaciones.
+  </li><li><strong>Pérdida de eficiencia:</strong> si los trabajadores sobreeducados tienen menor productividad que en su ocupación óptima (desajuste de habilidades).
+</ul>
+La evidencia para países en desarrollo muestra que la sobreeducación es más frecuente y tiene mayores costos salariales que en países desarrollados, posiblemente por rigideces estructurales en la demanda de calificados. <em>Ver libro Cap. 3, Sección 5.2.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="4" data-topic="Demanda Laboral con Inmigración" data-num="19">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 19: Ejercicio 19: Demanda Laboral con Inmigración (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 4</span><span class="chip chip-topic">Demanda Laboral con Inmigración</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Un país recibe un shock de inmigración que aumenta la oferta de trabajo no calificado $L$ en un 10\%. La función de producción es CES: $Y = [\theta (A_H H)^\rho + (1-\theta) (A_L L)^\rho]^{1/\rho}$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Usando el marco de oferta y demanda relativa, derive el efecto del aumento en $L$ sobre el salario de los no calificados $w_L$ y sobre el premio de habilidades $\omega = w_H/w_L$. Distinga corto plazo (stock de capital fijo) de largo plazo (capital ajustable). <em>Referencia: Capítulo 4, Secciones 1--2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-19-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-19-0"><em>Respuesta:</em>
+<strong>Corto plazo (capital fijo):</strong> con $Y = [\theta (A_H H)^\rho + (1-\theta) (A_L L)^\rho]^{1/\rho}$ y $H$ fijo, la demanda por $L$ tiene pendiente negativa. Un aumento en $L$ reduce $w_L$ moviéndose a lo largo de la curva de demanda. La elasticidad es:
+$$
+\frac{\partial \ln w_L}{\partial \ln L} = -(1-\alpha_L)\frac{1}{\sigma}
+$$
+donde $\alpha_L$ es la participación de $L$ en el ingreso. Con $\sigma &gt; 1$ (típico), $w_L$ cae menos que proporcional al aumento en $L$.
+<strong>Largo plazo:</strong> el capital se ajusta. La demanda de largo plazo es más elástica porque las empresas pueden sustituir capital por trabajo, amortiguando la caída en $w_L$. Sin embargo, si $H$ y $L$ no son perfectamente sustituibles, el efecto sobre $w_L$ sigue siendo negativo aunque menor que a corto plazo.
+<strong>Efecto sobre $\omega$:</strong> $\omega = (A_H/A_L)^\rho (H/L)^{\rho-1}$. Aumentar $L$ reduce $H/L$, y como $\rho-1 = -1/\sigma &lt; 0$, $\omega$ <strong>aumenta</strong> (mayor desigualdad). <em>Ver libro Cap. 4, Secciones 1--2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> La inmigración también afecta la demanda de bienes (efecto demanda). ¿Cómo cambia el análisis si los inmigrantes consumen bienes producidos localmente? <em>Referencia: Capítulo 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-19-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-19-1"><em>Respuesta:</em>
+Los inmigrantes no solo aumentan la oferta laboral, sino también la <strong>demanda agregada</strong> de bienes y servicios. Esto desplaza la curva de demanda de trabajo hacia la derecha (efecto escala), contrarrestando el efecto sustitución.
+<strong>Modelo:</strong> el aumento en $L$ reduce $w_L$ (efecto oferta), pero el consumo de los inmigrantes aumenta la demanda de productos, aumentando la demanda de trabajo (efecto demanda). El efecto neto depende de:
+<ul>
+  <li>Elasticidad de demanda del producto final: si es alta, el efecto escala domina.
+  </li><li>Composición del gasto de inmigrantes: si consumen bienes intensivos en $L$, el efecto demanda beneficia más a los no calificados.
+</ul>
+La literatura (Peri, 2012) encuentra que los efectos de demanda compensan parcialmente los efectos de oferta, y que el impacto de la inmigración sobre salarios de nativos es pequeño (elasticidad de -0.1 a -0.3). Además, la inmigración puede aumentar la eficiencia al permitir una mayor especialización. <em>Ver libro Cap. 4, Sección 4.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Proponga un diseño de <strong>shift-share</strong> (Bartik) para estimar el efecto de la inmigración sobre salarios locales. ¿Qué supuesto de identificación se requiere? <em>Referencia: Capítulo 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-19-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-19-2"><em>Respuesta:</em>
+El instrumento <strong>Bartik</strong> (shift-share) construye un shock de inmigración predicho para cada mercado local $c$ como:
+$$
+Z_{ct} = \sum_{o} \left(\frac{L_{oc,t_0}}{L_{c,t_0}}\right) \times \Delta L_{o,-c,t}
+$$
+donde $L_{oc,t_0}/L_{c,t_0}$ es la participación del origen $o$ en el mercado $c$ en el año base (share), y $\Delta L_{o,-c,t}$ es el crecimiento total de inmigrantes del origen $o$ excluyendo el mercado $c$ (shift). La idea es que el crecimiento de inmigrantes de un origen fuera del mercado local es exógeno a las condiciones locales.
+<strong>Supuesto de identificación:</strong> los <em>shifts</em> (crecimiento de inmigrantes por origen a nivel nacional) no están correlacionados con shocks locales de demanda laboral. Esto puede violarse si hay factores nacionales que atraen inmigrantes a mercados específicos (ej: redes migratorias). La literatura moderna (Goldsmith-Pinkham et al., 2020) usa la exposición a shocks de origen como instrumento.
+Resultados típicos: elasticidades de -0.1 a -0.3 para salarios de no calificados, con efectos nulos en empleo de nativos. <em>Ver libro Cap. 4, Sección 4.3.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="7" data-topic="DMP con Productividad Heterogénea" data-num="20">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 20: Ejercicio 20: DMP con Productividad Heterogénea (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 7</span><span class="chip chip-topic">DMP con Productividad Heterogénea</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Extienda el modelo DMP para incluir dos tipos de trabajadores: calificados ($H$) y no calificados ($L$), con productividades $p_H &gt; p_L$. Ambos tipos buscan empleo en el mismo mercado con matching $M(u, v) = A u^\alpha v^{1-\alpha}$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> Derive las condiciones de creación de empleo para cada tipo. ¿Qué tipo tiene mayor tightness de equilibrio? ¿Por qué? <em>Referencia: Capítulo 7, Sección 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-20-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-20-0"><em>Respuesta:</em>
+Las firmas crean vacantes para cada tipo si el valor esperado es positivo. Las condiciones de job creation son:
+$$
+J_H = \frac{c}{q(\theta_H)} = \frac{p_H - w_H}{r + s}, \quad J_L = \frac{c}{q(\theta_L)} = \frac{p_L - w_L}{r + s}
+$$
+donde $\theta_H = v_H/u_H$ y $\theta_L = v_L/u_L$ son las tightness específicas.
+Como $p_H &gt; p_L$, el beneficio por trabajador calificado es mayor, lo que incentiva más creación de vacantes para $H$. Por tanto $\theta_H &gt; \theta_L$: los calificados tienen mayor tasa de llegada de ofertas ($f(\theta) = A\theta^{1-\alpha}$) y menor desempleo de equilibrio.
+La diferencia en tightness genera <strong>desempleo desigual</strong>: los no calificados tienen menor probabilidad de encontrar empleo y mayor duración del desempleo, consistente con la evidencia. <em>Ver libro Cap. 7, Sección 4.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Introduzca la posibilidad de que las firmas elijan qué tipo de vacante publicar. ¿Cómo se determina la mezcla de vacantes en equilibrio? <em>Referencia: Capítulo 7, Sección 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-20-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-20-1"><em>Respuesta:</em>
+Las firmas eligen publicar vacantes para $H$ o $L$ según el beneficio esperado neto. En equilibrio con libre entrada, los beneficios esperados de ambos tipos deben igualarse:
+$$
+\frac{p_H - w_H}{r + s} \cdot q(\theta_H) = \frac{p_L - w_L}{r + s} \cdot q(\theta_L) = c
+$$
+Como $p_H &gt; p_L$, la igualdad requiere que $q(\theta_H) &lt; q(\theta_L)$ para compensar. Dado que $q(\theta) = A\theta^{-\alpha}$ es decreciente en $\theta$, se necesita $\theta_H &gt; \theta_L$, consistente con el punto anterior.
+La proporción de vacantes calificadas $v_H/(v_H+v_L)$ se ajusta para que las tightness específicas satisfagan esta condición. Si hay muchos calificados, $u_H$ es baja (baja tightness) y $q(\theta_H)$ alta, incentiva más vacantes calificadas. El equilibrio genera una <strong>composición endógena</strong> de vacantes que depende de la oferta relativa de cada tipo. <em>Ver libro Cap. 7, Sección 4.4.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> ¿Cómo afecta un salario mínimo $w_{min} &gt; w_L$ a la mezcla de vacantes y al desempleo de cada tipo? ¿Es esto consistente con la evidencia? <em>Referencia: Capítulo 7 y Capítulo 10.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-20-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-20-2"><em>Respuesta:</em>
+Un salario mínimo que eleva $w_L$ reduce el beneficio esperado de las vacantes para $L$, haciendo que algunas firmas se reasignen a vacantes para $H$ (efecto sustitución). Esto:
+<ul>
+  <li>Aumenta $\theta_H$ y reduce el desempleo de calificados.
+  </li><li>Reduce $\theta_L$ y aumenta el desempleo de no calificados.
+</ul>
+El efecto neto sobre el desempleo total depende de las elasticidades. Si la demanda de $L$ es inelástica, el aumento en $w_L$ puede no reducir las vacantes $L$ significativamente, y el desempleo de $L$ apenas cambia (consistente con la evidencia de Card \&amp; Krueger).
+<strong>Consistencia con evidencia:</strong> la literatura encuentra que el salario mínimo tiene efectos nulos o pequeños en el empleo agregado, pero puede afectar la composición del empleo (menos empleo no calificado, más calificado). Esto es consistente con un modelo DMP de dos tipos donde las firmas se reasignan parcialmente. <em>Ver libro Cap. 10, Sección 1.3.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="8" data-topic="BM con Salario Mínimo" data-num="21">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 21: Ejercicio 21: Burdett-Mortensen con Salario Mínimo (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 8</span><span class="chip chip-topic">BM con Salario Mínimo</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere el modelo BM con búsqueda en el empleo. El gobierno introduce un salario mínimo $w_{min} &gt; \underline{w}$ (el salario mínimo del BM sin regulación).</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> Muestre cómo cambia la distribución de equilibrio $F(w)$ al introducir $w_{min}$. ¿Qué pasa con el salario mínimo ofrecido $\underline{w}$ y el máximo $\bar{w}$? <em>Referencia: Capítulo 8, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-21-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-21-0"><em>Respuesta:</em>
+En el BM, la distribución $F(w)$ es continua en $[\underline{w}, \bar{w}]$ con $\underline{w} = b$ (ingreso de desempleo) y $\bar{w} = p$ (productividad). Al introducir $w_{min} &gt; b$:
+<ul>
+  <li>El salario mínimo $w_{min}$ reemplaza a $b$ como el nuevo $\underline{w}$ (las firmas no pueden pagar menos que $w_{min}$).
+  </li><li>La distribución se <strong>trunca</strong> en $w_{min}$: ninguna firma paga menos.
+  </li><li>La masa de firmas que antes pagaban en $(b, w_{min})$ se reasigna hacia salarios en $(w_{min}, \bar{w}]$, comprimiendo la distribución en la cola inferior.
+  </li><li>El salario máximo $\bar{w} = p$ no cambia.
+</ul>
+La nueva distribución $F_{min}(w)$ tiene un <strong>salto</strong> en $w_{min}$ (exceso de masa) y luego es continua hasta $p$. La densidad es mayor justo arriba de $w_{min}$ porque las firmas que pagaban salarios muy bajos ahora pagan $w_{min}$ o ligeramente más para atraer trabajadores. <em>Ver libro Cap. 8, Sección 2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> ¿Cómo cambia la tasa de rotación laboral (job-to-job transitions) con $w_{min}$? ¿Aumenta o disminuye? <em>Referencia: Capítulo 8, Sección 3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-21-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-21-1"><em>Respuesta:</em>
+Con $w_{min}$, los salarios bajos desaparecen, por lo que la dispersión salarial se reduce. Esto tiene dos efectos opuestos sobre la rotación:
+<ul>
+  <li><strong>Efecto directo:</strong> al reducir la dispersión, hay menos ganancias potenciales de cambiar de empleo. Los trabajadores tienen menos incentivos a buscar, reduciendo las job-to-job transitions.
+  </li><li><strong>Efecto indirecto:</strong> al subir el salario mínimo, más trabajadores aceptan empleos (participación), aumentando el stock de empleados que pueden buscar.
+</ul>
+El efecto neto es ambiguo. En el BM, la tasa de job-to-job transitions es $T = \lambda_1 (1 - F(w))$ para un trabajador con salario $w$. Con $w_{min}$, $F(w)$ se comprime, por lo que $(1 - F(w))$ es menor para cada $w$, reduciendo $T$ en promedio. La evidencia muestra que salarios mínimos más altos reducen la rotación laboral (consistent with job ladder models with compressed wages). <em>Ver libro Cap. 8, Sección 3.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Si además hay dos tipos de trabajadores (jóvenes y adultos) con distinta tasa de llegada de ofertas $\lambda_1$, ¿cómo afecta $w_{min}$ al empleo de cada grupo? <em>Referencia: Capítulo 8, Sección 4.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-21-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-21-2"><em>Respuesta:</em>
+Si los jóvenes tienen menor $\lambda_1$ (menos ofertas externas), su elasticidad de oferta a la firma es menor. En el BM, esto significa que las firmas les pagan menos porque tienen menor outside option (están más atrapados en su empleo actual).
+Al introducir $w_{min}$, el efecto es asimétrico:
+<ul>
+  <li><strong>Jóvenes (bajo $\lambda_1$):</strong> $w_{min}$ les sube el salario más que proporcional, pero las firmas pueden reducir vacantes para jóvenes si el costo es muy alto. Mayor riesgo de desempleo.
+  </li><li><strong>Adultos (alto $\lambda_1$):</strong> ya ganaban cerca de $p$, $w_{min}$ no les afecta mucho. Su empleo apenas cambia.
+</ul>
+Este canal explica por qué el salario mínimo afecta más al empleo juvenil (elasticidad -0.1 a -0.3 para jóvenes, cercana a 0 para adultos). Las firms ajustan contratando menos jóvenes (primer empleo) porque el salario mínimo les sube el costo sin compensación en productividad (no tienen experiencia). <em>Ver libro Cap. 10, Sección 1.2.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="9" data-topic="AKM con Cárteles" data-num="22">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 22: Ejercicio 22: AKM con Cárteles y Colusión (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 9</span><span class="chip chip-topic">AKM con Cárteles</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">En un mercado laboral con pocas firmas, se sospecha que estas forman un cártel para fijar salarios por debajo del nivel competitivo (colusión). Tiene datos de panel de trabajadores y firmas.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> Explique cómo usaría el modelo AKM para detectar si hay colusión en los salarios. ¿Qué patrón en los efectos firma $\psi_j$ esperaría bajo colusión? <em>Referencia: Capítulo 9, Sección 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-22-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-22-0"><em>Respuesta:</em>
+Bajo colusión, las firmas pagan salarios menores al producto marginal, generando <strong>efectos firma $\psi_j$</strong> bajos (negativos o cercanos a cero) en todas las firmas del cártel. Además, la varianza de $\psi_j$ entre firmas coludidas debería ser baja (pagan todas similarmente bajo).
+Si se detecta un mercado donde los $\hat{\psi}_j$ son sistemáticamente menores que en mercados comparables sin colusión, es evidencia de colusión. Se puede estimar:
+$$
+\hat{\psi}_j = \gamma C_j + \delta X_j + \nu_j
+$$
+donde $C_j = 1$ si la firma participa en el cártel. Un $\gamma &lt; 0$ significativo sugiere que las firmas coludidas pagan menores premios.
+<strong>Limitación:</strong> los $\psi_j$ capturan diferencias de salario no explicadas por trabajadores, pero podrían reflejar diferencias de productividad (no colusión). Se necesita un instrumento para la participación en el cártel. <em>Ver libro Cap. 9, Sección 1.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Proponga un test de detección de colusión usando la movilidad de trabajadores entre firmas. Si hay colusión, ¿qué esperaría sobre los flujos de trabajadores entre firmas del cártel? <em>Referencia: Capítulo 9, Sección 1.3.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-22-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-22-1"><em>Respuesta:</em>
+Si las firmas coludidas pagan salarios artificialmente bajos, los trabajadores deberían tener incentivos a <strong>moverse fuera del cártel</strong> hacia firmas no coludidas que pagan mejores salarios. Por tanto, bajo colusión:
+<ul>
+  <li>La tasa de movilidad <strong>desde</strong> firmas del cártel hacia firmas no coludidas debería ser alta.
+  </li><li>La tasa de movilidad <strong>entre</strong> firmas del cártel debería ser baja (todas pagan similar).
+  </li><li>Los trabajadores que entran al cártel deberían ser principalmente de baja productividad (que no tienen mejores opciones).
+</ul>
+<strong>Test:</strong> estimar una regresión de movilidad:
+$$
+M_{ij,t} = \alpha + \beta_1 C_i + \beta_2 C_j + \beta_3 (C_i \times C_j) + \text{controles} + \varepsilon_{ij,t}
+$$
+donde $M_{ij,t} = 1$ si el trabajador se mueve de firma $i$ a $j$ en $t$. Bajo colusión, $\beta_3 &lt; 0$ (menos movilidad dentro del cártel) y $\beta_1 &gt; 0$ (más salidas del cártel). <em>Ver libro Cap. 9, Sección 1.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> ¿Cómo podría la existencia de un cártel sesgar la descomposición AKM de la desigualdad? <em>Referencia: Capítulo 9, Sección 2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-22-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-22-2"><em>Respuesta:</em>
+Si hay colusión, la descomposición AKM:
+$$
+\Var(\ln w) = \Var(\alpha) + \Var(\psi) + 2\Cov(\alpha, \psi) + \Var(X\beta) + \Var(\varepsilon)
+$$
+se sesga porque:
+<ul>
+  <li>$\Var(\psi)$ se subestima: las firmas coludidas comprimen artificialmente sus premios salariales, reduciendo la dispersión entre firmas.
+  </li><li>$\Cov(\alpha, \psi)$ se sesga hacia abajo: si trabajadores de alta productividad evitan el cártel (buscan mejores salarios fuera), la correlación entre habilidad ($\alpha$) y premio firma ($\psi$) se vuelve negativa dentro del cártel, pero positiva fuera. El promedio ponderado oculta esta heterogeneidad.
+  </li><li>El sorting aparente (covarianza) es menor del que habría sin colusión, subestimando la contribución de la asignación trabajador-firma a la desigualdad.
+</ul>
+Para corregir, se puede estimar AKM por separado para firmas coludidas y no coludidas, y comparar las descomposiciones. <em>Ver libro Cap. 9, Sección 2.3.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="10" data-topic="Salario Mínimo con Elasticidades Heterogéneas" data-num="23">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 23: Ejercicio 23: Salario Mínimo con Elasticidades Heterogéneas (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 10</span><span class="chip chip-topic">Salario Mínimo con Elasticidades Heterogéneas</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Considere dos mercados laborales (norte y sur) con distinta elasticidad de demanda laboral. El gobierno sube el salario mínimo de $w_0$ a $w_1$.</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Usando el modelo competitivo, prediga el efecto sobre el empleo en cada mercado. ¿En cuál cae más el empleo? Relacione con las reglas de Marshall-Hicks. <em>Referencia: Capítulo 4 y Capítulo 10.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-23-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-23-0"><em>Respuesta:</em>
+En el modelo competitivo, el empleo cae en ambos mercados (movimiento a lo largo de la curva de demanda). La caída es mayor donde la demanda es más elástica. Por las reglas de Marshall-Hicks, la demanda es más elástica cuando:
+<ul>
+  <li>Alta elasticidad de sustitución $\sigma$ (fácil reemplazar trabajo con capital).
+  </li><li>Alta elasticidad de demanda del producto final.
+  </li><li>Alta participación del trabajo en costos totales.
+  </li><li>Oferta de capital elástica.
+</ul>
+<strong>Ejemplo:</strong> si el norte es intensivo en manufactura (alta sustitución con robots) y el sur en servicios (baja sustitución), el efecto del salario mínimo será mayor en el norte. La literatura encuentra elasticidades empleo-salario mínimo de -0.1 a -0.3 en sectores competitivos (manufactura) y cercanas a 0 en sectores con poder de mercado (comercio minorista). <em>Ver libro Cap. 10, Sección 1.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[9 pts]</strong> En el norte hay sindicatos fuertes que ya habían fijado un salario $w_S &gt; w_0$ antes del aumento del salario mínimo. ¿Cómo cambia el análisis? ¿El salario mínimo tiene algún efecto en el norte? <em>Referencia: Capítulo 10, Secciones 1--2.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-23-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-23-1"><em>Respuesta:</em>
+Si el norte ya tiene un salario sindical $w_S &gt; w_0$, el aumento del salario mínimo de $w_0$ a $w_1$:
+<ul>
+  <li>Si $w_1 &lt; w_S$: el salario mínimo no es vinculante en el norte (el salario ya está por arriba). No hay efecto en empleo ni salarios.
+  </li><li>Si $w_1 &gt; w_S$: ahora el mínimo es vinculante. El salario sube a $w_1$ (efecto derrame: el mínimo empuja al alza también el salario sindical si hay renegociación). El empleo puede caer si el salario mínimo está por encima del producto marginal.
+</ul>
+Esto implica que el salario mínimo afecta más a los mercados <strong>no sindicalizados</strong> y con salarios bajos (sur), y menos o nada a los mercados con alta cobertura sindical (norte). La evidencia de EE.UU. (DiNardo et al., 1996) muestra que el salario mínimo reduce la desigualdad en la cola baja, pero los efectos son heterogéneos por región y sector. <em>Ver libro Cap. 10, Sección 2.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[8 pts]</strong> Proponga un diseño de <strong>DiD</strong> para estimar el efecto del salario mínimo usando la variación entre regiones. ¿Qué problemas de identificación surgen si las regiones tienen distintas tendencias de empleo? <em>Referencia: Capítulo 1, DiD.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-23-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-23-2"><em>Respuesta:</em>
+<strong>Diseño DiD:</strong> comparar empleo en la región que subió el mínimo (tratada) vs.\ la que no (control), antes y después de la reforma:
+$$
+Y_{rt} = \alpha + \beta \cdot \text{Post}_t \times \text{Trat}_r + \gamma_r + \lambda_t + \varepsilon_{rt}
+$$
+donde $\beta$ es el efecto del salario mínimo sobre el empleo.
+<strong>Problemas de identificación:</strong>
+<ol>
+  <li><strong>Tendencias paralelas:</strong> si las regiones tienen distintas tendencias de empleo pre-reforma, el estimador DiD está sesgado. Por ejemplo, si la región tratada ya venía perdiendo empleo por desindustrialización (no por el salario mínimo), $\hat{\beta}$ es negativo incluso si el mínimo no tuvo efecto.
+  </li><li><strong>Shocks contemporáneos:</strong> si la reforma del salario mínimo coincide con otros cambios (impuestos, regulación), no se puede separar el efecto.
+  </li><li><strong>Spillovers:</strong> las regiones control pueden verse afectadas por la reforma en la región tratada (migración de firmas).
+</ol>
+<strong>Solución:</strong> incluir tendencias específicas por región, usar grupos de control múltiples (synthetic control), o explotar variación en el grado de exposición (intensidad del tratamiento). <em>Ver libro Cap. 1, Sección 1.5.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="1" data-topic="Diseños Cuasi-Experimentales Comparados" data-num="24">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 24: Ejercicio 24: Diseños Cuasi-Experimentales Comparados (25 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Cap. 1</span><span class="chip chip-topic">Diseños Cuasi-Experimentales Comparados</span></div>
+</div>
+<div class="exercise-body">
+<div class="setup">Un investigador quiere estimar el efecto de un programa de capacitación laboral ($T_i$) sobre ingresos ($Y_i$). Tiene tres fuentes potenciales de variación:</div>
+
+<div class="qa-item">
+<div class="question"><strong>9 pts.</strong> Para cada fuente de variación, identifique qué método de identificación usaría y cuál es el parámetro causal identificado. ¿En qué se diferencian estos parámetros? <em>Referencia: Capítulo 1.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-24-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-24-0"><em>Respuesta:</em>
+<ul>
+  <li><strong>Sorteo:</strong> IV/LATE. $Z_i$ es instrumento, $T_i$ es endógena (algunos sorteados no asisten, algunos no sorteados sí). Bajo LATE, identifica $E[Y(1)-Y(0) \mid C]$, el efecto para los compliers (quienes asisten si y solo si son sorteados).
+  </li><li><strong>Edad:</strong> Fuzzy RDD. $R_i$ es la running variable, cutoff en $30$. La probabilidad de tratamiento salta en $R_i=0$ (los menores de 30 pueden acceder). Identifica el LATE para compliers en el cutoff (personas cerca de los 30).
+  </li><li><strong>Región:</strong> DiD. Compara norte vs.\ sur antes/después de 2020 y 2022. Identifica el ATT (efecto promedio sobre los tratados) bajo el supuesto de tendencias paralelas.
+</ul>
+<strong>Diferencia entre parámetros:</strong> LATE por sorteo es el efecto para los marginales (compliers del sorteo). RDD es para los marginales en edad (cerca de 30). ATT es para todos los tratados del norte. Si el efecto es heterogéneo, estos parámetros pueden diferir. Por eso es importante reportar el grupo de identificación de cada método. <em>Ver libro Cap. 1, Tabla resumen.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>8 pts.</strong> Si el investigador puede usar las tres fuentes simultáneamente, ¿cómo diseñaría una estrategia de identificación combinada? Proponga un modelo y discuta los supuestos que se necesitan para que el estimador combinado sea interpretable. <em>Referencia: Capítulo 1, MTE.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-24-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-24-1"><em>Respuesta:</em>
+Se puede usar el framework de <strong>MTE</strong> (Marginal Treatment Effect) que unifica IV, RDD y otras fuentes de variación. Con múltiples instrumentos, se estima la curva MTE completa:
+$$
+\text{MTE}(u) = E[Y(1)-Y(0) \mid U = u]
+$$
+donde $U$ es el percentil de resistencia a participar (indice de selección).
+El modelo de elección es: $T_i = \mathbf{1}\{P(Z_i) &gt; U_i\}$, donde $P(Z_i) = \Pr(T_i=1 \mid Z_i)$ es el propensity score. Con múltiples instrumentos, $P(Z_i)$ varía más y podemos identificar la MTE en un rango más amplio de $u$.
+Una vez estimada la MTE, se recuperan:
+\begin{aligned}
+\text{ATE} &amp;= \int_0^1 \text{MTE}(u) \, du \\
+\text{ATT} &amp;= \int_0^1 \text{MTE}(u) \cdot \frac{P(Z)}{E[P(Z)]} \, du \\
+\text{LATE} &amp;= \frac{1}{P(z')-P(z)} \int_{P(z)}^{P(z')} \text{MTE}(u) \, du
+\end{aligned}
+<strong>Supuesto:</strong> la variable de selección $U$ es independiente de $Z$ (independencia condicional). Los tres instrumentos deben ser válidos (independencia, exclusión) y la función $P(Z)$ debe tener soporte común. <em>Ver libro Cap. 1, Sección 1.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>8 pts.</strong> El investigador encuentra que el LATE por sorteo es mayor que el ATT por DiD. Proponga dos explicaciones económicas para esta diferencia. <em>Referencia: Capítulo 1, Secciones 1.2--1.5.</em></div>
+<button class="answer-toggle" onclick="toggleAnswer('q-24-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-24-2"><em>Respuesta:</em>
+Dos explicaciones para que LATE (sorteo) $&gt;$ ATT (DiD):
+<ol>
+  <li><strong>Heterogeneidad de efectos:</strong> los compliers del sorteo son personas que no habrían accedido al programa sin el sorteo (marginales). Si estos marginales tienen mayores retornos a la capacitación que los tratados promedio (siempre asistentes), el LATE será mayor que el ATT. Esto ocurre si la capacitación tiene retornos decrecientes: los inframarginales (siempre asistentes) ya tenían acceso a otras oportunidades, los marginales tienen menos alternativas y se benefician más.
+  </li><li><strong>Cumplimiento imperfecto en DiD:</strong> en el diseño DiD norte vs.\ sur, algunos del norte no se capacitaron y algunos del sur sí (contaminación). El ATT estimado mezcla efectos de tratados y no tratados, atenuando el efecto estimado si los no tratados tienen retorno cero.
+  </li><li><strong>Selección diferencial:</strong> el programa puede haber sido implementado de forma distinta entre norte y sur (coaching, calidad de instructores), generando un ATT menor si el sur tiene peor implementación.
+</ol>
+La lección es que <strong>distintos diseños identifican distintos parámetros</strong>. Reportarlos todos permite entender la heterogeneidad del efecto. <em>Ver libro Cap. 1, Sección 1.2.</em></div>
+</div>
+</div></div>
+
+<div class="exercise" data-chapter="0" data-topic="Preguntas Capciosas de Conceptos" data-num="25">
+<div class="exercise-header" onclick="toggleExercise(this)">
+<h2>Ejercicio 25: Ejercicio 25: Preguntas Capciosas de Conceptos (30 pts)</h2>
+<div class="meta"><span class="chip chip-chapter">Transversal</span><span class="chip chip-topic">Preguntas Capciosas de Conceptos</span></div>
+</div>
+<div class="exercise-body">
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El estimador OLS del retorno a la educación está sesgado hacia <em>abajo</em> porque las personas con mayor habilidad obtienen más educación.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-0', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-0"><em>Respuesta:</em> <strong>Falso</strong>. El sesgo por habilidad (<em>ability bias</em>) es hacia <em>arriba</em>. Personas con mayor habilidad innata ($\varepsilon_i$) obtienen más educación ($S_i$) y también tienen mayores ingresos, por lo que $\Cov(S_i, \varepsilon_i) &gt; 0$, generando $\hat{\beta}_{OLS} &gt; \beta$. El sesgo es positivo, no negativo. <em>Ver libro Cap. 3, Sección 2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``En el modelo de monopsonio, un salario mínimo moderado siempre reduce el empleo.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-1', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-1"><em>Respuesta:</em> <strong>Falso</strong>. En el modelo de monopsonio, un salario mínimo entre $w^*$ (salario de monopsonio) y $w_c$ (salario competitivo) puede <em>aumentar</em> el empleo. La empresa enfrenta ahora un costo marginal del trabajo plano en $w_{min}$, y contrata hasta donde $VMP_L = w_{min}$, lo que puede ser mayor que el empleo de monopsonio. <em>Ver libro Cap. 10, Sección 1.2 y Cap. 6.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El teorema LATE establece que el estimador IV identifica el efecto causal promedio para toda la población.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-2', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-2"><em>Respuesta:</em> <strong>Falso</strong>. El LATE identifica el efecto causal promedio <em>solo para los compliers</em> ($C = \{T_i(1) &gt; T_i(0)\}$), no para toda la población. Si hay always-takers o never-takers, el efecto para ellos no está identificado sin supuestos adicionales. <em>Ver libro Cap. 1, Teorema 1.5.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``Si $\sigma &gt; 1$, entonces el trabajo calificado ($H$) y no calificado ($L$) son complementos en la producción.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-3', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-3"><em>Respuesta:</em> <strong>Falso</strong>. $\sigma &gt; 1$ significa que $H$ y $L$ son <em>sustitutos</em> (se puede reemplazar uno por otro fácilmente). Cuando $\sigma &gt; 1$, un aumento en $H/L$ reduce el premio de habilidades $\omega$ más que proporcionalmente. Complementos implican $\sigma &lt; 1$. <em>Ver libro Cap. 5, Sección 1.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El McCrary test evalúa si hay manipulación de la running variable en un diseño RDD.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-4', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-4"><em>Respuesta:</em> <strong>Verdadero</strong>. El McCrary test verifica si la densidad de la running variable $R_i$ es continua en el cutoff $c$. Si hay un salto en la densidad, sugiere que los agentes pueden manipular su valor de $R_i$ para quedar por encima o debajo del umbral, violando el supuesto de continuidad. <em>Ver libro Cap. 1, Sección 1.4.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``En el modelo de Burdett-Mortensen, la distribución de salarios es degenerada (todos los trabajadores ganan lo mismo) porque son idénticos en productividad.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-5', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-5"><em>Respuesta:</em> <strong>Falso</strong>. El BM genera dispersión salarial incluso con trabajadores idénticos porque las firmas eligen salarios distintos como estrategia de retención: salarios más altos atraen y retienen más trabajadores, pero reducen el margen por trabajador. Las firmas son indiferentes entre estos trade-offs, generando una distribución de equilibrio $F(w)$ no degenerada. <em>Ver libro Cap. 8, Sección 2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El supuesto de independencia en LATE requiere que el instrumento $Z_i$ sea independiente del outcome observado $Y_i$.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-6', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-6"><em>Respuesta:</em> <strong>Falso</strong>. Requiere independencia de los <em>potenciales</em> $(Y_i(1), Y_i(0), T_i(1), T_i(0))$, no del outcome observado. De hecho, $Z_i$ debe estar <em>correlacionado</em> con $Y_i$ (a través de $T_i$) para que el instrumento sea relevante. Si $Z_i$ fuera independiente de $Y_i$, no habría first stage. El supuesto es sobre los contrafactuales, no sobre los realizados. <em>Ver libro Cap. 1, Sección 1.2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``Un aumento en la oferta relativa de trabajadores calificados ($H/L$) siempre reduce el premio de habilidades $\omega$.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-7', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-7"><em>Respuesta:</em> <strong>Depende</strong>. Del modelo CES: $\partial \ln \omega / \partial \ln(H/L) = -1/\sigma$. Si $\sigma &gt; 1$ (sustitutos), la derivada es negativa: $\omega$ cae. Pero si $\sigma &lt; 1$ (complementos), la derivada es positiva: $\omega$ <em>sube</em> al aumentar $H/L$. La evidencia sugiere $\sigma \approx 1.5$ en EE.UU., por lo que en la práctica la relación es negativa. <em>Ver libro Cap. 5, Sección 1.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El ATT requiere un supuesto identificador más débil que el ATE.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-8', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-8"><em>Respuesta:</em> <strong>Verdadero</strong>. El ATT requiere identificar solo el contrafactual de los tratados (qué les habría pasado sin tratamiento), mientras que el ATE requiere identificar ambos contrafactuales (tratados y no tratados). En diseños cuasi-experimentales, es más fácil construir un grupo de control comparable para los tratados que para toda la población. <em>Ver libro Cap. 1, Sección 1.1.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``En un diseño Sharp RDD, el tratamiento se asigna con probabilidad 1 a quienes superan el cutoff y probabilidad 0 a quienes no.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-9', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-9"><em>Respuesta:</em> <strong>Verdadero</strong>. En Sharp RDD, $T_i = \mathbf{1}\{R_i \geq c\}$ de forma determinista. No hay always-takers ni never-takers en el cutoff. Esto contrasta con Fuzzy RDD, donde el salto en probabilidad es menor a 1. <em>Ver libro Cap. 1, Sección 1.4.1-1.4.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El estimador de Diferencias-en-Diferencias (DiD) requiere que los grupos tratado y control tengan la misma media de $Y$ antes del tratamiento.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-10', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-10"><em>Respuesta:</em> <strong>Falso</strong>. DiD requiere <em>tendencias paralelas</em>, no igual nivel. Los grupos pueden tener distintos niveles iniciales de $Y$; lo que importa es que evolucionarían de la misma forma en ausencia del tratamiento. De hecho, los efectos fijos de grupo capturan diferencias de nivel. <em>Ver libro Cap. 1, Sección 1.5.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``La elasticidad Frisch de oferta laboral es la relevante para evaluar changements impositivos permanentes.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-11', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-11"><em>Respuesta:</em> <strong>Falso</strong>. La elasticidad Frisch es relevante para cambios <em>transitorios</em> en el salario (mantiene constante la utilidad marginal de la riqueza). Para cambios permanentes, la elasticidad relevante es la Marshaliana (no compensada) o Hicksiana (compensada). <em>Ver libro Cap. 2, Sección 4.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``En el modelo de Heckman (two-step), el inverse Mills ratio ($\lambda$) corrige el sesgo por selección muestral.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-12', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-12"><em>Respuesta:</em> <strong>Verdadero</strong>. En el primer paso se estima la probabilidad de participar ($\Pr(T_i=1) = \Phi(\gamma Z_i)$) y se calcula $\hat{\lambda}_i = \phi(\gamma Z_i)/\Phi(\gamma Z_i)$. En el segundo paso, se incluye $\hat{\lambda}_i$ como regresor en la ecuación de horas, corrigiendo el sesgo por selección bajo el supuesto de normalidad conjunta de los errores. <em>Ver libro Cap. 2, Sección 2.2.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``2SLS con múltiples instrumentos siempre estima un promedio ponderado de LATEs con pesos no negativos.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-13', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-13"><em>Respuesta:</em> <strong>Falso</strong>. Blandhol et al. (2025) muestran que los pesos pueden ser negativos cuando los instrumentos tienen distinta fortaleza o los efectos son heterogéneos. 2SLS puede estimar un efecto fuera del rango de todos los LATEs individuales. Esto es un problema grave cuando se usan múltiples instrumentos sin verificar la condición de pesos positivos. <em>Ver libro Cap. 1, Sección 1.2.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``En el modelo AKM, el efecto firma $\psi_j$ captura la productividad del trabajador.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-14', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-14"><em>Respuesta:</em> <strong>Falso</strong>. $\psi_j$ captura el <em>premio salarial de la firma</em> (cuánto paga una firma por encima del salario que predice la habilidad del trabajador). La productividad del trabajador está capturada por $\alpha_i$ (efecto trabajador). $\psi_j$ refleja rentabilidad, poder de mercado, o política salarial de la firma. <em>Ver libro Cap. 9, Sección 1.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``La condición de primer orden del problema de licensing es $p'(T) S(T) + [p(T) - w] S'(T) = 0$.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-15', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-15"><em>Respuesta:</em> <strong>Verdadero</strong>. El beneficio es $\pi(T) = [p(T) - w] S(T)$. Derivando e igualando a cero: $\partial \pi/\partial T = p'(T) S(T) + [p(T) - w] S'(T) = 0$. Esto da el mark-down $(p-w)/p = -\eta_p^T/\eta_S^T$. <em>Ver libro Cap. 6, Sección 5.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``El cuarto de nacimiento (<em>quarter of birth</em>) es un instrumento válido para estimar el retorno a la educación porque afecta los ingresos directamente.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-16', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-16"><em>Respuesta:</em> <strong>Falso</strong>. El cuarto de nacimiento afecta la edad al entrar a la escuela y por tanto los años de educación (first stage). Para que sea un instrumento válido, debe cumplir el supuesto de <em>exclusión</em>: no afectar los ingresos directamente sino solo a través de la educación. Angrist \&amp; Krueger (1991) argumentan que el trimestre de nacimiento no afecta ingresos por otros canales, pero este supuesto ha sido cuestionado (efectos estacionales en salud, nutrición). <em>Ver libro Cap. 3, Sección 2.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``La brecha salarial de género se explica exclusivamente por diferencias en educación y experiencia entre hombres y mujeres.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-17', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-17"><em>Respuesta:</em> <strong>Falso</strong>. Incluso controlando por educación y experiencia, persiste una brecha no explicada que se atribuye a: (i) segregación ocupacional (mujeres concentradas en firmas con menores premios salariales, capturado por $\psi_j$ en AKM), (ii) diferencias en poder de negociación (menor elasticidad de oferta laboral femenina $\Rightarrow$ mayor markdown), (iii) discriminación. <em>Ver libro Cap. 9, Sección 3.3.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``En el modelo DMP, la condición de Hosios para la eficiencia requiere $\beta = \alpha$, donde $\beta$ es el poder de negociación del trabajador y $\alpha$ la elasticidad del matching respecto al desempleo.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-18', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-18"><em>Respuesta:</em> <strong>Verdadero</strong>. La condición de Hosios establece que el equilibrio descentralizado es eficiente (maximiza el bienestar social) si y solo si $\beta = \alpha$. Si $\beta &lt; \alpha$, hay muy pocas vacantes (desempleo ineficientemente alto). Si $\beta &gt; \alpha$, hay demasiadas vacantes. <em>Ver libro Cap. 7, Sección 5.1.</em></div>
+</div>
+
+<div class="qa-item">
+<div class="question"><strong>[1.5 pts]</strong> ``Un valor de $\sigma &gt; 1$ implica que la elasticidad del premio de habilidades respecto a $H/L$ es mayor que 1 en valor absoluto.''</div>
+<button class="answer-toggle" onclick="toggleAnswer('q-25-19', this)">Mostrar Respuesta</button>
+<div class="answer" id="q-25-19"><em>Respuesta:</em> <strong>Falso</strong>. $\partial \ln \omega / \partial \ln(H/L) = -1/\sigma$. Si $\sigma &gt; 1$, entonces $| -1/\sigma | &lt; 1$, la elasticidad es <em>inelástica</em>: un aumento de 1\% en $H/L$ reduce $\omega$ en menos de 1\%. La elasticidad es elástica solo si $\sigma &lt; 1$. <em>Ver libro Cap. 5, Sección 1.3.</em></div>
+</div>
+</div></div>
+
+</div>
+
+<div class="no-results" id="no-results">
+No hay ejercicios que coincidan con los filtros seleccionados.
+</div>
+
+<footer>
+Generado desde los .tex del curso ENECO641 • Otoño 2026
+</footer>
+</div>
+
+<script>
+// Pass exercise data to JS
+const EXERCISES = [{"num": 1, "chapter": 1, "topic": "LATE, Potential Outcomes", "title": "Ejercicio 1: Potential Outcomes y LATE (35 pts)"}, {"num": 2, "chapter": 1, "topic": "LATE con Outcome No Lineal", "title": "Ejercicio 2: LATE con Outcome No Lineal (35 pts)"}, {"num": 3, "chapter": 1, "topic": "Fuzzy RDD, Returns to College", "title": "Ejercicio 3: Returns to College \u2014 Fuzzy RDD (25 pts)"}, {"num": 4, "chapter": 5, "topic": "SBTC, CES, Skill Premium", "title": "Ejercicio 4: Skill-biased Technical Change (25 pts)"}, {"num": 5, "chapter": 6, "topic": "Licensing, Mark-down", "title": "Ejercicio 5: Licensing Problem (25 pts)"}, {"num": 6, "chapter": 2, "topic": "Oferta Laboral, Heckman, Frisch", "title": "Ejercicio 6: Oferta Laboral y Selecci\u00f3n (25 pts)"}, {"num": 7, "chapter": 3, "topic": "Capital Humano, Mincer, Signaling", "title": "Ejercicio 7: Capital Humano y Retornos a la Educaci\u00f3n (25 pts)"}, {"num": 8, "chapter": 4, "topic": "Demanda Laboral, Marshall-Hicks", "title": "Ejercicio 8: Demanda Laboral y Marshall-Hicks (25 pts)"}, {"num": 9, "chapter": 7, "topic": "DMP, B\u00fasqueda, Desempleo", "title": "Ejercicio 9: Modelo DMP de B\u00fasqueda y Desempleo (25 pts)"}, {"num": 10, "chapter": 8, "topic": "Burdett-Mortensen, Dispersi\u00f3n Salarial", "title": "Ejercicio 10: Dispersi\u00f3n Salarial y B\u00fasqueda en el Empleo (25 pts)"}, {"num": 11, "chapter": 9, "topic": "AKM, Brecha de G\u00e9nero", "title": "Ejercicio 11: Descomposici\u00f3n AKM y Brecha de G\u00e9nero (25 pts)"}, {"num": 12, "chapter": 10, "topic": "Instituciones, Salario M\u00ednimo, Sindicatos", "title": "Ejercicio 12: Instituciones Laborales (25 pts)"}, {"num": 13, "chapter": 1, "topic": "LATE con Outcome Binario", "title": "Ejercicio 13: LATE con Outcome Binario (25 pts)"}, {"num": 14, "chapter": 1, "topic": "RDD con M\u00faltiples Cutoffs", "title": "Ejercicio 14: RDD con M\u00faltiples Cutoffs y Polinomios (25 pts)"}, {"num": 15, "chapter": 5, "topic": "SBTC con Tareas y Offshoring", "title": "Ejercicio 15: SBTC con Tareas y Offshoring (25 pts)"}, {"num": 16, "chapter": 6, "topic": "Monopsonio con B\u00fasqueda", "title": "Ejercicio 16: Monopsonio con B\u00fasqueda y Salarios (25 pts)"}, {"num": 17, "chapter": 2, "topic": "Oferta Laboral con Impuestos", "title": "Ejercicio 17: Oferta Laboral con Impuestos y Subsidios (25 pts)"}, {"num": 18, "chapter": 3, "topic": "Capital Humano con Overeducation", "title": "Ejercicio 18: Capital Humano con Overeducation y Se\u00f1alizaci\u00f3n (25 pts)"}, {"num": 19, "chapter": 4, "topic": "Demanda Laboral con Inmigraci\u00f3n", "title": "Ejercicio 19: Demanda Laboral con Inmigraci\u00f3n (25 pts)"}, {"num": 20, "chapter": 7, "topic": "DMP con Productividad Heterog\u00e9nea", "title": "Ejercicio 20: DMP con Productividad Heterog\u00e9nea (25 pts)"}, {"num": 21, "chapter": 8, "topic": "BM con Salario M\u00ednimo", "title": "Ejercicio 21: Burdett-Mortensen con Salario M\u00ednimo (25 pts)"}, {"num": 22, "chapter": 9, "topic": "AKM con C\u00e1rteles", "title": "Ejercicio 22: AKM con C\u00e1rteles y Colusi\u00f3n (25 pts)"}, {"num": 23, "chapter": 10, "topic": "Salario M\u00ednimo con Elasticidades Heterog\u00e9neas", "title": "Ejercicio 23: Salario M\u00ednimo con Elasticidades Heterog\u00e9neas (25 pts)"}, {"num": 24, "chapter": 1, "topic": "Dise\u00f1os Cuasi-Experimentales Comparados", "title": "Ejercicio 24: Dise\u00f1os Cuasi-Experimentales Comparados (25 pts)"}, {"num": 25, "chapter": 0, "topic": "Preguntas Capciosas de Conceptos", "title": "Ejercicio 25: Preguntas Capciosas de Conceptos (30 pts)"}];
+
+function toggleAnswer(id, btn) {
+    const ans = document.getElementById(id);
+    const isHidden = ans.style.display === 'none' || ans.style.display === '';
+    ans.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? 'Ocultar Respuesta' : 'Mostrar Respuesta';
+}
+
+function toggleExercise(header) {
+    const body = header.nextElementSibling;
+    const isHidden = body.style.display === 'none' || body.style.display === '';
+    body.style.display = isHidden ? 'block' : 'none';
+}
+
+function applyFilters() {
+    const ch = document.getElementById('chapter-filter').value;
+    const topic = document.getElementById('topic-filter').value;
+    let visible = 0;
+    document.querySelectorAll('.exercise').forEach(el => {
+        const matchCh = ch === 'all' || el.dataset.chapter === ch;
+        const matchTopic = topic === 'all' || el.dataset.topic === topic;
+        const match = matchCh && matchTopic;
+        el.classList.toggle('visible', match);
+        if (match) {
+            // Also show the body
+            el.querySelector('.exercise-body').style.display = 'block';
+            visible++;
+        }
+    });
+    document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+    document.getElementById('stats').textContent = visible + ' ejercicios visibles';
+}
+
+function randomExercise() {
+    const visible = document.querySelectorAll('.exercise.visible');
+    if (visible.length === 0) {
+        document.getElementById('chapter-filter').value = 'all';
+        document.getElementById('topic-filter').value = 'all';
+        applyFilters();
+        // Retry after showing all
+        setTimeout(randomExercise, 100);
+        return;
+    }
+    // Hide all
+    document.querySelectorAll('.exercise').forEach(el => el.classList.remove('visible'));
+    // Pick random
+    const idx = Math.floor(Math.random() * visible.length);
+    const chosen = visible[idx];
+    chosen.classList.add('visible');
+    chosen.querySelector('.exercise-body').style.display = 'block';
+    document.getElementById('stats').textContent = '1 ejercicio visible (aleatorio)';
+    // Scroll
+    chosen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showAll() {
+    document.getElementById('chapter-filter').value = 'all';
+    document.getElementById('topic-filter').value = 'all';
+    applyFilters();
+}
+
+// Initialize
+MathJax.typesetPromise ? MathJax.typesetPromise() : null;
+applyFilters();
+</script>
+</body>
+</html>
